@@ -22,7 +22,7 @@ pod "Cloudipsp"
 
 ## Author
 
-Nadiia, nadiia.dovbysh@gmail.com
+Maxim Kozenko, max.dnu@gmail.com
 
 ## License
 

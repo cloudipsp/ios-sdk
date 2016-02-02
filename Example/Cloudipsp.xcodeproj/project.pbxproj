@@ -20,6 +20,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		85FBEC311C60CE8100536DF1 /* CDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		E8B58B5B25F4F205E10A1BE1 /* Pods_Cloudipsp_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D43FB34570ECFDF7E9E543A /* Pods_Cloudipsp_Example.framework */; };
 		F2B8DF382B37CE622E233293 /* Pods_Cloudipsp_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0D44D9FD43FAC8F7B6FF16 /* Pods_Cloudipsp_Tests.framework */; };
@@ -60,6 +61,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6BEB0CDD65BF56ADAA754F9B /* Pods-Cloudipsp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		820E26AFF458B5A2CC665182 /* Cloudipsp.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Cloudipsp.podspec; path = ../Cloudipsp.podspec; sourceTree = "<group>"; };
+		85FBEC2D1C60CE8100536DF1 /* CDResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDResultViewController.h; sourceTree = "<group>"; };
+		85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDResultViewController.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8815820D84B5D29CAD39DD1D /* Pods-Cloudipsp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9D43FB34570ECFDF7E9E543A /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +135,11 @@
 			children = (
 				6003F59C195388D20070C39A /* CDAppDelegate.h */,
 				6003F59D195388D20070C39A /* CDAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CDViewController.h */,
 				6003F5A6195388D20070C39A /* CDViewController.m */,
+				85FBEC2D1C60CE8100536DF1 /* CDResultViewController.h */,
+				85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -393,6 +398,7 @@
 				6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CDViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				85FBEC311C60CE8100536DF1 /* CDResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +522,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloudipsp/Cloudipsp-Prefix.pch";
 				INFOPLIST_FILE = "Cloudipsp/Cloudipsp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +539,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloudipsp/Cloudipsp-Prefix.pch";
 				INFOPLIST_FILE = "Cloudipsp/Cloudipsp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

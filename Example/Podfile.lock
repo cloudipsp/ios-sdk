@@ -1,0 +1,14 @@
+PODS:
+  - Cloudipsp (0.1.0)
+
+DEPENDENCIES:
+  - Cloudipsp (from `../`)
+
+EXTERNAL SOURCES:
+  Cloudipsp:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Cloudipsp: 999db4dd676ec2a3d58b356bfd35a67ccc6aa19e
+
+COCOAPODS: 0.39.0
