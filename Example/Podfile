@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Cloudipsp_Example', :exclusive => true do
+  pod 'Cloudipsp', :path => '../'
+end
+
+target 'Cloudipsp_Tests', :exclusive => true do
+  pod 'Cloudipsp', :path => '../'
+
+  
+end
