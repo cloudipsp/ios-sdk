@@ -100,33 +100,34 @@
 - (void)test {
     switch (self.iter) {
         case 0:
-            self.cardNumberTextField.text = @"4444555566661111";
-            self.expMonthTextField.text = @"11";
-            self.expYearTextField.text = @"17";
-            self.cvvTextField.text = @"123";
-            self.iter++;
-            break;
-        case 1:
             self.cardNumberTextField.text = @"4444111166665555";
             self.expMonthTextField.text = @"10";
             self.expYearTextField.text = @"18";
             self.cvvTextField.text = @"456";
             self.iter++;
             break;
-        case 2:
+        case 1:
             self.cardNumberTextField.text = @"4444555511116666";
             self.expMonthTextField.text = @"09";
             self.expYearTextField.text = @"19";
             self.cvvTextField.text = @"789";
             self.iter++;
             break;
-        case 3:
+        case 2:
             self.cardNumberTextField.text = @"4444111155556666";
             self.expMonthTextField.text = @"08";
             self.expYearTextField.text = @"20";
             self.cvvTextField.text = @"149";
+            self.iter++;
+            break;
+        case 3:
+            self.cardNumberTextField.text = @"4444555566661111";
+            self.expMonthTextField.text = @"11";
+            self.expYearTextField.text = @"17";
+            self.cvvTextField.text = @"123";
             self.iter = 0;
             break;
+            
         default:
             break;
     }

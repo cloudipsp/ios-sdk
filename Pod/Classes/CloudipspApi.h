@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
 
 @protocol PayCallbackDelegate <NSObject>
 
-- (void)onPaidSuccess:(Receipt *)receipt;
+- (void)onPaidProcess:(Receipt *)receipt;
 - (void)onPaidFailure:(NSError *)error;
 - (void)onWaitConfirm;
 

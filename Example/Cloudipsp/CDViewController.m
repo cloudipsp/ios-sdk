@@ -93,9 +93,9 @@ static NSString * const resultSegue = @"resultSegue";
 #pragma mark - IBAction
 
 - (IBAction)test:(UIButton *)sender {
-    self.amountTextField.text = @"14";
+    self.amountTextField.text = @"1";
     self.currencyTextField.text = @"UAH";
-    self.emailTextField.text = @"nadiia.dovbysh@gmail.com";
+    self.emailTextField.text = @"example@test.com";
     self.descriptionTextField.text = @"ios Test";
     [self.cardInputView test];
 }
@@ -210,14 +210,19 @@ static NSString * const resultSegue = @"resultSegue";
 
 #pragma mark - PayCallbackDelegate
 
-- (void)onPaidSuccess:(Receipt *)receipt {
-    self.result = @"Successful";
+- (void)onPaidProcess:(Receipt *)receipt {
+    self.result = [NSString stringWithFormat:@"Paid status %@.\nPaymentId: %ld", [Receipt getStatusName:receipt.status], (long)receipt.paymentId];
     [self taskDidFinished];
     [self performSegueWithIdentifier:resultSegue sender:self];
 }
 
 - (void)onPaidFailure:(NSError *)error {
-    self.result = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
+    if ([error code] == PayErrorCodeFailure) {
+        NSDictionary *info = [error userInfo];
+        self.result = [NSString stringWithFormat:@"PayError. Code %@\nDescription: %@", [info valueForKey:@"error_code"], [info valueForKey:@"error_message"]];
+    } else {
+        self.result = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
+    }
     [self performSegueWithIdentifier:resultSegue sender:self];
     [self taskDidFinished];
 }
