@@ -262,12 +262,14 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
           aEmail:(NSString *)email
        onSuccess:(void (^)(Checkout *checkout))success
      payDelegate:(id<PayCallbackDelegate>)delegate {
-    NSDictionary *dictionary = @{@"card_number" : card.cardNumber,
-                                 @"cvv2" : card.cvv,
-                                 @"expiry_date" : [NSString stringWithFormat:@"%02d%02d", card.mm, card.yy],
-                                 @"payment_system" : @"card",
-                                 @"token" : token,
-                                 @"email" : email};
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                card.cardNumber, @"card_number",
+                                card.cvv, @"cvv2",
+                                [NSString stringWithFormat:@"%02d%02d", card.mm, card.yy], @"expiry_date",
+                                @"card", @"payment_system",
+                                token, @"token",
+                                email, @"email", nil];
+
     [self call:@"/api/checkout/ajax" aParams:dictionary onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
         if ([URL_CALLBACK isEqualToString:url]) {
