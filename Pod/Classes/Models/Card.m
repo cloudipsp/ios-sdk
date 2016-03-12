@@ -93,7 +93,7 @@ CardType cardTypeWithString(NSString *str) {
     NSInteger year = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:NSDate.date] - 2000;
     NSInteger month = [[NSCalendar currentCalendar] component:NSCalendarUnitMonth fromDate:NSDate.date];
     
-    return (self.yy >= year && self.mm >= month);
+    return  self.yy > year || (self.yy >= year && self.mm >= month);
 }
 
 - (BOOL)isValidCvv {
