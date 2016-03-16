@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
 
 @protocol PayCallbackDelegate <NSObject>
 
-- (void)onPaidProcess:(Receipt *)receipt;
+- (void)onPaidSuccess:(Receipt *)receipt;
 - (void)onPaidFailure:(NSError *)error;
 - (void)onWaitConfirm;
 
@@ -35,5 +35,5 @@ typedef enum : NSUInteger {
 
 - (void)pay:(Card *)card aOrder:(Order *)order aPayCallbackDelegate:(id<PayCallbackDelegate>)payCallbackDelegate;
 
-
+@property (nonatomic, weak) id<CloudipspView> cloudipspView;
 @end

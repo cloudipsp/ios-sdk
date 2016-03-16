@@ -30,11 +30,11 @@ CardType cardTypeWithString(NSString *str) {
 
 @interface Card ()
 
-@property (nonatomic, strong) NSString *cardNumber;
-@property (nonatomic, assign) int mm;
-@property (nonatomic, assign) int yy;
-@property (nonatomic, strong) NSString *cvv;
-@property (nonatomic, assign) CardType type;
+//@property (nonatomic, strong) NSString *cardNumber;
+//@property (nonatomic, assign) int mm;
+//@property (nonatomic, assign) int yy;
+//@property (nonatomic, strong) NSString *cvv;
+//@property (nonatomic, assign) CardType type;
 
 @end
 
@@ -93,7 +93,7 @@ CardType cardTypeWithString(NSString *str) {
     NSInteger year = [[NSCalendar currentCalendar] component:NSCalendarUnitYear fromDate:NSDate.date] - 2000;
     NSInteger month = [[NSCalendar currentCalendar] component:NSCalendarUnitMonth fromDate:NSDate.date];
     
-    return  self.yy > year || (self.yy >= year && self.mm >= month);
+    return (self.yy >= year && self.mm >= month);
 }
 
 - (BOOL)isValidCvv {

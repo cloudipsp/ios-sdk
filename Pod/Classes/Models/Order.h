@@ -41,6 +41,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSInteger lifetime;
 @property (nonatomic, strong) NSString *merchantData;
 @property (nonatomic, assign) BOOL preauth;
+@property (nonatomic, assign) BOOL delayed;
 @property (nonatomic, assign) BOOL requiredRecToken;
 @property (nonatomic, assign) BOOL verification;
 @property (nonatomic, assign) Verification verificationType;

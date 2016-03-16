@@ -32,9 +32,9 @@
     return wrapper;
 }
 
-- (void)onPaidProcess:(Receipt *)receipt {
+- (void)onPaidSuccess:(Receipt *)receipt {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.origin onPaidProcess:receipt];
+        [self.origin onPaidSuccess:receipt];
     });
 }
 
@@ -116,7 +116,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 @interface CloudipspApi () <NSURLSessionDelegate>
 
 @property (nonatomic, assign) NSInteger merchantId;
-@property (nonatomic, weak) id<CloudipspView> cloudipspView;
+
 
 @end
 
@@ -158,8 +158,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     
     NSLog(@"Send: %@", [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding]);
     
-    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
-                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                           {
                                               if (error) {
                                                   error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeNetworkAccess userInfo:nil];
@@ -169,14 +168,8 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
                                                       success(data);
                                                   }
                                                   @catch (NSException *exception) {
-                                                      NSError *error;
-                                                      if (exception.userInfo == nil) {
-                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeUnknown userInfo:nil];
-                                                      } else {
-                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeFailure userInfo:exception.userInfo];
-                                                      }
+                                                      NSError *error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeUnknown userInfo:nil];
                                                       [delegate onPaidFailure:error];
-                                                      
                                                   }
                                               }}];
     
@@ -191,14 +184,14 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
         return dict;
     }
     @catch (NSException *exception) {
-        @throw [NSException exceptionWithName:@"RuntimeException" reason:exception.reason userInfo:exception.userInfo];
+        @throw [NSException exceptionWithName:@"RuntimeException" reason:exception.reason userInfo:nil];
     }
 }
 
 - (void)checkResponse:(NSDictionary *)response {
     NSString *str = [response objectForKey:@"response_status"];
     if (![str isEqualToString:@"success"]) {
-        @throw [NSException exceptionWithName:@"IllegalResponseException" reason:[NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]] userInfo:@{@"error_code":[response objectForKey:@"error_code"], @"error_message":[response objectForKey:@"error_message"]}];
+        @throw [NSException exceptionWithName:@"IllegalResponseException" reason:[NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]] userInfo:nil];
     }
 }
 
@@ -210,7 +203,6 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
                                          @"order_id" : order.identifier,
                                          @"merchant_id" : [NSString stringWithFormat:@"%ld", (long)self.merchantId],
                                          @"order_desc" : order.about,
-                                         @"delayed" : @"n",
                                          @"amount" : [NSString stringWithFormat:@"%ld", (long)order.amount],
                                          @"currency" : getCurrencyName(order.currency),
                                          @"merchant_data" : @"[]",
@@ -236,13 +228,14 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
         [dictionary setObject:order.version forKey:@"version"];
     }
     if (![Utils isEmpty:order.serverCallbackUrl]) {
+        NSLog(order.serverCallbackUrl);
         [dictionary setObject:order.serverCallbackUrl forKey:@"server_callback_url"];
     }
     if (order.lang != 0) {
         [dictionary setObject:[Order getLangName:order.lang] forKey:@"lang"];
     }
     [dictionary setObject:order.preauth ? @"Y" : @"N" forKey:@"preauth"];
-    [dictionary setObject:@"N" forKey:@"delayed"];
+    [dictionary setObject:order.delayed ? @"Y" : @"N" forKey:@"delayed"];
     [dictionary setObject:order.requiredRecToken ? @"Y" : @"N" forKey:@"required_rectoken"];
     [dictionary setObject:order.verification ? @"Y" : @"N" forKey:@"verification"];
     if (order.verificationType != 0) {
@@ -392,20 +385,26 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     [self callByUrl:[NSURL URLWithString:checkout.url] aParams:dictionary onSuccess:^(NSData *data) {
         NSString *htmlPageContent = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         PayConfirmation *confirmation = [[PayConfirmation alloc] initPayConfirmation:htmlPageContent
-                                                                                aUrl:checkout.url
+                                                                                aUrl:checkout.sendData.termUrl
                                                                          onConfirmed:^(NSString *jsonOfConfirmation)
-                                         {
-                                             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonOfConfirmation dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-                                             NSString *url = [json objectForKey:@"url"];
-                                             if (![url isEqualToString:URL_CALLBACK]) {
-                                                 @throw [NSException exceptionWithName:@"" reason:nil userInfo:nil];
-                                             }
-                                             NSDictionary *orderData = [json objectForKey:@"params"];
-                                             [self checkResponse:orderData];
-                                             [delegate onPaidProcess:[self parseOrder:orderData]];
-                                         }];
-        [self.cloudipspView confirm:confirmation];
+        {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonOfConfirmation dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+            NSString *url = [json objectForKey:@"url"];
+            if (![url isEqualToString:URL_CALLBACK]) {
+               @throw [NSException exceptionWithName:@"" reason:nil userInfo:nil];
+            }
+            NSDictionary *orderData = [json objectForKey:@"params"];
+            [self checkResponse:orderData];
+            [delegate onPaidSuccess:[self parseOrder:orderData]];
+        }];
         [delegate onWaitConfirm];
+        
+        // Delay execution of my block for 10 seconds.
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self.cloudipspView confirm:confirmation];
+        });
+        
+        
     } payDelegate:delegate];
 }
 
@@ -423,22 +422,13 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
         [self checkout:card aToken:token aEmail:order.email onSuccess:^(Checkout *checkout) {
             if (checkout.action == WITHOUT_3DS) {
                 [self order:token onSuccess:^(Receipt *receipt) {
-                    [wrapper onPaidProcess:receipt];
+                    [wrapper onPaidSuccess:receipt];
                 } payDelegate:wrapper];
             } else {
                 [self url3ds:checkout aPayCallbackDelegate:wrapper];
             }
         } payDelegate:wrapper];
     } payDelegate:wrapper];
-}
-
-#pragma mark - NSURLSessionDelegate
-
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-willPerformHTTPRedirection:(NSHTTPURLResponse *)response
-        newRequest:(NSURLRequest *)request
- completionHandler:(void (^)(NSURLRequest * __nullable))completionHandler {
-    
 }
 
 @end
