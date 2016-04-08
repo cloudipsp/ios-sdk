@@ -1,6 +1,5 @@
 # Cloudipsp
 
-[![CI Status](http://img.shields.io/travis/Nadiia/Cloudipsp.svg?style=flat)](https://travis-ci.org/Nadiia/Cloudipsp)
 [![Version](https://img.shields.io/cocoapods/v/Cloudipsp.svg?style=flat)](http://cocoapods.org/pods/Cloudipsp)
 [![License](https://img.shields.io/cocoapods/l/Cloudipsp.svg?style=flat)](http://cocoapods.org/pods/Cloudipsp)
 [![Platform](https://img.shields.io/cocoapods/p/Cloudipsp.svg?style=flat)](http://cocoapods.org/pods/Cloudipsp)
