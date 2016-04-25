@@ -17,10 +17,11 @@ typedef enum : NSUInteger {
 
 @interface Card : NSObject
 
-@property (nonatomic, assign, readonly) int mm;
-@property (nonatomic, assign, readonly) int yy;
-@property (nonatomic, strong, readonly) NSString *cvv;
-@property (nonatomic, assign, readonly) CardType type;
+@property (nonatomic, assign, readwrite) int mm;
+@property (nonatomic, assign, readwrite) int yy;
+@property (nonatomic, strong, readwrite) NSString *cvv;
+@property (nonatomic, assign, readwrite) CardType type;
+@property (nonatomic, strong) NSString *cardNumber;
 
 - (BOOL)isValidExpireMonth;
 - (BOOL)isValidExpireYear;

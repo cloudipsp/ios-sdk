@@ -31,7 +31,7 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.hidden = YES;
+//        self.hidden = YES;
     }
     return self;
 }
@@ -40,7 +40,7 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.hidden = YES;
+//        self.hidden = YES;
     }
     return self;
 }
@@ -49,7 +49,7 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
 
 - (void)confirm:(PayConfirmation *)confirmation {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.hidden = NO;
+//        self.hidden = NO;
     });
     if (confirmation == nil) {
         @throw [NSException exceptionWithName:@"NullPointerException" reason:@"confirmation should be not null" userInfo:nil];
@@ -68,7 +68,7 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
         NSString *jsonContent = [url substringFromIndex:[URL_START_PATTERN length]];
         jsonContent = [jsonContent stringByRemovingPercentEncoding];
         self.confirmation.onConfirmed(jsonContent);
-        self.hidden = YES;
+//        self.hidden = YES;
         self.confirmation = nil;
         NSLog(@"JSON: %@", jsonContent);
         self.delegate = nil;

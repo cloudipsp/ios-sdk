@@ -94,8 +94,14 @@ Lang langWithString(NSString *str) {
         self.about = about;
         self.email = email;
         self.innerArguments = [NSMutableDictionary dictionary];
+        
+        
+        
+        
         self.lifetime = -1;
+
         self.preauth = NO;
+        self.delayed = YES;
         self.requiredRecToken = NO;
         self.verification = NO;
         self.verificationType = VerificationAmount;
