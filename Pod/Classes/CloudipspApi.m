@@ -144,19 +144,26 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
           aParams:(NSDictionary *)params
         onSuccess:(void (^)(NSData *data))success
       payDelegate:(id<PayCallbackDelegate>)delegate {
+    [self callByUrl:url aParams:params onSuccess:success payDelegate:delegate onIntercept:^(NSMutableURLRequest *request) {
+        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        
+        NSData *body = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+        [request setHTTPBody:body];
+    }];
+}
+
+- (void)callByUrl:(NSURL *)url
+          aParams:(NSDictionary *)params
+        onSuccess:(void (^)(NSData *data))success
+      payDelegate:(id<PayCallbackDelegate>)delegate
+      onIntercept:(void (^)(NSMutableURLRequest *request))interceptor {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
-    
-    NSData *body = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
-    [request setHTTPBody:body];
-    
-    NSLog(@"Send: %@", [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding]);
+    interceptor(request);
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
@@ -187,7 +194,6 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     @try {
         NSDictionary *dict = [response objectForKey:@"response"];
         [self checkResponse:dict];
-        NSLog(@"Receive: %@", dict);
         return dict;
     }
     @catch (NSException *exception) {
@@ -277,7 +283,8 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
             success(checkout);
         } else {
             NSDictionary *sendData = [response objectForKey:@"send_data"];
-            Checkout *checkout = [[Checkout alloc] initCheckout:[[SendData alloc] initSendData:[sendData objectForKey:@"MD"] aPaReq:[sendData objectForKey:@"PaReq"] aTermUrl:[sendData objectForKey:@"TermUrl"]] aUrl:url aAction:WITH_3DS];
+            NSString *md = [NSString stringWithFormat:@"%@",[sendData objectForKey:@"MD"]];
+            Checkout *checkout = [[Checkout alloc] initCheckout:[[SendData alloc] initSendData:md aPaReq:[sendData objectForKey:@"PaReq"] aTermUrl:[sendData objectForKey:@"TermUrl"]] aUrl:url aAction:WITH_3DS];
             success(checkout);
         }
     } payDelegate:delegate];
@@ -388,10 +395,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 }
 
 - (void)url3ds:(Checkout *)checkout aPayCallbackDelegate:(id<PayCallbackDelegate>)delegate {
-    NSDictionary *dictionary = @{@"MD" : checkout.sendData.md,
-                                 @"PaReq" : checkout.sendData.paReq,
-                                 @"TermUrl" : checkout.sendData.termUrl};
-    [self callByUrl:[NSURL URLWithString:checkout.url] aParams:dictionary onSuccess:^(NSData *data) {
+    void (^successCallback)(NSData * data) = ^(NSData *data) {
         NSString *htmlPageContent = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         PayConfirmation *confirmation = [[PayConfirmation alloc] initPayConfirmation:htmlPageContent
                                                                                 aUrl:checkout.url
@@ -408,7 +412,50 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
                                          }];
         [self.cloudipspView confirm:confirmation];
         [delegate onWaitConfirm];
-    } payDelegate:delegate];
+    };
+    if (checkout.sendData.paReq == nil) {
+        NSDictionary *dictionary = @{@"MD" : checkout.sendData.md,
+                                     @"TermUrl" : checkout.sendData.termUrl};
+        
+        
+        [self callByUrl:[NSURL URLWithString:checkout.url]
+                aParams:dictionary
+              onSuccess:successCallback
+            payDelegate:delegate];
+    } else {
+        NSDictionary *dictionary = @{@"MD" : checkout.sendData.md,
+                                     @"PaReq" : checkout.sendData.paReq,
+                                     @"TermUrl" : checkout.sendData.termUrl};
+        
+        [self callByUrl:[NSURL URLWithString:checkout.url]
+                aParams:dictionary
+              onSuccess:successCallback
+            payDelegate:delegate
+            onIntercept:^(NSMutableURLRequest *request) {
+                NSString *post = [NSString stringWithFormat:@"MD=%@&PaReq=%@&TermUrl=%@", [CloudipspApi encodeToPercentEscapeString:checkout.sendData.md], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.paReq], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.termUrl]];
+                NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+                NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+                [request setHTTPMethod:@"POST"];
+                [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+                [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                [request setHTTPBody:postData];
+            }];
+    }
+}
+
++ (NSString *)encodeToPercentEscapeString:(NSString *)string {
+    CFStringRef strRef = CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                 (CFStringRef) string,
+                                                                 NULL,
+                                                                 (CFStringRef) @"!*'();:@&=+$,/?%#[]",
+                                                                 kCFStringEncodingUTF8);
+    
+    
+    NSString* result = [NSString stringWithString: (__bridge NSString*)strRef];
+    
+    CFRelease(strRef);
+    
+    return result;
 }
 
 

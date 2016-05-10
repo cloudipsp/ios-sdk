@@ -24,7 +24,6 @@
     [array removeObject:@""];
 
     if (![self isParentClass:[array objectAtIndex:3]]) {
-        NSLog(@"%@", [NSThread callStackSymbols]);
         @throw [NSException exceptionWithName:@"UnsupportedOperationExeption" reason:@"unsupported operation" userInfo:nil];
     }
 }

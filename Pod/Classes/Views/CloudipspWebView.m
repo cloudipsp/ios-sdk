@@ -57,7 +57,6 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
     self.delegate = self;
     self.confirmation = confirmation;
     [self loadHTMLString:confirmation.htmlPageContent baseURL:[NSURL URLWithString:confirmation.url]];
-    NSLog(@"htmlPageContent - %@", confirmation.htmlPageContent);
 }
 
 #pragma mark - UIWebViewDelegate
@@ -70,7 +69,6 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
         self.confirmation.onConfirmed(jsonContent);
         self.hidden = YES;
         self.confirmation = nil;
-        NSLog(@"JSON: %@", jsonContent);
         self.delegate = nil;
         return NO;
     } else {
