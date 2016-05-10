@@ -434,7 +434,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
             onIntercept:^(NSMutableURLRequest *request) {
                 NSString *post = [NSString stringWithFormat:@"MD=%@&PaReq=%@&TermUrl=%@", [CloudipspApi encodeToPercentEscapeString:checkout.sendData.md], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.paReq], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.termUrl]];
                 NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-                NSString *postLength = [NSString stringWithFormat:@"%ld", (long)[postData length]];
+                NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
                 [request setHTTPMethod:@"POST"];
                 [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
                 [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
