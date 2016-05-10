@@ -34,10 +34,11 @@ typedef enum : NSUInteger {
 
 @interface CardInputView : UIView
 
-@property (nonatomic, weak, readonly) IBOutlet CardNumberTextField *cardNumberTextField;
-@property (nonatomic, weak, readonly) IBOutlet UITextField *expMonthTextField;
-@property (nonatomic, weak, readonly) IBOutlet UITextField *expYearTextField;
-@property (nonatomic, weak, readonly) IBOutlet UITextField *cvvTextField;
+@property (nonatomic, weak) IBOutlet CardNumberTextField *cardNumberTextField;
+@property (nonatomic, weak) IBOutlet UITextField *expMonthTextField;
+@property (nonatomic, weak) IBOutlet UITextField *expYearTextField;
+@property (nonatomic, weak) IBOutlet UITextField *cvvTextField;
+@property (nonatomic, strong) IBOutlet UIView *view;
 
 - (void)clear;
 - (Card *)confirm;

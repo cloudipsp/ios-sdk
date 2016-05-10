@@ -14,20 +14,20 @@ static NSString * const resultSegue = @"resultSegue";
 
 @interface CDViewController () <PayCallbackDelegate, ConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet CloudipspWebView *webView;
+@property (nonatomic, weak) IBOutlet CloudipspWebView *webView;
 
-@property (weak, nonatomic) IBOutlet UITextField *amountTextField;
-@property (weak, nonatomic) IBOutlet UITextField *currencyTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
-@property (weak, nonatomic) IBOutlet CardInputView *cardInputView;
+@property (nonatomic, weak) IBOutlet UITextField *amountTextField;
+@property (nonatomic, weak) IBOutlet UITextField *currencyTextField;
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField *descriptionTextField;
+@property (nonatomic, weak) IBOutlet CardInputView *cardInputView;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *fields;
 
 @property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) UIView *lockView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @property (nonatomic, strong) NSString *result;
 @property (nonatomic, strong) CloudipspApi *api;
@@ -107,8 +107,10 @@ static NSString * const resultSegue = @"resultSegue";
         Order *order = [[Order alloc] initOrder:[self.amountTextField.text integerValue]
                                       aCurrency:getCurrency(self.currencyTextField.text)
                                     aIdentifier:orderId
-                                         aAbout:self.descriptionTextField.text
-                                         aEmail:self.emailTextField.text];
+                                         aAbout:self.descriptionTextField.text];
+        if (![self isEmpty:self.emailTextField.text]) {
+            order.email = self.emailTextField.text;
+        }
         Card *card = [self.cardInputView confirm:self];
         if (card != nil) {
             [self taskWillStarted];
@@ -124,9 +126,6 @@ static NSString * const resultSegue = @"resultSegue";
         valid = NO;
     } else if ([self isEmpty:self.currencyTextField.text]) {
         [self showToastWithText:@"Invalid Currency"];
-        valid = NO;
-    } else if ([self isEmpty:self.emailTextField.text]) {
-        [self showToastWithText:@"Invalid Email"];
         valid = NO;
     } else if ([self isEmpty:self.descriptionTextField.text]) {
         [self showToastWithText:@"Invalid Description"];

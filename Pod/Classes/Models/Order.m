@@ -58,7 +58,6 @@ Lang langWithString(NSString *str) {
 @property (nonatomic, assign) Currency currency;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *about;
-@property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSDictionary *arguments;
 @property (nonatomic, strong) NSMutableDictionary *innerArguments;
 
@@ -70,7 +69,6 @@ Lang langWithString(NSString *str) {
                 aCurrency:(Currency)currency
               aIdentifier:(NSString * _Nonnull )identifier
                    aAbout:(NSString * _Nonnull )about
-                   aEmail:(NSString * _Nonnull )email
 {
     self = [super init];
     if (self) {
@@ -84,15 +82,11 @@ Lang langWithString(NSString *str) {
         if (about.length == 0 || about.length > 1024) {
             @throw [NSException exceptionWithName:@"IllegalArgumentException" reason:@"about's length should be > 0 && <= 1024" userInfo:nil];
         }
-        if (![Utils isValidatEmail:email]) {
-            @throw [NSException exceptionWithName:@"IllegalArgumentException" reason:@"email is not valid" userInfo:nil];
-        }
         
         self.amount = amount;
         self.currency = currency;
         self.identifier = identifier;
         self.about = about;
-        self.email = email;
         self.innerArguments = [NSMutableDictionary dictionary];
         self.lifetime = -1;
         self.preauth = NO;
@@ -102,6 +96,14 @@ Lang langWithString(NSString *str) {
         
     }
     return self;
+}
+
+- (void)setEmail:(NSString *)email {
+    if (![Utils isValidatEmail:email]) {
+        @throw [NSException exceptionWithName:@"IllegalArgumentException" reason:@"email is not valid" userInfo:nil];
+    } else {
+        _email = email;
+    }
 }
 
 - (void)addArgument:(NSString *)name aValue:(NSString *)value {

@@ -28,11 +28,11 @@ typedef enum : NSUInteger {
 
 @interface Order : NSObject
 
+@property (nonatomic, strong) NSString *email;
 @property (nonatomic, assign, readonly) NSInteger amount;
 @property (nonatomic, assign, readonly) Currency currency;
 @property (nonatomic, strong, readonly) NSString *identifier;
 @property (nonatomic, strong, readonly) NSString *about;
-@property (nonatomic, strong, readonly) NSString *email;
 @property (nonatomic, strong, readonly) NSDictionary *arguments;
 
 @property (nonatomic, strong) NSString *productId;
@@ -52,8 +52,7 @@ typedef enum : NSUInteger {
 - (instancetype)initOrder:(NSInteger)amount
                 aCurrency:(Currency)currency
               aIdentifier:(NSString * _Nonnull )identifier
-                   aAbout:(NSString * _Nonnull )about
-                   aEmail:(NSString * _Nonnull )email;
+                   aAbout:(NSString * _Nonnull )about;
 
 + (NSString *)getLangName:(Lang)lang;
 + (NSString *)getVerificationName:(Verification)verification;
