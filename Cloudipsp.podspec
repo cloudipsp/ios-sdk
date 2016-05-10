@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Cloudipsp"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "Library for accepting payments directly from iOS application's clients."
 
   s.homepage         = "https://github.com/cloudipsp/ios-sdk"
