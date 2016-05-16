@@ -20,7 +20,7 @@ FOUNDATION_EXPORT const unsigned char CloudipspVersionString[];
 #import <Cloudipsp/Card.h>
 #import <Cloudipsp/Receipt.h>
 #import <Cloudipsp/PayConfirmation.h>
-#import <Cloudipsp/CloudipspWebView.h>
+#import <Cloudipsp/CloudipspWKWebView.h>
 #import <Cloudipsp/CardNumberTextField.h>
 #import <Cloudipsp/CardInputView.h>
 

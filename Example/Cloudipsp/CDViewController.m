@@ -14,7 +14,8 @@ static NSString * const resultSegue = @"resultSegue";
 
 @interface CDViewController () <PayCallbackDelegate, ConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (nonatomic, weak) IBOutlet CloudipspWebView *webView;
+@property (nonatomic, strong) CloudipspWKWebView *webView;
+
 
 @property (nonatomic, weak) IBOutlet UITextField *amountTextField;
 @property (nonatomic, weak) IBOutlet UITextField *currencyTextField;
@@ -40,7 +41,13 @@ static NSString * const resultSegue = @"resultSegue";
     [super viewDidLoad];
     [self registerForKeyboardNotifications];
     [self setupPickerView];
+    self.webView = [[CloudipspWKWebView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:self.webView];
     self.api = [CloudipspApi apiWithMerchant:1396424 andCloudipspView:self.webView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - setup pickerView

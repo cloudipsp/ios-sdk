@@ -10,7 +10,7 @@
 #import "Utils.h"
 #import "CardInputView.h"
 #import "CardNumberTextField.h"
-#import "CloudipspWebView.h"
+#import "CloudipspWKWebView.h"
 
 FOUNDATION_EXPORT double CloudipspVersionNumber;
 FOUNDATION_EXPORT const unsigned char CloudipspVersionString[];
