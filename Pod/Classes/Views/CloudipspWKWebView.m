@@ -7,7 +7,6 @@
 //
 
 #import "CloudipspWKWebView.h"
-#import "PayConfirmation.h"
 
 NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/submit/#";
 

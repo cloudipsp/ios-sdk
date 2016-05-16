@@ -7,8 +7,7 @@
 //
 
 #import <WebKit/WebKit.h>
-
-@protocol CloudipspView;
+#import "PayConfirmation.h"
 
 @interface CloudipspWKWebView : WKWebView <CloudipspView>
 
