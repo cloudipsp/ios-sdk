@@ -1,38 +1,38 @@
 //
-//  CloudipspApi.m
+//  PSCloudipspApi.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "CloudipspApi.h"
-#import "Order.h"
-#import "Currency.h"
-#import "Utils.h"
-#import "Card.h"
-#import "Receipt.h"
-#import "PayConfirmation.h"
+#import "PSCloudipspApi.h"
+#import "PSOrder.h"
+#import "PSCurrency.h"
+#import "PSUtils.h"
+#import "PSCard.h"
+#import "PSReceipt.h"
+#import "PSPayConfirmation.h"
 
-@interface PayCallbackDelegateMainWrapper : NSObject<PayCallbackDelegate>
+@interface PSPayCallbackDelegateMainWrapper : NSObject<PSPayCallbackDelegate>
 
-+ (instancetype)wrapperWithOrigin:(id<PayCallbackDelegate>)origin;
++ (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin;
 
-@property (nonatomic, strong) id<PayCallbackDelegate> origin;
+@property (nonatomic, strong) id<PSPayCallbackDelegate> origin;
 
 @end
 
-@implementation PayCallbackDelegateMainWrapper
+@implementation PSPayCallbackDelegateMainWrapper
 
-+ (instancetype)wrapperWithOrigin:(id<PayCallbackDelegate>)origin {
-    PayCallbackDelegateMainWrapper *wrapper = [[PayCallbackDelegateMainWrapper alloc] init];
++ (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin {
+    PSPayCallbackDelegateMainWrapper *wrapper = [[PSPayCallbackDelegateMainWrapper alloc] init];
     
     wrapper.origin = origin;
     
     return wrapper;
 }
 
-- (void)onPaidProcess:(Receipt *)receipt {
+- (void)onPaidProcess:(PSReceipt *)receipt {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.origin onPaidProcess:receipt];
     });
@@ -52,7 +52,7 @@
 
 @end
 
-@interface SendData : NSObject
+@interface PSSendData : NSObject
 
 @property (nonatomic, strong) NSString *md;
 @property (nonatomic, strong) NSString *paReq;
@@ -60,7 +60,7 @@
 
 @end
 
-@implementation SendData
+@implementation PSSendData
 
 - (instancetype)initSendData:(NSString *)md aPaReq:(NSString *)paReq aTermUrl:(NSString *)termUrl
 {
@@ -78,17 +78,17 @@
 const NSInteger WITHOUT_3DS = 0;
 const NSInteger WITH_3DS = 1;
 
-@interface Checkout : NSObject
+@interface PSCheckout : NSObject
 
-@property (nonatomic, strong) SendData *sendData;
+@property (nonatomic, strong) PSSendData *sendData;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, assign) NSInteger action;
 
 @end
 
-@implementation Checkout
+@implementation PSCheckout
 
-- (instancetype)initCheckout:(SendData *)sendData aUrl:(NSString *)url aAction:(NSInteger)action
+- (instancetype)initCheckout:(PSSendData *)sendData aUrl:(NSString *)url aAction:(NSInteger)action
 {
     self = [super init];
     if (self) {
@@ -102,7 +102,7 @@ const NSInteger WITH_3DS = 1;
 @end
 
 
-@interface Card (private)
+@interface PSCard (private)
 
 @property (nonatomic, strong, readonly) NSString *cardNumber;
 
@@ -113,18 +113,18 @@ NSString * const URL_CALLBACK = @"http://callback";
 NSString * const DATE_AND_TIME_FORMAT = @"dd.MM.yyyy HH:mm:ss";
 NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 
-@interface CloudipspApi () <NSURLSessionDelegate>
+@interface PSCloudipspApi () <NSURLSessionDelegate>
 
 @property (nonatomic, assign) NSInteger merchantId;
-@property (nonatomic, weak) id<CloudipspView> cloudipspView;
+@property (nonatomic, weak) id<PSCloudipspView> cloudipspView;
 
 @end
 
-@implementation CloudipspApi
+@implementation PSCloudipspApi
 
-+ (instancetype)apiWithMerchant:(NSInteger)merchantId andCloudipspView:(id<CloudipspView>)cloudipspView;
++ (instancetype)apiWithMerchant:(NSInteger)merchantId andCloudipspView:(id<PSCloudipspView>)cloudipspView;
 {
-    CloudipspApi *api = [[CloudipspApi alloc] init];
+    PSCloudipspApi *api = [[PSCloudipspApi alloc] init];
     api.merchantId = merchantId;
     api.cloudipspView = cloudipspView;
     return api;
@@ -133,7 +133,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 - (void)call:(NSString *)path
      aParams:(NSDictionary *)params
    onSuccess:(void (^)(NSDictionary *response))success
- payDelegate:(id<PayCallbackDelegate>)delegate {
+ payDelegate:(id<PSPayCallbackDelegate>)delegate {
     
     [self callByUrl:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]] aParams:@{@"request" : params} onSuccess:^(NSData *data) {
         success([self parseResponse:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]]);
@@ -143,7 +143,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 - (void)callByUrl:(NSURL *)url
           aParams:(NSDictionary *)params
         onSuccess:(void (^)(NSData *data))success
-      payDelegate:(id<PayCallbackDelegate>)delegate {
+      payDelegate:(id<PSPayCallbackDelegate>)delegate {
     [self callByUrl:url aParams:params onSuccess:success payDelegate:delegate onIntercept:^(NSMutableURLRequest *request) {
         [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPMethod:@"POST"];
@@ -156,7 +156,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 - (void)callByUrl:(NSURL *)url
           aParams:(NSDictionary *)params
         onSuccess:(void (^)(NSData *data))success
-      payDelegate:(id<PayCallbackDelegate>)delegate
+      payDelegate:(id<PSPayCallbackDelegate>)delegate
       onIntercept:(void (^)(NSMutableURLRequest *request))interceptor {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -167,25 +167,25 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-                                          {
-                                              if (error) {
-                                                  error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeNetworkAccess userInfo:nil];
-                                                  [delegate onPaidFailure:error];
-                                              } else {
-                                                  @try {
-                                                      success(data);
-                                                  }
-                                                  @catch (NSException *exception) {
-                                                      NSError *error;
-                                                      if (exception.userInfo == nil) {
-                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeUnknown userInfo:nil];
-                                                      } else {
-                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PayErrorCodeFailure userInfo:exception.userInfo];
-                                                      }
-                                                      [delegate onPaidFailure:error];
-                                                      
-                                                  }
-                                              }}];
+    {
+        if (error) {
+            error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeNetworkAccess userInfo:nil];
+            [delegate onPaidFailure:error];
+        } else {
+            @try {
+                success(data);
+            }
+            @catch (NSException *exception) {
+                NSError *error;
+                if (exception.userInfo == nil) {
+                    error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeUnknown userInfo:nil];
+                } else {
+                    error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeFailure userInfo:exception.userInfo];
+                }
+                [delegate onPaidFailure:error];
+                
+            }
+    }}];
     
     [postDataTask resume];
 }
@@ -204,13 +204,13 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 - (void)checkResponse:(NSDictionary *)response {
     NSString *str = [response objectForKey:@"response_status"];
     if (![str isEqualToString:@"success"]) {
-        @throw [NSException exceptionWithName:@"IllegalResponseException" reason:[NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]] userInfo:@{@"error_code":[response objectForKey:@"error_code"], @"error_message":[response objectForKey:@"error_message"]}];
+        @throw [NSException exceptionWithName:@"PSIllegalResponseException" reason:[NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]] userInfo:@{@"error_code":[response objectForKey:@"error_code"], @"error_message":[response objectForKey:@"error_message"]}];
     }
 }
 
-- (void)getToken:(Order *)order
+- (void)getToken:(PSOrder *)order
        onSuccess:(void (^)(NSString *token))success
-     payDelegate:(id<PayCallbackDelegate>)delegate {
+     payDelegate:(id<PSPayCallbackDelegate>)delegate {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:
                                        @{
                                          @"order_id" : order.identifier,
@@ -223,36 +223,36 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
                                          @"signature" : @"button"
                                          }];
     
-    if (![Utils isEmpty:order.productId]) {
+    if (![PSUtils isEmpty:order.productId]) {
         [dictionary setObject:order.productId forKey:@"product_id"];
     }
-    if (![Utils isEmpty:order.paymentSystems]) {
+    if (![PSUtils isEmpty:order.paymentSystems]) {
         [dictionary setObject:order.paymentSystems forKey:@"payment_systems"];
     }
-    if (![Utils isEmpty:order.defaultPaymentSystem]) {
+    if (![PSUtils isEmpty:order.defaultPaymentSystem]) {
         [dictionary setObject:order.defaultPaymentSystem forKey:@"default_payment_system"];
     }
     if (order.lifetime != -1) {
         [dictionary setObject:[NSNumber numberWithInteger:order.lifetime] forKey:@"lifetime"];
     }
-    if (![Utils isEmpty:order.merchantData]) {
+    if (![PSUtils isEmpty:order.merchantData]) {
         [dictionary setObject:order.merchantData forKey:@"merchant_data"];
     }
-    if (![Utils isEmpty:order.version]) {
+    if (![PSUtils isEmpty:order.version]) {
         [dictionary setObject:order.version forKey:@"version"];
     }
-    if (![Utils isEmpty:order.serverCallbackUrl]) {
+    if (![PSUtils isEmpty:order.serverCallbackUrl]) {
         [dictionary setObject:order.serverCallbackUrl forKey:@"server_callback_url"];
     }
     if (order.lang != 0) {
-        [dictionary setObject:[Order getLangName:order.lang] forKey:@"lang"];
+        [dictionary setObject:[PSOrder getLangName:order.lang] forKey:@"lang"];
     }
     [dictionary setObject:order.preauth ? @"Y" : @"N" forKey:@"preauth"];
     [dictionary setObject:@"N" forKey:@"delayed"];
     [dictionary setObject:order.requiredRecToken ? @"Y" : @"N" forKey:@"required_rectoken"];
     [dictionary setObject:order.verification ? @"Y" : @"N" forKey:@"verification"];
     if (order.verificationType != 0) {
-        [dictionary setObject:[Order getVerificationName:order.verificationType] forKey:@"verification_type"];
+        [dictionary setObject:[PSOrder getVerificationName:order.verificationType] forKey:@"verification_type"];
     }
     [dictionary addEntriesFromDictionary:order.arguments];
     [dictionary setObject:URL_CALLBACK forKey:@"response_url"];
@@ -263,11 +263,11 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     } payDelegate:delegate];
 }
 
-- (void)checkout:(Card *)card
+- (void)checkout:(PSCard *)card
           aToken:(NSString *)token
           aEmail:(NSString *)email
-       onSuccess:(void (^)(Checkout *checkout))success
-     payDelegate:(id<PayCallbackDelegate>)delegate {
+       onSuccess:(void (^)(PSCheckout *checkout))success
+     payDelegate:(id<PSPayCallbackDelegate>)delegate {
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 card.cardNumber, @"card_number",
                                 card.cvv, @"cvv2",
@@ -279,30 +279,30 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     [self call:@"/api/checkout/ajax" aParams:dictionary onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
         if ([URL_CALLBACK isEqualToString:url]) {
-            Checkout *checkout = [[Checkout alloc] initCheckout:nil aUrl:url aAction:WITHOUT_3DS];
+            PSCheckout *checkout = [[PSCheckout alloc] initCheckout:nil aUrl:url aAction:WITHOUT_3DS];
             success(checkout);
         } else {
             NSDictionary *sendData = [response objectForKey:@"send_data"];
             NSString *md = [NSString stringWithFormat:@"%@",[sendData objectForKey:@"MD"]];
-            Checkout *checkout = [[Checkout alloc] initCheckout:[[SendData alloc] initSendData:md aPaReq:[sendData objectForKey:@"PaReq"] aTermUrl:[sendData objectForKey:@"TermUrl"]] aUrl:url aAction:WITH_3DS];
+            PSCheckout *checkout = [[PSCheckout alloc] initCheckout:[[PSSendData alloc] initSendData:md aPaReq:[sendData objectForKey:@"PaReq"] aTermUrl:[sendData objectForKey:@"TermUrl"]] aUrl:url aAction:WITH_3DS];
             success(checkout);
         }
     } payDelegate:delegate];
 }
 
 - (void)order:(NSString *)token
-    onSuccess:(void (^)(Receipt *receipt))success
-  payDelegate:(id<PayCallbackDelegate>)delegate {
+    onSuccess:(void (^)(PSReceipt *receipt))success
+  payDelegate:(id<PSPayCallbackDelegate>)delegate {
     [self call:@"/api/checkout/merchant/order" aParams:@{@"token" : token} onSuccess:^(NSDictionary *response) {
         success([self parseOrder:[response objectForKey:@"order_data"]]);
     } payDelegate:delegate];
 }
 
-- (Receipt *)parseOrder:(NSDictionary *)orderData {
+- (PSReceipt *)parseOrder:(NSDictionary *)orderData {
     NSDate *recTokenLifeTime;
     
     @try {
-        recTokenLifeTime = [Utils dateFromString:[orderData objectForKey:@"rectoken_lifetime"] withFormat:DATE_AND_TIME_FORMAT];
+        recTokenLifeTime = [PSUtils dateFromString:[orderData objectForKey:@"rectoken_lifetime"] withFormat:DATE_AND_TIME_FORMAT];
     }
     @catch (NSException *exception) {
         recTokenLifeTime = nil;
@@ -311,51 +311,51 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     NSDate *settlementDate;
     
     @try {
-        settlementDate = [Utils dateFromString:[orderData objectForKey:@"settlement_date"] withFormat:DATE_FORMAT];
+        settlementDate = [PSUtils dateFromString:[orderData objectForKey:@"settlement_date"] withFormat:DATE_FORMAT];
     }
     @catch (NSException *exception) {
         settlementDate = nil;
     }
     
     NSString *settlementCcy = [orderData objectForKey:@"settlement_currency"];
-    Currency settlementCcyEnum = getCurrency(settlementCcy);
+    PSCurrency settlementCcyEnum = getCurrency(settlementCcy);
     
     NSString *actualCcy = [orderData objectForKey:@"actual_currency"];
-    Currency actualCcyEnum = getCurrency(actualCcy);
+    PSCurrency actualCcyEnum = getCurrency(actualCcy);
     
     NSString *currency = [orderData objectForKey:@"currency"];
-    Currency currencyEnum = getCurrency(currency);
+    PSCurrency currencyEnum = getCurrency(currency);
     
     NSString *verificationStatus = [orderData objectForKey:@"verification_status"];
-    ReceiptVerificationStatus verificationStatusEnum;
+    PSReceiptVerificationStatus verificationStatusEnum;
     if (!verificationStatus) {
-        verificationStatusEnum = ReceiptVerificationStatusUnknown;
+        verificationStatusEnum = PSReceiptVerificationStatusUnknown;
     } else {
-        verificationStatusEnum = [Receipt getVerificationStatusSign:verificationStatus];
+        verificationStatusEnum = [PSReceipt getVerificationStatusSign:verificationStatus];
     }
     
     NSString *status = [orderData objectForKey:@"order_status"];
-    ReceiptStatus statusEnum;
+    PSReceiptStatus statusEnum;
     if (!status) {
-        statusEnum = ReceiptStatusUnknown;
+        statusEnum = PSReceiptStatusUnknown;
     } else {
-        statusEnum = [Receipt getStatusSign:status];
+        statusEnum = [PSReceipt getStatusSign:status];
     }
     
     NSString *transitionType = [orderData objectForKey:@"tran_type"];
-    ReceiptTransationType transitionTypeEnum;
+    PSReceiptTransationType transitionTypeEnum;
     if (!transitionType) {
-        transitionTypeEnum = ReceiptTransationTypeUnknown;
+        transitionTypeEnum = PSReceiptTransationTypeUnknown;
     } else {
-        transitionTypeEnum = [Receipt getTransationTypeSign:transitionType];
+        transitionTypeEnum = [PSReceipt getTransationTypeSign:transitionType];
     }
     
     NSString *cardType = [orderData objectForKey:@"card_type"];
-    CardType cardTypeEnum;
+    PSCardType cardTypeEnum;
     if (!cardType) {
-        cardTypeEnum = CardTypeUnknown;
+        cardTypeEnum = PSCardTypeUnknown;
     } else {
-        cardTypeEnum = [Card getCardType:[transitionType uppercaseString]];
+        cardTypeEnum = [PSCard getCardType:[transitionType uppercaseString]];
     }
     
     NSInteger reversalAmount = [orderData objectForKey:@"reversal_amount"] ? [[orderData objectForKey:@"reversal_amount"] integerValue] : -1;
@@ -368,7 +368,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     
     NSInteger actualAmount = [orderData objectForKey:@"actual_amount"] ? [[orderData objectForKey:@"actual_amount"] integerValue] : -1;
     
-    return [[Receipt alloc] initReceipt:[orderData objectForKey:@"masked_card"]
+    return [[PSReceipt alloc] initReceipt:[orderData objectForKey:@"masked_card"]
                                aCardBin:[[orderData objectForKey:@"card_bin"] integerValue]
                                 aAmount:[[orderData objectForKey:@"amount"] integerValue]
                              aPaymentId:[[orderData objectForKey:@"payment_id"] integerValue]
@@ -394,10 +394,10 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
                     aVerificationStatus:verificationStatusEnum];
 }
 
-- (void)url3ds:(Checkout *)checkout aPayCallbackDelegate:(id<PayCallbackDelegate>)delegate {
+- (void)url3ds:(PSCheckout *)checkout aPayCallbackDelegate:(id<PSPayCallbackDelegate>)delegate {
     void (^successCallback)(NSData * data) = ^(NSData *data) {
         NSString *htmlPageContent = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        PayConfirmation *confirmation = [[PayConfirmation alloc] initPayConfirmation:htmlPageContent
+        PSPayConfirmation *confirmation = [[PSPayConfirmation alloc] initPayConfirmation:htmlPageContent
                                                                                 aUrl:checkout.url
                                                                          onConfirmed:^(NSString *jsonOfConfirmation)
                                          {
@@ -432,7 +432,7 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
               onSuccess:successCallback
             payDelegate:delegate
             onIntercept:^(NSMutableURLRequest *request) {
-                NSString *post = [NSString stringWithFormat:@"MD=%@&PaReq=%@&TermUrl=%@", [CloudipspApi encodeToPercentEscapeString:checkout.sendData.md], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.paReq], [CloudipspApi encodeToPercentEscapeString:checkout.sendData.termUrl]];
+                NSString *post = [NSString stringWithFormat:@"MD=%@&PaReq=%@&TermUrl=%@", [PSCloudipspApi encodeToPercentEscapeString:checkout.sendData.md], [PSCloudipspApi encodeToPercentEscapeString:checkout.sendData.paReq], [PSCloudipspApi encodeToPercentEscapeString:checkout.sendData.termUrl]];
                 NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
                 [request setHTTPMethod:@"POST"];
                 [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -457,19 +457,19 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 }
 
 
-- (void)pay:(Card *)card aOrder:(Order *)order aPayCallbackDelegate:(id<PayCallbackDelegate>)payCallbackDelegate {
+- (void)pay:(PSCard *)card aOrder:(PSOrder *)order aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate {
     if (![card isValidCard]) {
-        @throw [NSException exceptionWithName:@"IllegalArgumentException"
+        @throw [NSException exceptionWithName:@"PSIllegalArgumentException"
                                        reason:@"Card should be valid"
                                      userInfo:nil];
     }
     
-    PayCallbackDelegateMainWrapper *wrapper = [PayCallbackDelegateMainWrapper wrapperWithOrigin:payCallbackDelegate];
+    PSPayCallbackDelegateMainWrapper *wrapper = [PSPayCallbackDelegateMainWrapper wrapperWithOrigin:payCallbackDelegate];
     
     [self getToken:order onSuccess:^(NSString *token) {
-        [self checkout:card aToken:token aEmail:order.email onSuccess:^(Checkout *checkout) {
+        [self checkout:card aToken:token aEmail:order.email onSuccess:^(PSCheckout *checkout) {
             if (checkout.action == WITHOUT_3DS) {
-                [self order:token onSuccess:^(Receipt *receipt) {
+                [self order:token onSuccess:^(PSReceipt *receipt) {
                     [wrapper onPaidProcess:receipt];
                 } payDelegate:wrapper];
             } else {

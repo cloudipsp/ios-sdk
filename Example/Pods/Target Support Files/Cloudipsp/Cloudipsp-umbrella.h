@@ -1,16 +1,16 @@
 #import <UIKit/UIKit.h>
 
-#import "Cloudipsp.h"
-#import "CloudipspApi.h"
-#import "Card.h"
-#import "Currency.h"
-#import "Order.h"
-#import "Receipt.h"
-#import "PayConfirmation.h"
-#import "Utils.h"
-#import "CardInputView.h"
-#import "CardNumberTextField.h"
-#import "CloudipspWKWebView.h"
+#import "PSCloudipsp.h"
+#import "PSCloudipspApi.h"
+#import "PSCard.h"
+#import "PSCurrency.h"
+#import "PSOrder.h"
+#import "PSReceipt.h"
+#import "PSPayConfirmation.h"
+#import "PSUtils.h"
+#import "PSCardInputView.h"
+#import "PSCardNumberTextField.h"
+#import "PSCloudipspWKWebView.h"
 
 FOUNDATION_EXPORT double CloudipspVersionNumber;
 FOUNDATION_EXPORT const unsigned char CloudipspVersionString[];

@@ -1,5 +1,5 @@
 //
-//  PayConfirmation.h
+//  PSPayConfirmation.h
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/26/16.
@@ -10,7 +10,7 @@
 
 typedef void(^OnConfirmed)(NSString *jsonOfConfirmation);
 
-@interface PayConfirmation : NSObject
+@interface PSPayConfirmation : NSObject
 
 - (instancetype)initPayConfirmation:(NSString *)htmlPageContent
                                aUrl:(NSString *)url
@@ -18,8 +18,8 @@ typedef void(^OnConfirmed)(NSString *jsonOfConfirmation);
 
 @end
 
-@protocol CloudipspView <NSObject>
+@protocol PSCloudipspView <NSObject>
 
-- (void)confirm:(PayConfirmation *)confirmation;
+- (void)confirm:(PSPayConfirmation *)confirmation;
 
 @end

@@ -1,20 +1,20 @@
 //
-//  CardNumberEdit.m
+//  PSCardNumberEdit.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/26/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "CardNumberTextField.h"
-#import "CardInputView.h"
+#import "PSCardNumberTextField.h"
+#import "PSCardInputView.h"
 
-@implementation CardNumberTextField
+@implementation PSCardNumberTextField
 
 - (BOOL)isParentClass:(NSString *)className {
-    return ([className isEqualToString:NSStringFromClass([CardNumberTextField class])] ||
+    return ([className isEqualToString:NSStringFromClass([PSCardNumberTextField class])] ||
             [className isEqualToString:NSStringFromClass([UITextField class])] ||
-            [className isEqualToString:NSStringFromClass([CardInputView class])]);
+            [className isEqualToString:NSStringFromClass([PSCardInputView class])]);
 }
 
 - (void)checkCaller {
@@ -24,7 +24,7 @@
     [array removeObject:@""];
 
     if (![self isParentClass:[array objectAtIndex:3]]) {
-        @throw [NSException exceptionWithName:@"UnsupportedOperationExeption" reason:@"unsupported operation" userInfo:nil];
+        @throw [NSException exceptionWithName:@"PSUnsupportedOperationExeption" reason:@"unsupported operation" userInfo:nil];
     }
 }
 

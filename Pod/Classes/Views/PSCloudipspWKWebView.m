@@ -1,16 +1,16 @@
 //
-//  CloudipspWKWebView.m
+//  PSCloudipspWKWebView.m
 //  Pods
 //
 //  Created by Nadiia Dovbysh on 5/16/16.
 //
 //
 
-#import "CloudipspWKWebView.h"
+#import "PSCloudipspWKWebView.h"
 
 NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/submit/#";
 
-@interface PayConfirmation (private)
+@interface PSPayConfirmation (private)
 
 @property (nonatomic, strong, readonly) NSString *htmlPageContent;
 @property (nonatomic, strong, readonly) NSString *url;
@@ -18,13 +18,13 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
 
 @end
 
-@interface CloudipspWKWebView () <WKNavigationDelegate>
+@interface PSCloudipspWKWebView () <WKNavigationDelegate>
 
-@property (nonatomic, strong) PayConfirmation *confirmation;
+@property (nonatomic, strong) PSPayConfirmation *confirmation;
 
 @end
 
-@implementation CloudipspWKWebView
+@implementation PSCloudipspWKWebView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -44,9 +44,9 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
     return self;
 }
 
-#pragma mark - CloudipspView
+#pragma mark - PSCloudipspView
 
-- (void)confirm:(PayConfirmation *)confirmation {
+- (void)confirm:(PSPayConfirmation *)confirmation {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.hidden = NO;
     });

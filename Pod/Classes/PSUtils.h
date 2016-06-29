@@ -1,5 +1,5 @@
 //
-//  Utils.h
+//  PSUtils.h
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Utils : NSObject
+@interface PSUtils : NSObject
 
 + (BOOL)isValidatEmail:(NSString *)candidate;
 + (BOOL)isEmpty:(NSString *)candidate;

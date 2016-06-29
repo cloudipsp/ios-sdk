@@ -1,14 +1,14 @@
 //
-//  Receipt.m
+//  PSReceipt.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "Receipt.h"
+#import "PSReceipt.h"
 
-NSString *stringWithReceiptStatus(ReceiptStatus status) {
+NSString *stringWithReceiptStatus(PSReceiptStatus status) {
     NSArray *arr = @[
                      @"unknown",
                      @"created",
@@ -21,7 +21,7 @@ NSString *stringWithReceiptStatus(ReceiptStatus status) {
     return (NSString *)[arr objectAtIndex:status];
 }
 
-ReceiptStatus receiptStatusWithString(NSString *str) {
+PSReceiptStatus receiptStatusWithString(NSString *str) {
     NSArray *arr = @[
                      @"unknown",
                      @"created",
@@ -31,10 +31,10 @@ ReceiptStatus receiptStatusWithString(NSString *str) {
                      @"expired",
                      @"reversed"
                      ];
-    return (ReceiptStatus)[arr indexOfObject:str];
+    return (PSReceiptStatus)[arr indexOfObject:str];
 }
 
-NSString *stringWithReceiptTransationType(ReceiptTransationType status) {
+NSString *stringWithReceiptTransationType(PSReceiptTransationType status) {
     NSArray *arr = @[
                      @"unknown",
                      @"purchase",
@@ -43,16 +43,16 @@ NSString *stringWithReceiptTransationType(ReceiptTransationType status) {
     return (NSString *)[arr objectAtIndex:status];
 }
 
-ReceiptTransationType receiptTransationTypeWithString(NSString *str) {
+PSReceiptTransationType receiptTransationTypeWithString(NSString *str) {
     NSArray *arr = @[
                      @"unknown",
                      @"purchase",
                      @"reverse"
                      ];
-    return (ReceiptTransationType)[arr indexOfObject:str];
+    return (PSReceiptTransationType)[arr indexOfObject:str];
 }
 
-NSString *stringWithReceiptVerificationStatus(ReceiptVerificationStatus verificationStatus) {
+NSString *stringWithReceiptVerificationStatus(PSReceiptVerificationStatus verificationStatus) {
     NSArray *arr = @[
                      @"unknown",
                      @"verified",
@@ -63,7 +63,7 @@ NSString *stringWithReceiptVerificationStatus(ReceiptVerificationStatus verifica
     return (NSString *)[arr objectAtIndex:verificationStatus];
 }
 
-ReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
+PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
     NSArray *arr = @[
                      @"unknown",
                      @"verified",
@@ -71,21 +71,21 @@ ReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
                      @"failed",
                      @"created"
                      ];
-    return (ReceiptVerificationStatus)[arr indexOfObject:str];
+    return (PSReceiptVerificationStatus)[arr indexOfObject:str];
 }
 
-@interface Receipt ()
+@interface PSReceipt ()
 
 @property (nonatomic, strong) NSString *maskedCard;
 @property (nonatomic, assign) NSInteger cardBin;
 @property (nonatomic, assign) NSInteger amount;
 @property (nonatomic, assign) NSInteger paymentId;
-@property (nonatomic, assign) Currency currency;
-@property (nonatomic, assign) ReceiptStatus status;
-@property (nonatomic, assign) ReceiptTransationType transationType;
+@property (nonatomic, assign) PSCurrency currency;
+@property (nonatomic, assign) PSReceiptStatus status;
+@property (nonatomic, assign) PSReceiptTransationType transationType;
 @property (nonatomic, strong) NSString *senderCellPhone;
 @property (nonatomic, strong) NSString *senderAccount;
-@property (nonatomic, assign) CardType cardType;
+@property (nonatomic, assign) PSCardType cardType;
 @property (nonatomic, strong) NSString *rrn;
 @property (nonatomic, strong) NSString *approvalCode;
 @property (nonatomic, strong) NSString *responseCode;
@@ -94,29 +94,29 @@ ReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, strong) NSDate *recTokenLifeTime;
 @property (nonatomic, assign) NSInteger reversalAmount;
 @property (nonatomic, assign) NSInteger settlementAmount;
-@property (nonatomic, assign) Currency settlementCurrency;
+@property (nonatomic, assign) PSCurrency settlementCurrency;
 @property (nonatomic, strong) NSDate *settlementDate;
 @property (nonatomic, assign) NSInteger eci;
 @property (nonatomic, assign) NSInteger fee;
 @property (nonatomic, assign) NSInteger actualAmount;
-@property (nonatomic, assign) Currency actualCurrency;
+@property (nonatomic, assign) PSCurrency actualCurrency;
 @property (nonatomic, strong) NSString *paymentSystem;
-@property (nonatomic, assign) ReceiptVerificationStatus verificationStatus;
+@property (nonatomic, assign) PSReceiptVerificationStatus verificationStatus;
 
 @end
 
-@implementation Receipt
+@implementation PSReceipt
 
 - (instancetype)initReceipt:(NSString *)maskedCard
                    aCardBin:(NSInteger)cardBin
                     aAmount:(NSInteger)amount
                  aPaymentId:(NSInteger)paymentId
-                  acurrency:(Currency)currency
-                    aStatus:(ReceiptStatus)status
-            aTransationType:(ReceiptTransationType)transationType
+                  acurrency:(PSCurrency)currency
+                    aStatus:(PSReceiptStatus)status
+            aTransationType:(PSReceiptTransationType)transationType
            aSenderCellPhone:(NSString *)senderCellPhone
              aSenderAccount:(NSString *)senderAccount
-                  aCardType:(CardType)cardType
+                  aCardType:(PSCardType)cardType
                        aRrn:(NSString *)rrn
               aApprovalCode:(NSString *)approvalCode
               aResponseCode:(NSString *)responseCode
@@ -125,14 +125,14 @@ ReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
           aRecTokenLifeTime:(NSDate *)recTokenLifeTime
             aReversalAmount:(NSInteger)reversalAmount
           aSettlementAmount:(NSInteger)settlementAmount
-        aSettlementCurrency:(Currency)settlementCurrency
+        aSettlementCurrency:(PSCurrency)settlementCurrency
             aSettlementDate:(NSDate *)settlementDate
                        aEci:(NSInteger)eci
                        aFee:(NSInteger)fee
               aActualAmount:(NSInteger)actualAmount
-            aActualCurrency:(Currency)actualCurrency
+            aActualCurrency:(PSCurrency)actualCurrency
              aPaymentSystem:(NSString *)paymentSystem
-        aVerificationStatus:(ReceiptVerificationStatus)verificationStatus
+        aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
 {
     self = [super init];
     if (self) {
@@ -166,29 +166,29 @@ ReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
     return self;
 }
 
-+ (NSString *)getStatusName:(ReceiptStatus)status {
++ (NSString *)getStatusName:(PSReceiptStatus)status {
     return stringWithReceiptStatus(status);
 }
 
-+ (ReceiptStatus)getStatusSign:(NSString *)statusName {
++ (PSReceiptStatus)getStatusSign:(NSString *)statusName {
     return receiptStatusWithString(statusName);
 }
 
 
-+ (NSString *)getTransationTypeName:(ReceiptTransationType)transitionType {
++ (NSString *)getTransationTypeName:(PSReceiptTransationType)transitionType {
     return stringWithReceiptTransationType(transitionType);
 }
 
-+ (ReceiptTransationType)getTransationTypeSign:(NSString *)transitionTypeName {
++ (PSReceiptTransationType)getTransationTypeSign:(NSString *)transitionTypeName {
     return receiptTransationTypeWithString(transitionTypeName);
 }
 
 
-+ (NSString *)getVerificationStatusName:(ReceiptVerificationStatus)verificationStatus {
++ (NSString *)getVerificationStatusName:(PSReceiptVerificationStatus)verificationStatus {
     return stringWithReceiptVerificationStatus(verificationStatus);
 }
 
-+ (ReceiptVerificationStatus)getVerificationStatusSign:(NSString *)verificationStatusName {
++ (PSReceiptVerificationStatus)getVerificationStatusSign:(NSString *)verificationStatusName {
     return receiptVerificationStatusWithString(verificationStatusName);
 }
 

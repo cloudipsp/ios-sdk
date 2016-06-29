@@ -7,21 +7,22 @@
 //
 
 #import "CDViewController.h"
-#import <Cloudipsp/Cloudipsp.h>
+#import <Cloudipsp/PSCloudipsp.h>
 #import "CDResultViewController.h"
 
 static NSString * const resultSegue = @"resultSegue";
 
-@interface CDViewController () <PayCallbackDelegate, ConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface CDViewController () <PSPayCallbackDelegate, PSConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (nonatomic, strong) CloudipspWKWebView *webView;
+@property (nonatomic, strong) PSCloudipspWKWebView *webView;
 
 
 @property (nonatomic, weak) IBOutlet UITextField *amountTextField;
 @property (nonatomic, weak) IBOutlet UITextField *currencyTextField;
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField *descriptionTextField;
-@property (nonatomic, weak) IBOutlet CardInputView *cardInputView;
+
+@property (nonatomic, weak) IBOutlet PSCardInputView *cardInputView;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *fields;
@@ -31,7 +32,7 @@ static NSString * const resultSegue = @"resultSegue";
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @property (nonatomic, strong) NSString *result;
-@property (nonatomic, strong) CloudipspApi *api;
+@property (nonatomic, strong) PSCloudipspApi *api;
 
 @end
 
@@ -41,10 +42,13 @@ static NSString * const resultSegue = @"resultSegue";
     [super viewDidLoad];
     [self registerForKeyboardNotifications];
     [self setupPickerView];
-    self.webView = [[CloudipspWKWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[PSCloudipspWKWebView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
-    self.api = [CloudipspApi apiWithMerchant:1396424 andCloudipspView:self.webView];
+    self.api = [PSCloudipspApi apiWithMerchant:1395660 andCloudipspView:self.webView];
 }
+
+//old - 1396424
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -111,14 +115,14 @@ static NSString * const resultSegue = @"resultSegue";
     [self.view endEditing:YES];
     if ([self isValidFields]) {
         NSString *orderId = [NSString stringWithFormat:@"dn_%ld", (long)NSDate.date.timeIntervalSince1970];
-        Order *order = [[Order alloc] initOrder:[self.amountTextField.text integerValue]
+        PSOrder *order = [[PSOrder alloc] initOrder:[self.amountTextField.text integerValue]
                                       aCurrency:getCurrency(self.currencyTextField.text)
                                     aIdentifier:orderId
                                          aAbout:self.descriptionTextField.text];
         if (![self isEmpty:self.emailTextField.text]) {
             order.email = self.emailTextField.text;
         }
-        Card *card = [self.cardInputView confirm:self];
+        PSCard *card = [self.cardInputView confirm:self];
         if (card != nil) {
             [self taskWillStarted];
             [self.api pay:card aOrder:order aPayCallbackDelegate:self];
@@ -184,28 +188,28 @@ static NSString * const resultSegue = @"resultSegue";
 
 #pragma mark - ConfirmationErrorHandler
 
-- (void)onCardInputErrorClear:(CardInputView *)cardInputView
+- (void)onCardInputErrorClear:(PSCardInputView *)cardInputView
                    aTextField:(UITextField *)textField {
     
 }
 
-- (void)onCardInputErrorCatched:(CardInputView *)cardInputView
+- (void)onCardInputErrorCatched:(PSCardInputView *)cardInputView
                      aTextField:(UITextField *)textField
-                         aError:(ConfirmationError)error {
+                         aError:(PSConfirmationError)error {
     switch (error) {
-        case ConfirmationErrorInvalidCardNumber:
+        case PSConfirmationErrorInvalidCardNumber:
             [self showToastWithText:@"Invalid Card Number"];
             break;
-        case ConfirmationErrorInvalidMm:
+        case PSConfirmationErrorInvalidMm:
             [self showToastWithText:@"Invalid Expiry Month"];
             break;
-        case ConfirmationErrorInvalidYy:
+        case PSConfirmationErrorInvalidYy:
             [self showToastWithText:@"Invalid Expiry Year"];
             break;
-        case ConfirmationErrorInvalidDate:
+        case PSConfirmationErrorInvalidDate:
             [self showToastWithText:@"Invalid Expiry Date"];
             break;
-        case ConfirmationErrorInvalidCvv:
+        case PSConfirmationErrorInvalidCvv:
             [self showToastWithText:@"Invalid CVV"];
             break;
             
@@ -216,14 +220,14 @@ static NSString * const resultSegue = @"resultSegue";
 
 #pragma mark - PayCallbackDelegate
 
-- (void)onPaidProcess:(Receipt *)receipt {
-    self.result = [NSString stringWithFormat:@"Paid status %@.\nPaymentId: %ld", [Receipt getStatusName:receipt.status], (long)receipt.paymentId];
+- (void)onPaidProcess:(PSReceipt *)receipt {
+    self.result = [NSString stringWithFormat:@"Paid status %@.\nPaymentId: %ld", [PSReceipt getStatusName:receipt.status], (long)receipt.paymentId];
     [self taskDidFinished];
     [self performSegueWithIdentifier:resultSegue sender:self];
 }
 
 - (void)onPaidFailure:(NSError *)error {
-    if ([error code] == PayErrorCodeFailure) {
+    if ([error code] == PSPayErrorCodeFailure) {
         NSDictionary *info = [error userInfo];
         self.result = [NSString stringWithFormat:@"PayError. Code %@\nDescription: %@", [info valueForKey:@"error_code"], [info valueForKey:@"error_message"]];
     } else {

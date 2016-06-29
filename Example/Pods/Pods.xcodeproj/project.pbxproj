@@ -7,36 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		016F115AF349E418A1B190B6EC66474C /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C61B089458358085CA3013CFCDF253 /* Receipt.m */; };
-		0552F236E54125C3A172DD2E5D25D180 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE0925CC20D864E3F49B854AFA74621 /* Card.m */; };
-		08E90DCC424AB0B86661B395511456CE /* CardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A9A392463690BBEE9AB5B4BC7AE1AF /* CardInputView.xib */; };
-		0B9419F1A115BC9E6F1A8D1B1B8BFFDE /* Order.h in Headers */ = {isa = PBXBuildFile; fileRef = D4319FA5BAB48BB4301BCBEB20D672D6 /* Order.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		100BAD5BFEB64FE2AAC76C44C5C7340C /* CloudipspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 152289C10B42CE6B3B676092B1915962 /* CloudipspApi.m */; };
+		016F115AF349E418A1B190B6EC66474C /* PSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C61B089458358085CA3013CFCDF253 /* PSReceipt.m */; };
+		0552F236E54125C3A172DD2E5D25D180 /* PSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE0925CC20D864E3F49B854AFA74621 /* PSCard.m */; };
+		08E90DCC424AB0B86661B395511456CE /* PSCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A9A392463690BBEE9AB5B4BC7AE1AF /* PSCardInputView.xib */; };
+		0B9419F1A115BC9E6F1A8D1B1B8BFFDE /* PSOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = D4319FA5BAB48BB4301BCBEB20D672D6 /* PSOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		100BAD5BFEB64FE2AAC76C44C5C7340C /* PSCloudipspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 152289C10B42CE6B3B676092B1915962 /* PSCloudipspApi.m */; };
 		190E4579A79A5472AD91CE112E548576 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
-		1C2AFFB91BD766AD06B914D1D61E64B8 /* CloudipspApi.h in Headers */ = {isa = PBXBuildFile; fileRef = F10BD2823B348218C144E635A90D57A8 /* CloudipspApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C2C85AE2E885726494DB71AE15ABC38 /* CardInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 097E2016B96F160EBA4A5AADD08E1A75 /* CardInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C2AFFB91BD766AD06B914D1D61E64B8 /* PSCloudipspApi.h in Headers */ = {isa = PBXBuildFile; fileRef = F10BD2823B348218C144E635A90D57A8 /* PSCloudipspApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C2C85AE2E885726494DB71AE15ABC38 /* PSCardInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 097E2016B96F160EBA4A5AADD08E1A75 /* PSCardInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C50F2FCFC30D2D9884C2C7530B7B92A /* Pods-Cloudipsp_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9769D493B2D25C3AEAD59BC95493DD4E /* Pods-Cloudipsp_Example-dummy.m */; };
 		2295A8CB399D94DEBCB31D6039DB2E83 /* Cloudipsp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B96C45668761375FCF4FF2C52A3B71 /* Cloudipsp-dummy.m */; };
-		27EFED8AD2D671756FA076680320B0A1 /* Receipt.h in Headers */ = {isa = PBXBuildFile; fileRef = 3004F8BA669058356439F74A092DBB7E /* Receipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		27EFED8AD2D671756FA076680320B0A1 /* PSReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = 3004F8BA669058356439F74A092DBB7E /* PSReceipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B7F9EA0D8204FC5D3307624C5707521 /* Pods-Cloudipsp_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF546F2FA928AD4B52D916ACF5B3B360 /* Pods-Cloudipsp_Tests-dummy.m */; };
-		445AD528F5089E8A43338FFA9954A4CF /* Currency.h in Headers */ = {isa = PBXBuildFile; fileRef = 747535DBDE0992CD6D487F93AA1AE223 /* Currency.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		445AD528F5089E8A43338FFA9954A4CF /* PSCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = 747535DBDE0992CD6D487F93AA1AE223 /* PSCurrency.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49DD671D6BCE0128EDA9F76C6F42C9BE /* Cloudipsp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EEEF559843300AFDFE456D2E2C20C1B /* Cloudipsp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7496BA5FEB08D756F301A94712CB9B96 /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B34899732D2C19DD278A57E6A2C49C /* Currency.m */; };
-		7F5C27E6812B46E60CF8E5E214358410 /* PayConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A616E2BBC39A2075784FEF75FD6B11B /* PayConfirmation.m */; };
-		850A6EDA1CEA3D7B00F8C56C /* CloudipspWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850A6ED81CEA3D7B00F8C56C /* CloudipspWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		850A6EDB1CEA3D7B00F8C56C /* CloudipspWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850A6ED91CEA3D7B00F8C56C /* CloudipspWKWebView.m */; };
-		850FC06525D6D5729381FCADEA9B5C24 /* PayConfirmation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E9BF06829A430AEB6DD0592610BE6C /* PayConfirmation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B4E2C2F0B4F5B977C9CA1CAA4BBDE91 /* CardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B8BB7DDDE3488920D47400AC642CB7F7 /* CardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		938676612D926C4F523ECFA397B53EB4 /* Cloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = A77FED0D0D5A5D46E985CA46903D35EB /* Cloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7496BA5FEB08D756F301A94712CB9B96 /* PSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B34899732D2C19DD278A57E6A2C49C /* PSCurrency.m */; };
+		7F5C27E6812B46E60CF8E5E214358410 /* PSPayConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A616E2BBC39A2075784FEF75FD6B11B /* PSPayConfirmation.m */; };
+		850A6EDA1CEA3D7B00F8C56C /* PSCloudipspWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850A6ED81CEA3D7B00F8C56C /* PSCloudipspWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		850A6EDB1CEA3D7B00F8C56C /* PSCloudipspWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850A6ED91CEA3D7B00F8C56C /* PSCloudipspWKWebView.m */; };
+		850FC06525D6D5729381FCADEA9B5C24 /* PSPayConfirmation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E9BF06829A430AEB6DD0592610BE6C /* PSPayConfirmation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B4E2C2F0B4F5B977C9CA1CAA4BBDE91 /* PSCardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B8BB7DDDE3488920D47400AC642CB7F7 /* PSCardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		938676612D926C4F523ECFA397B53EB4 /* PSCloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = A77FED0D0D5A5D46E985CA46903D35EB /* PSCloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DEB1B25A4258DFFCAB6F30ED456EE1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		B6AF6F1486E26CB749FA91B469E4B747 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 29A22085DA399CCDFD039AB5A68CDB0F /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B80E29D2CBCC39DA7A8DCAABF59C0AEA /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976C20308C43964B81F09DD061B44C9 /* Order.m */; };
-		BD805380C93E89BDD31CF6E3F30916F9 /* CardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* CardNumberTextField.m */; };
+		B6AF6F1486E26CB749FA91B469E4B747 /* PSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 29A22085DA399CCDFD039AB5A68CDB0F /* PSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B80E29D2CBCC39DA7A8DCAABF59C0AEA /* PSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976C20308C43964B81F09DD061B44C9 /* PSOrder.m */; };
+		BD805380C93E89BDD31CF6E3F30916F9 /* PSCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* PSCardNumberTextField.m */; };
 		D17E615303D454074A53C61E1770D345 /* Pods-Cloudipsp_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBC36F8CA9D2D74D12ED0F154A987B55 /* Pods-Cloudipsp_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D770D890603C9E127B9EFB2408719389 /* CardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9533390A0D179AF32D872C2E55098C4 /* CardInputView.m */; };
+		D770D890603C9E127B9EFB2408719389 /* PSCardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9533390A0D179AF32D872C2E55098C4 /* PSCardInputView.m */; };
 		DC606D96D2F6F6F1CC3F2DF45A1F4E66 /* Pods-Cloudipsp_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E64962B0763943B51DB00DFEF1580F33 /* Pods-Cloudipsp_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E11F47C1AED5595C6A4C99C2E27FC1F0 /* Card.h in Headers */ = {isa = PBXBuildFile; fileRef = E29501DB185050DB3D91C39AE23B3779 /* Card.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB936F602B9B3EEA001518A547DFF7E1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E17E3A519C287EA51742A882226CE7FB /* Utils.m */; };
+		E11F47C1AED5595C6A4C99C2E27FC1F0 /* PSCard.h in Headers */ = {isa = PBXBuildFile; fileRef = E29501DB185050DB3D91C39AE23B3779 /* PSCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB936F602B9B3EEA001518A547DFF7E1 /* PSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E17E3A519C287EA51742A882226CE7FB /* PSUtils.m */; };
 		FB214AD0F0C103307FAAACA161545B55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
 		FDE2E839D938A04D3B90991C253C5814 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -59,13 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05B34899732D2C19DD278A57E6A2C49C /* Currency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
-		097E2016B96F160EBA4A5AADD08E1A75 /* CardInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CardInputView.h; sourceTree = "<group>"; };
+		05B34899732D2C19DD278A57E6A2C49C /* PSCurrency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCurrency.m; sourceTree = "<group>"; };
+		097E2016B96F160EBA4A5AADD08E1A75 /* PSCardInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCardInputView.h; sourceTree = "<group>"; };
 		10BCFECFA6259C272B50DE760E5ECB07 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		152289C10B42CE6B3B676092B1915962 /* CloudipspApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CloudipspApi.m; sourceTree = "<group>"; };
-		29A22085DA399CCDFD039AB5A68CDB0F /* Utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		3004F8BA669058356439F74A092DBB7E /* Receipt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
-		32C61B089458358085CA3013CFCDF253 /* Receipt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
+		152289C10B42CE6B3B676092B1915962 /* PSCloudipspApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCloudipspApi.m; sourceTree = "<group>"; };
+		29A22085DA399CCDFD039AB5A68CDB0F /* PSUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSUtils.h; sourceTree = "<group>"; };
+		3004F8BA669058356439F74A092DBB7E /* PSReceipt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSReceipt.h; sourceTree = "<group>"; };
+		32C61B089458358085CA3013CFCDF253 /* PSReceipt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSReceipt.m; sourceTree = "<group>"; };
 		3C472B1EC47890D42630CCAB4EB2056C /* Pods_Cloudipsp_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E102D466AE4961B9FDE939C63F3F23A /* Pods-Cloudipsp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4305830C99097535CB0929FC1AF34E4B /* Cloudipsp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.xcconfig; sourceTree = "<group>"; };
@@ -74,43 +74,43 @@
 		6736253CFF576E42EC455E451382E3C8 /* Pods-Cloudipsp_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73D825136CC2AC0DD2560DDD40B5AE61 /* Pods-Cloudipsp_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Example-resources.sh"; sourceTree = "<group>"; };
-		747535DBDE0992CD6D487F93AA1AE223 /* Currency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		747535DBDE0992CD6D487F93AA1AE223 /* PSCurrency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCurrency.h; sourceTree = "<group>"; };
 		79E7C4E244820A9FE3269E220BEEF9B9 /* Pods-Cloudipsp_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Cloudipsp_Tests.modulemap"; sourceTree = "<group>"; };
 		7D458DF32BF8A40E8EDB98332191513B /* Pods-Cloudipsp_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		850A6ED81CEA3D7B00F8C56C /* CloudipspWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudipspWKWebView.h; sourceTree = "<group>"; };
-		850A6ED91CEA3D7B00F8C56C /* CloudipspWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudipspWKWebView.m; sourceTree = "<group>"; };
-		8A616E2BBC39A2075784FEF75FD6B11B /* PayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PayConfirmation.m; sourceTree = "<group>"; };
+		850A6ED81CEA3D7B00F8C56C /* PSCloudipspWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCloudipspWKWebView.h; sourceTree = "<group>"; };
+		850A6ED91CEA3D7B00F8C56C /* PSCloudipspWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCloudipspWKWebView.m; sourceTree = "<group>"; };
+		8A616E2BBC39A2075784FEF75FD6B11B /* PSPayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSPayConfirmation.m; sourceTree = "<group>"; };
 		8EEEF559843300AFDFE456D2E2C20C1B /* Cloudipsp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-umbrella.h"; sourceTree = "<group>"; };
 		9769D493B2D25C3AEAD59BC95493DD4E /* Pods-Cloudipsp_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cloudipsp_Example-dummy.m"; sourceTree = "<group>"; };
 		97D0D7F24C2BA8D18D5F42960F656F07 /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		983CD436EE8EAE3581905E0462B9197D /* Pods-Cloudipsp_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		9976C20308C43964B81F09DD061B44C9 /* Order.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		9976C20308C43964B81F09DD061B44C9 /* PSOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSOrder.m; sourceTree = "<group>"; };
 		A416648D2F1EAD38D5B3B7502E5BA92B /* Cloudipsp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Cloudipsp.modulemap; sourceTree = "<group>"; };
-		A77FED0D0D5A5D46E985CA46903D35EB /* Cloudipsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Cloudipsp.h; sourceTree = "<group>"; };
-		AEE0925CC20D864E3F49B854AFA74621 /* Card.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		A77FED0D0D5A5D46E985CA46903D35EB /* PSCloudipsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCloudipsp.h; sourceTree = "<group>"; };
+		AEE0925CC20D864E3F49B854AFA74621 /* PSCard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCard.m; sourceTree = "<group>"; };
 		AFB5663FC18FDCE0B0308B390D3B2D27 /* Pods-Cloudipsp_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cloudipsp_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B5D438A7D0E255E23751E846F026EB66 /* Pods-Cloudipsp_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B8BB7DDDE3488920D47400AC642CB7F7 /* CardNumberTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CardNumberTextField.h; sourceTree = "<group>"; };
+		B8BB7DDDE3488920D47400AC642CB7F7 /* PSCardNumberTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCardNumberTextField.h; sourceTree = "<group>"; };
 		B9CFD084785B520C6F0BA9BE512CD929 /* Pods-Cloudipsp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* CardNumberTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CardNumberTextField.m; sourceTree = "<group>"; };
+		BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* PSCardNumberTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCardNumberTextField.m; sourceTree = "<group>"; };
 		BD02E93D474008393562019E55B6A58E /* Cloudipsp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cloudipsp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF546F2FA928AD4B52D916ACF5B3B360 /* Pods-Cloudipsp_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cloudipsp_Tests-dummy.m"; sourceTree = "<group>"; };
 		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2B96C45668761375FCF4FF2C52A3B71 /* Cloudipsp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudipsp-dummy.m"; sourceTree = "<group>"; };
-		D4319FA5BAB48BB4301BCBEB20D672D6 /* Order.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
-		D4A9A392463690BBEE9AB5B4BC7AE1AF /* CardInputView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CardInputView.xib; sourceTree = "<group>"; };
+		D4319FA5BAB48BB4301BCBEB20D672D6 /* PSOrder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSOrder.h; sourceTree = "<group>"; };
+		D4A9A392463690BBEE9AB5B4BC7AE1AF /* PSCardInputView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PSCardInputView.xib; sourceTree = "<group>"; };
 		D56BD3E8661E6B7F039B9E375FD860C0 /* Pods-Cloudipsp_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Cloudipsp_Example.modulemap"; sourceTree = "<group>"; };
 		D5BA238900F9FBD20F02056A0906BC84 /* Pods-Cloudipsp_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cloudipsp_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D9337D3A6059B83EC675115F0C23B726 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE951EDFCC13261355244CDC1005E3F7 /* Pods-Cloudipsp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E17E3A519C287EA51742A882226CE7FB /* Utils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		E29501DB185050DB3D91C39AE23B3779 /* Card.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		E5E9BF06829A430AEB6DD0592610BE6C /* PayConfirmation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PayConfirmation.h; sourceTree = "<group>"; };
+		E17E3A519C287EA51742A882226CE7FB /* PSUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSUtils.m; sourceTree = "<group>"; };
+		E29501DB185050DB3D91C39AE23B3779 /* PSCard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCard.h; sourceTree = "<group>"; };
+		E5E9BF06829A430AEB6DD0592610BE6C /* PSPayConfirmation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSPayConfirmation.h; sourceTree = "<group>"; };
 		E64962B0763943B51DB00DFEF1580F33 /* Pods-Cloudipsp_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cloudipsp_Example-umbrella.h"; sourceTree = "<group>"; };
-		E9533390A0D179AF32D872C2E55098C4 /* CardInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CardInputView.m; sourceTree = "<group>"; };
+		E9533390A0D179AF32D872C2E55098C4 /* PSCardInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCardInputView.m; sourceTree = "<group>"; };
 		EBC36F8CA9D2D74D12ED0F154A987B55 /* Pods-Cloudipsp_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cloudipsp_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F10BD2823B348218C144E635A90D57A8 /* CloudipspApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CloudipspApi.h; sourceTree = "<group>"; };
+		F10BD2823B348218C144E635A90D57A8 /* PSCloudipspApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCloudipspApi.h; sourceTree = "<group>"; };
 		F46D94F2917264394959B0C9BBF02F22 /* Pods-Cloudipsp_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Tests-resources.sh"; sourceTree = "<group>"; };
 		FDE4C7924331E4937B4F49A5E45FAA57 /* Pods-Cloudipsp_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,13 +182,13 @@
 		47F7D34975DA03E00FA2FEC4677672BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A77FED0D0D5A5D46E985CA46903D35EB /* Cloudipsp.h */,
-				F10BD2823B348218C144E635A90D57A8 /* CloudipspApi.h */,
-				152289C10B42CE6B3B676092B1915962 /* CloudipspApi.m */,
-				E5E9BF06829A430AEB6DD0592610BE6C /* PayConfirmation.h */,
-				8A616E2BBC39A2075784FEF75FD6B11B /* PayConfirmation.m */,
-				29A22085DA399CCDFD039AB5A68CDB0F /* Utils.h */,
-				E17E3A519C287EA51742A882226CE7FB /* Utils.m */,
+				A77FED0D0D5A5D46E985CA46903D35EB /* PSCloudipsp.h */,
+				F10BD2823B348218C144E635A90D57A8 /* PSCloudipspApi.h */,
+				152289C10B42CE6B3B676092B1915962 /* PSCloudipspApi.m */,
+				E5E9BF06829A430AEB6DD0592610BE6C /* PSPayConfirmation.h */,
+				8A616E2BBC39A2075784FEF75FD6B11B /* PSPayConfirmation.m */,
+				29A22085DA399CCDFD039AB5A68CDB0F /* PSUtils.h */,
+				E17E3A519C287EA51742A882226CE7FB /* PSUtils.m */,
 				B6BE015EF43C55FD77A791F778345F5D /* Models */,
 				697067E4FC607D955C52F9DF1034BE73 /* Views */,
 			);
@@ -206,12 +206,12 @@
 		697067E4FC607D955C52F9DF1034BE73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				097E2016B96F160EBA4A5AADD08E1A75 /* CardInputView.h */,
-				E9533390A0D179AF32D872C2E55098C4 /* CardInputView.m */,
-				B8BB7DDDE3488920D47400AC642CB7F7 /* CardNumberTextField.h */,
-				BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* CardNumberTextField.m */,
-				850A6ED81CEA3D7B00F8C56C /* CloudipspWKWebView.h */,
-				850A6ED91CEA3D7B00F8C56C /* CloudipspWKWebView.m */,
+				097E2016B96F160EBA4A5AADD08E1A75 /* PSCardInputView.h */,
+				E9533390A0D179AF32D872C2E55098C4 /* PSCardInputView.m */,
+				B8BB7DDDE3488920D47400AC642CB7F7 /* PSCardNumberTextField.h */,
+				BB2A8AA5D0D909B7DBC8E2D05D81D7EB /* PSCardNumberTextField.m */,
+				850A6ED81CEA3D7B00F8C56C /* PSCloudipspWKWebView.h */,
+				850A6ED91CEA3D7B00F8C56C /* PSCloudipspWKWebView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,14 +279,14 @@
 		B6BE015EF43C55FD77A791F778345F5D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E29501DB185050DB3D91C39AE23B3779 /* Card.h */,
-				AEE0925CC20D864E3F49B854AFA74621 /* Card.m */,
-				747535DBDE0992CD6D487F93AA1AE223 /* Currency.h */,
-				05B34899732D2C19DD278A57E6A2C49C /* Currency.m */,
-				D4319FA5BAB48BB4301BCBEB20D672D6 /* Order.h */,
-				9976C20308C43964B81F09DD061B44C9 /* Order.m */,
-				3004F8BA669058356439F74A092DBB7E /* Receipt.h */,
-				32C61B089458358085CA3013CFCDF253 /* Receipt.m */,
+				E29501DB185050DB3D91C39AE23B3779 /* PSCard.h */,
+				AEE0925CC20D864E3F49B854AFA74621 /* PSCard.m */,
+				747535DBDE0992CD6D487F93AA1AE223 /* PSCurrency.h */,
+				05B34899732D2C19DD278A57E6A2C49C /* PSCurrency.m */,
+				D4319FA5BAB48BB4301BCBEB20D672D6 /* PSOrder.h */,
+				9976C20308C43964B81F09DD061B44C9 /* PSOrder.m */,
+				3004F8BA669058356439F74A092DBB7E /* PSReceipt.h */,
+				32C61B089458358085CA3013CFCDF253 /* PSReceipt.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 		E12A97F65C6D72FB7B00167D801B13DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4A9A392463690BBEE9AB5B4BC7AE1AF /* CardInputView.xib */,
+				D4A9A392463690BBEE9AB5B4BC7AE1AF /* PSCardInputView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,18 +359,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E11F47C1AED5595C6A4C99C2E27FC1F0 /* Card.h in Headers */,
-				1C2C85AE2E885726494DB71AE15ABC38 /* CardInputView.h in Headers */,
-				8B4E2C2F0B4F5B977C9CA1CAA4BBDE91 /* CardNumberTextField.h in Headers */,
+				E11F47C1AED5595C6A4C99C2E27FC1F0 /* PSCard.h in Headers */,
+				1C2C85AE2E885726494DB71AE15ABC38 /* PSCardInputView.h in Headers */,
+				8B4E2C2F0B4F5B977C9CA1CAA4BBDE91 /* PSCardNumberTextField.h in Headers */,
 				49DD671D6BCE0128EDA9F76C6F42C9BE /* Cloudipsp-umbrella.h in Headers */,
-				938676612D926C4F523ECFA397B53EB4 /* Cloudipsp.h in Headers */,
-				1C2AFFB91BD766AD06B914D1D61E64B8 /* CloudipspApi.h in Headers */,
-				445AD528F5089E8A43338FFA9954A4CF /* Currency.h in Headers */,
-				0B9419F1A115BC9E6F1A8D1B1B8BFFDE /* Order.h in Headers */,
-				850FC06525D6D5729381FCADEA9B5C24 /* PayConfirmation.h in Headers */,
-				850A6EDA1CEA3D7B00F8C56C /* CloudipspWKWebView.h in Headers */,
-				27EFED8AD2D671756FA076680320B0A1 /* Receipt.h in Headers */,
-				B6AF6F1486E26CB749FA91B469E4B747 /* Utils.h in Headers */,
+				938676612D926C4F523ECFA397B53EB4 /* PSCloudipsp.h in Headers */,
+				1C2AFFB91BD766AD06B914D1D61E64B8 /* PSCloudipspApi.h in Headers */,
+				445AD528F5089E8A43338FFA9954A4CF /* PSCurrency.h in Headers */,
+				0B9419F1A115BC9E6F1A8D1B1B8BFFDE /* PSOrder.h in Headers */,
+				850FC06525D6D5729381FCADEA9B5C24 /* PSPayConfirmation.h in Headers */,
+				850A6EDA1CEA3D7B00F8C56C /* PSCloudipspWKWebView.h in Headers */,
+				27EFED8AD2D671756FA076680320B0A1 /* PSReceipt.h in Headers */,
+				B6AF6F1486E26CB749FA91B469E4B747 /* PSUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +446,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -472,7 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08E90DCC424AB0B86661B395511456CE /* CardInputView.xib in Resources */,
+				08E90DCC424AB0B86661B395511456CE /* PSCardInputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,17 +483,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850A6EDB1CEA3D7B00F8C56C /* CloudipspWKWebView.m in Sources */,
-				0552F236E54125C3A172DD2E5D25D180 /* Card.m in Sources */,
-				D770D890603C9E127B9EFB2408719389 /* CardInputView.m in Sources */,
-				BD805380C93E89BDD31CF6E3F30916F9 /* CardNumberTextField.m in Sources */,
+				850A6EDB1CEA3D7B00F8C56C /* PSCloudipspWKWebView.m in Sources */,
+				0552F236E54125C3A172DD2E5D25D180 /* PSCard.m in Sources */,
+				D770D890603C9E127B9EFB2408719389 /* PSCardInputView.m in Sources */,
+				BD805380C93E89BDD31CF6E3F30916F9 /* PSCardNumberTextField.m in Sources */,
 				2295A8CB399D94DEBCB31D6039DB2E83 /* Cloudipsp-dummy.m in Sources */,
-				100BAD5BFEB64FE2AAC76C44C5C7340C /* CloudipspApi.m in Sources */,
-				7496BA5FEB08D756F301A94712CB9B96 /* Currency.m in Sources */,
-				B80E29D2CBCC39DA7A8DCAABF59C0AEA /* Order.m in Sources */,
-				7F5C27E6812B46E60CF8E5E214358410 /* PayConfirmation.m in Sources */,
-				016F115AF349E418A1B190B6EC66474C /* Receipt.m in Sources */,
-				EB936F602B9B3EEA001518A547DFF7E1 /* Utils.m in Sources */,
+				100BAD5BFEB64FE2AAC76C44C5C7340C /* PSCloudipspApi.m in Sources */,
+				7496BA5FEB08D756F301A94712CB9B96 /* PSCurrency.m in Sources */,
+				B80E29D2CBCC39DA7A8DCAABF59C0AEA /* PSOrder.m in Sources */,
+				7F5C27E6812B46E60CF8E5E214358410 /* PSPayConfirmation.m in Sources */,
+				016F115AF349E418A1B190B6EC66474C /* PSReceipt.m in Sources */,
+				EB936F602B9B3EEA001518A547DFF7E1 /* PSUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +552,7 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_Cloudipsp_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -582,6 +583,7 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_Cloudipsp_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -612,6 +614,7 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_Cloudipsp_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -639,6 +642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Cloudipsp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -669,6 +673,7 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_Cloudipsp_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -696,6 +701,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -735,6 +741,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Cloudipsp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

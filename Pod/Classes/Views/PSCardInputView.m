@@ -1,16 +1,16 @@
 //
-//  CardInputView.m
+//  PSCardInputView.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/26/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "CardInputView.h"
-#import "Card.h"
-#import "CardNumberTextField.h"
+#import "PSCardInputView.h"
+#import "PSCard.h"
+#import "PSCardNumberTextField.h"
 
-@interface Card (private)
+@interface PSCard (private)
 
 + (instancetype)cardWith:(NSString *)cardNumber
                 expireMm:(int)mm
@@ -19,51 +19,44 @@
 
 @end
 
-@interface DefaultConfirmationErrorHandler : NSObject<ConfirmationErrorHandler>
+@interface PSDefaultConfirmationErrorHandler : NSObject<PSConfirmationErrorHandler>
 
 @end
 
-@implementation DefaultConfirmationErrorHandler
+@implementation PSDefaultConfirmationErrorHandler
 
 
-- (void)onCardInputErrorClear:(CardInputView *)cardInputView
+- (void)onCardInputErrorClear:(PSCardInputView *)cardInputView
                    aTextField:(UITextField *)textField {
     
 }
 
-- (void)onCardInputErrorCatched:(CardInputView *)cardInputView
+- (void)onCardInputErrorCatched:(PSCardInputView *)cardInputView
                      aTextField:(UITextField *)textField
-                         aError:(ConfirmationError)error {
+                         aError:(PSConfirmationError)error {
     
 }
 
 @end
 
-@interface CardInputView ()
-
-//@property (nonatomic, weak, readwrite) IBOutlet CardNumberTextField *cardNumberTextField;
-//@property (nonatomic, weak, readwrite) IBOutlet UITextField *expMonthTextField;
-//@property (nonatomic, weak, readwrite) IBOutlet UITextField *expYearTextField;
-//@property (nonatomic, weak, readwrite) IBOutlet UITextField *cvvTextField;
-//@property (nonatomic, strong) IBOutlet UIView *view;
+@interface PSCardInputView ()
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
 
 @property (nonatomic, assign) NSInteger iter;
 
-
 @end
 
-@implementation CardInputView
+@implementation PSCardInputView
 
 - (void)setupView {
     @try {
-        [[[NSBundle bundleForClass:[CardInputView class]] loadNibNamed:@"CardInputView" owner:self options:nil] firstObject];
+        [[[NSBundle bundleForClass:[PSCardInputView class]] loadNibNamed:@"PSCardInputView" owner:self options:nil] firstObject];
         [self.view setFrame:self.bounds];
         [self addSubview:self.view];
     }
     @catch (NSException *exception) {
-        [NSException exceptionWithName:@"CardInputViewExeption" reason:exception.reason userInfo:nil];
+        [NSException exceptionWithName:@"PSCardInputViewExeption" reason:exception.reason userInfo:nil];
     }
 }
 
@@ -93,34 +86,41 @@
     self.cvvTextField.text = @"";
 }
 
-- (Card *)confirm {
-    return [self confirm:[[DefaultConfirmationErrorHandler alloc] init]];
+- (PSCard *)confirm {
+    return [self confirm:[[PSDefaultConfirmationErrorHandler alloc] init]];
 }
 
 - (void)test {
     switch (self.iter) {
         case 0:
+            self.cardNumberTextField.text = @"4582905000004190";
+            self.expMonthTextField.text = @"07";
+            self.expYearTextField.text = @"16";
+            self.cvvTextField.text = @"456";
+            self.iter++;
+            break;
+        case 1:
             self.cardNumberTextField.text = @"4444111166665555";
             self.expMonthTextField.text = @"10";
             self.expYearTextField.text = @"18";
             self.cvvTextField.text = @"456";
             self.iter++;
             break;
-        case 1:
+        case 2:
             self.cardNumberTextField.text = @"4444555511116666";
             self.expMonthTextField.text = @"09";
             self.expYearTextField.text = @"19";
             self.cvvTextField.text = @"789";
             self.iter++;
             break;
-        case 2:
+        case 3:
             self.cardNumberTextField.text = @"4444111155556666";
             self.expMonthTextField.text = @"08";
             self.expYearTextField.text = @"20";
             self.cvvTextField.text = @"149";
             self.iter++;
             break;
-        case 3:
+        case 4:
             self.cardNumberTextField.text = @"4444555566661111";
             self.expMonthTextField.text = @"11";
             self.expYearTextField.text = @"17";
@@ -132,7 +132,7 @@
     }
 }
 
-- (Card *)confirm:(id<ConfirmationErrorHandler>)errorHandler {
+- (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler {
     [errorHandler onCardInputErrorClear:self aTextField:self.cardNumberTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.expMonthTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.expYearTextField];
@@ -141,7 +141,7 @@
     NSCharacterSet *validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSString *cardNumber = [NSMutableString stringWithString:[[self.cardNumberTextField.text componentsSeparatedByCharactersInSet:validationSet] componentsJoinedByString:@""]];
     
-    Card *card = [Card cardWith:cardNumber
+    PSCard *card = [PSCard cardWith:cardNumber
                        expireMm:[self.expMonthTextField.text intValue]
                        expireYy:[self.expYearTextField.text intValue]
                            aCvv:self.cvvTextField.text];
@@ -149,23 +149,23 @@
     if (![card isValidCardNumber]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.cardNumberTextField
-                                       aError:ConfirmationErrorInvalidCardNumber];
+                                       aError:PSConfirmationErrorInvalidCardNumber];
     } else if (![card isValidExpireMonth]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expMonthTextField
-                                       aError:ConfirmationErrorInvalidMm];
+                                       aError:PSConfirmationErrorInvalidMm];
     } else if (![card isValidExpireYear]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expYearTextField
-                                       aError:ConfirmationErrorInvalidYy];
+                                       aError:PSConfirmationErrorInvalidYy];
     } else if (![card isValidExpireDate]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expMonthTextField
-                                       aError:ConfirmationErrorInvalidDate];
+                                       aError:PSConfirmationErrorInvalidDate];
     } else if (![card isValidCvv]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.cvvTextField
-                                       aError:ConfirmationErrorInvalidCvv];
+                                       aError:PSConfirmationErrorInvalidCvv];
     } else {
         return card;
     }

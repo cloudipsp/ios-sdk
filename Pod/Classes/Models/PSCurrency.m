@@ -1,14 +1,14 @@
 //
-//  Currency.m
+//  PSCurrency.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "Currency.h"
+#import "PSCurrency.h"
 
-NSString *stringWithCurrency(Currency sign) {
+NSString *stringWithCurrency(PSCurrency sign) {
     NSArray *arr = @[
                      @"UNKNOWN",
                      @"UAH",
@@ -20,7 +20,7 @@ NSString *stringWithCurrency(Currency sign) {
     return (NSString *)[arr objectAtIndex:sign];
 }
 
-Currency currencyWithString(NSString *str) {
+PSCurrency currencyWithString(NSString *str) {
     NSArray *arr = @[
                      @"UNKNOWN",
                      @"UAH",
@@ -29,16 +29,16 @@ Currency currencyWithString(NSString *str) {
                      @"EUR",
                      @"GBP"
                      ];
-    return (Currency)[arr indexOfObject:str];
+    return (PSCurrency)[arr indexOfObject:str];
 }
 
-NSString *getCurrencyName(Currency сurrency) {
+NSString *getCurrencyName(PSCurrency сurrency) {
     return stringWithCurrency(сurrency);
 }
 
-Currency getCurrency(NSString *currencyName) {
+PSCurrency getCurrency(NSString *currencyName) {
     if (currencyName == nil) {
-        return CurrencyUnknown;
+        return PSCurrencyUnknown;
     }
     
     return currencyWithString(currencyName);

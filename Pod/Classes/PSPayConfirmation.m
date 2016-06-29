@@ -1,14 +1,14 @@
 //
-//  PayConfirmation.m
+//  PSPayConfirmation.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/26/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "PayConfirmation.h"
+#import "PSPayConfirmation.h"
 
-@interface PayConfirmation ()
+@interface PSPayConfirmation ()
 
 @property (nonatomic, strong) NSString *htmlPageContent;
 @property (nonatomic, strong) NSString *url;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation PayConfirmation
+@implementation PSPayConfirmation
 
 - (instancetype)initPayConfirmation:(NSString *)htmlPageContent
                                aUrl:(NSString *)url

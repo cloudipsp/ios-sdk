@@ -1,5 +1,5 @@
 //
-//  Order.h
+//  PSOrder.h
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
@@ -7,30 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Currency.h"
+#import "PSCurrency.h"
 
 #pragma clang diagnostic ignored "-Wnullability-completeness"
 
 typedef enum : NSUInteger {
-    VerificationUnknown = 0,
-    VerificationAmount,
-    VerificationCode
-} Verification;
+    PSVerificationUnknown = 0,
+    PSVerificationAmount,
+    PSVerificationCode
+} PSVerification;
 
 typedef enum : NSUInteger {
-    LangUnknown = 0,
-    LangRu,
-    LangUk,
-    LangEn,
-    LangLv,
-    LangFr
-} Lang;
+    PSLangUnknown = 0,
+    PSLangRu,
+    PSLangUk,
+    PSLangEn,
+    PSLangLv,
+    PSLangFr
+} PSLang;
 
-@interface Order : NSObject
+@interface PSOrder : NSObject
 
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, assign, readonly) NSInteger amount;
-@property (nonatomic, assign, readonly) Currency currency;
+@property (nonatomic, assign, readonly) PSCurrency currency;
 @property (nonatomic, strong, readonly) NSString *identifier;
 @property (nonatomic, strong, readonly) NSString *about;
 @property (nonatomic, strong, readonly) NSDictionary *arguments;
@@ -43,19 +43,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL preauth;
 @property (nonatomic, assign) BOOL requiredRecToken;
 @property (nonatomic, assign) BOOL verification;
-@property (nonatomic, assign) Verification verificationType;
+@property (nonatomic, assign) PSVerification verificationType;
 @property (nonatomic, strong) NSString *recToken;
 @property (nonatomic, strong) NSString *version;
-@property (nonatomic, assign) Lang lang;
+@property (nonatomic, assign) PSLang lang;
 @property (nonatomic, strong) NSString *serverCallbackUrl;
 
 - (instancetype)initOrder:(NSInteger)amount
-                aCurrency:(Currency)currency
+                aCurrency:(PSCurrency)currency
               aIdentifier:(NSString * _Nonnull )identifier
                    aAbout:(NSString * _Nonnull )about;
 
-+ (NSString *)getLangName:(Lang)lang;
-+ (NSString *)getVerificationName:(Verification)verification;
-+ (Verification)getVerificationSign:(NSString *)verificationName;
++ (NSString *)getLangName:(PSLang)lang;
++ (NSString *)getVerificationName:(PSVerification)verification;
++ (PSVerification)getVerificationSign:(NSString *)verificationName;
 
 @end

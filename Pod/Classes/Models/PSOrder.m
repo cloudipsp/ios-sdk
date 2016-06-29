@@ -1,15 +1,15 @@
 //
-//  Order.m
+//  PSOrder.m
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/24/16.
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "Order.h"
-#import "Utils.h"
+#import "PSOrder.h"
+#import "PSUtils.h"
 
-NSString *stringWithVerification(Verification verification) {
+NSString *stringWithVerification(PSVerification verification) {
     NSArray *arr = @[
                      @"unknown",
                      @"amount",
@@ -18,17 +18,17 @@ NSString *stringWithVerification(Verification verification) {
     return (NSString *)[arr objectAtIndex:verification];
 }
 
-Verification verificationWithString(NSString *str) {
+PSVerification verificationWithString(NSString *str) {
     NSArray *arr = @[
                      @"unknown",
                      @"amount",
                      @"code"
                      ];
-    return (Verification)[arr indexOfObject:str];
+    return (PSVerification)[arr indexOfObject:str];
 }
 
 
-NSString *stringWithLang(Lang lang) {
+NSString *stringWithLang(PSLang lang) {
     NSArray *arr = @[
                      @"unknown",
                      @"ru",
@@ -40,7 +40,7 @@ NSString *stringWithLang(Lang lang) {
     return (NSString *)[arr objectAtIndex:lang];
 }
 
-Lang langWithString(NSString *str) {
+PSLang langWithString(NSString *str) {
     NSArray *arr = @[
                      @"unknown",
                      @"ru",
@@ -49,13 +49,13 @@ Lang langWithString(NSString *str) {
                      @"lv",
                      @"fr"
                      ];
-    return (Lang)[arr indexOfObject:str];
+    return (PSLang)[arr indexOfObject:str];
 }
 
-@interface Order ()
+@interface PSOrder ()
 
 @property (nonatomic, assign) NSInteger amount;
-@property (nonatomic, assign) Currency currency;
+@property (nonatomic, assign) PSCurrency currency;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *about;
 @property (nonatomic, strong) NSDictionary *arguments;
@@ -63,10 +63,10 @@ Lang langWithString(NSString *str) {
 
 @end
 
-@implementation Order
+@implementation PSOrder
 
 - (instancetype)initOrder:(NSInteger)amount
-                aCurrency:(Currency)currency
+                aCurrency:(PSCurrency)currency
               aIdentifier:(NSString * _Nonnull )identifier
                    aAbout:(NSString * _Nonnull )about
 {
@@ -92,14 +92,14 @@ Lang langWithString(NSString *str) {
         self.preauth = NO;
         self.requiredRecToken = NO;
         self.verification = NO;
-        self.verificationType = VerificationAmount;
+        self.verificationType = PSVerificationAmount;
         
     }
     return self;
 }
 
 - (void)setEmail:(NSString *)email {
-    if (![Utils isValidatEmail:email]) {
+    if (![PSUtils isValidatEmail:email]) {
         @throw [NSException exceptionWithName:@"IllegalArgumentException" reason:@"email is not valid" userInfo:nil];
     } else {
         _email = email;
@@ -114,15 +114,15 @@ Lang langWithString(NSString *str) {
     return self.innerArguments;
 }
 
-+ (NSString *)getLangName:(Lang)lang {
++ (NSString *)getLangName:(PSLang)lang {
     return stringWithLang(lang);
 }
 
-+ (NSString *)getVerificationName:(Verification)verification {
++ (NSString *)getVerificationName:(PSVerification)verification {
     return stringWithVerification(verification);
 }
 
-+ (Verification)getVerificationSign:(NSString *)verificationName {
++ (PSVerification)getVerificationSign:(NSString *)verificationName {
     return verificationWithString(verificationName);
 }
 

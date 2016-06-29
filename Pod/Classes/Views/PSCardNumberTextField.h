@@ -1,5 +1,5 @@
 //
-//  CardNumberTextField.h
+//  PSCardNumberTextField.h
 //  Cloudipsp
 //
 //  Created by Nadiia Dovbysh on 1/26/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CardNumberTextField : UITextField
+@interface PSCardNumberTextField : UITextField
 
 
 @end
