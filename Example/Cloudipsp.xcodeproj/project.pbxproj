@@ -20,8 +20,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		85D6915C1D25597700588E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85D6915E1D25597700588E24 /* Main.storyboard */; };
+		85D691651D255DD900588E24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85D691671D255DD900588E24 /* Localizable.strings */; };
 		85FBEC311C60CE8100536DF1 /* CDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		E8B58B5B25F4F205E10A1BE1 /* Pods_Cloudipsp_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D43FB34570ECFDF7E9E543A /* Pods_Cloudipsp_Example.framework */; };
 		F2B8DF382B37CE622E233293 /* Pods_Cloudipsp_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0D44D9FD43FAC8F7B6FF16 /* Pods_Cloudipsp_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -61,9 +62,18 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6BEB0CDD65BF56ADAA754F9B /* Pods-Cloudipsp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		820E26AFF458B5A2CC665182 /* Cloudipsp.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Cloudipsp.podspec; path = ../Cloudipsp.podspec; sourceTree = "<group>"; };
+		85D6915A1D25596300588E24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85D6915B1D25596D00588E24 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85D6915D1D25597700588E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85D691601D25597B00588E24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		85D691621D25597C00588E24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		85D691641D25597E00588E24 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		85D691661D255DD900588E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85D691681D255DDF00588E24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85D691691D255DE000588E24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85D6916A1D255DE100588E24 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85FBEC2D1C60CE8100536DF1 /* CDResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDResultViewController.h; sourceTree = "<group>"; };
 		85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDResultViewController.m; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8815820D84B5D29CAD39DD1D /* Pods-Cloudipsp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9D43FB34570ECFDF7E9E543A /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACE6F1A8FF6AB48B8858F40 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -139,7 +149,7 @@
 				6003F5A6195388D20070C39A /* CDViewController.m */,
 				85FBEC2D1C60CE8100536DF1 /* CDResultViewController.h */,
 				85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				85D6915E1D25597700588E24 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -154,6 +164,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* Cloudipsp-Prefix.pch */,
+				85D691671D255DD900588E24 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,6 +275,8 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				ru,
 			);
 			mainGroup = 6003F581195388D10070C39A;
 			productRefGroup = 6003F58B195388D20070C39A /* Products */;
@@ -281,7 +294,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				85D6915C1D25597700588E24 /* Main.storyboard in Resources */,
+				85D691651D255DD900588E24 /* Localizable.strings in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -425,6 +439,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6003F597195388D20070C39A /* en */,
+				85D6915A1D25596300588E24 /* uk */,
+				85D6915B1D25596D00588E24 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -435,6 +451,28 @@
 				6003F5B9195388D20070C39A /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		85D6915E1D25597700588E24 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85D6915D1D25597700588E24 /* Base */,
+				85D691601D25597B00588E24 /* en */,
+				85D691621D25597C00588E24 /* uk */,
+				85D691641D25597E00588E24 /* ru */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85D691671D255DD900588E24 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85D691661D255DD900588E24 /* Base */,
+				85D691681D255DDF00588E24 /* en */,
+				85D691691D255DE000588E24 /* uk */,
+				85D6916A1D255DE100588E24 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

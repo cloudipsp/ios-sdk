@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Amount:"; ObjectID = "DV6-VR-fLg"; */
+"DV6-VR-fLg.text" = "Amount:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G2f-UH-AWV"; */
+"G2f-UH-AWV.text" = "Label";
+
+/* Class = "UILabel"; text = "Description:"; ObjectID = "OVr-Df-B0N"; */
+"OVr-Df-B0N.text" = "Description:";
+
+/* Class = "UIButton"; normalTitle = "Pay"; ObjectID = "UMj-8o-Bzd"; */
+"UMj-8o-Bzd.normalTitle" = "Pay";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "bPK-bt-zeQ"; */
+"bPK-bt-zeQ.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "bqb-uX-f84"; */
+"bqb-uX-f84.text" = "Email:";
+
+/* Class = "UIButton"; normalTitle = "Test"; ObjectID = "cKt-sY-rxZ"; */
+"cKt-sY-rxZ.normalTitle" = "Test";
+
+/* Class = "UILabel"; text = "Currency:"; ObjectID = "cYL-1U-C0L"; */
+"cYL-1U-C0L.text" = "Currency:";

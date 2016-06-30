@@ -44,10 +44,11 @@ static NSString * const resultSegue = @"resultSegue";
     [self setupPickerView];
     self.webView = [[PSCloudipspWKWebView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.webView];
-    self.api = [PSCloudipspApi apiWithMerchant:1395660 andCloudipspView:self.webView];
+    self.api = [PSCloudipspApi apiWithMerchant:1396424 andCloudipspView:self.webView];
 }
 
 //old - 1396424
+//real - 1395660
 
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -133,13 +134,13 @@ static NSString * const resultSegue = @"resultSegue";
 - (BOOL)isValidFields {
     BOOL valid = YES;
     if ([self isEmpty:self.amountTextField.text]) {
-        [self showToastWithText:@"Invalid Amount"];
+        [self showToastWithText:NSLocalizedString(@"INVALID_AMOUNT_KEY", nil)];
         valid = NO;
     } else if ([self isEmpty:self.currencyTextField.text]) {
-        [self showToastWithText:@"Invalid Currency"];
+        [self showToastWithText:NSLocalizedString(@"INVALID_CURRENCY_KEY", nil)];
         valid = NO;
     } else if ([self isEmpty:self.descriptionTextField.text]) {
-        [self showToastWithText:@"Invalid Description"];
+        [self showToastWithText:NSLocalizedString(@"INVALID_DESCRIPTION_KEY", nil)];
         valid = NO;
     }
     return valid;
@@ -198,19 +199,19 @@ static NSString * const resultSegue = @"resultSegue";
                          aError:(PSConfirmationError)error {
     switch (error) {
         case PSConfirmationErrorInvalidCardNumber:
-            [self showToastWithText:@"Invalid Card Number"];
+            [self showToastWithText:NSLocalizedString(@"INVALID_CARD_NUMBER_KEY", nil)];
             break;
         case PSConfirmationErrorInvalidMm:
-            [self showToastWithText:@"Invalid Expiry Month"];
+            [self showToastWithText:NSLocalizedString(@"INVALID_EXPIRY_MONTH_KEY", nil)];
             break;
         case PSConfirmationErrorInvalidYy:
-            [self showToastWithText:@"Invalid Expiry Year"];
+            [self showToastWithText:NSLocalizedString(@"INVALID_EXPIRY_YEAR_KEY", nil)];
             break;
         case PSConfirmationErrorInvalidDate:
-            [self showToastWithText:@"Invalid Expiry Date"];
+            [self showToastWithText:NSLocalizedString(@"INVALID_EXPIRY_DATE_KEY", nil)];
             break;
         case PSConfirmationErrorInvalidCvv:
-            [self showToastWithText:@"Invalid CVV"];
+            [self showToastWithText:NSLocalizedString(@"INVALID_CVV_KEY", nil)];
             break;
             
         default:
@@ -221,7 +222,7 @@ static NSString * const resultSegue = @"resultSegue";
 #pragma mark - PayCallbackDelegate
 
 - (void)onPaidProcess:(PSReceipt *)receipt {
-    self.result = [NSString stringWithFormat:@"Paid status %@.\nPaymentId: %ld", [PSReceipt getStatusName:receipt.status], (long)receipt.paymentId];
+    self.result = [NSString stringWithFormat:NSLocalizedString(@"PAID_STATUS_KEY", nil), [PSReceipt getStatusName:receipt.status], (long)receipt.paymentId];
     [self taskDidFinished];
     [self performSegueWithIdentifier:resultSegue sender:self];
 }

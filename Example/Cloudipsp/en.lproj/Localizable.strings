@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Cloudipsp
+
+  Created by Nadiia Dovbysh on 6/30/16.
+  Copyright © 2016 Nadiia. All rights reserved.
+*/
+
+"INVALID_AMOUNT_KEY" = "Invalid Amount";
+"INVALID_CURRENCY_KEY" = "Invalid Currency";
+"INVALID_DESCRIPTION_KEY" = "Invalid Currency";
+"INVALID_CARD_NUMBER_KEY" = "Invalid Card Number";
+"INVALID_EXPIRY_MONTH_KEY" = "Invalid Expiry Month";
+"INVALID_EXPIRY_YEAR_KEY" = "Invalid Expiry Year";
+"INVALID_EXPIRY_DATE_KEY" = "Invalid Expiry Date";
+"INVALID_CVV_KEY" = "Invalid CVV";
+
+"PAID_STATUS_KEY" = "Paid status %@.\nPaymentId: %ld";
+"PAY_ERROR_KEY" = "PayError. Code %@\nDescription: %@";

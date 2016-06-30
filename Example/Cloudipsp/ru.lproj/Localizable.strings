@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Cloudipsp
+
+  Created by Nadiia Dovbysh on 6/30/16.
+  Copyright © 2016 Nadiia. All rights reserved.
+*/
+
+"INVALID_AMOUNT_KEY" = "Сумма не валидна";
+"INVALID_CURRENCY_KEY" = "Валюта не валидна";
+"INVALID_DESCRIPTION_KEY" = "Назначение платежа не валидно";
+"INVALID_CARD_NUMBER_KEY" = "Номер карты не валиден";
+"INVALID_EXPIRY_MONTH_KEY" = "Месяц срока действия не валиден";
+"INVALID_EXPIRY_YEAR_KEY" = "Год срока действия не валиден";
+"INVALID_EXPIRY_DATE_KEY" = "Срок действия не валиден";
+"INVALID_CVV_KEY" = "CVV не валиден";
+
+"PAID_STATUS_KEY" = "Состояние платежа %@.\nИдентификатор платежа: %ld";
+"PAY_ERROR_KEY" = "Ошибка платежа. Код ошибки %@\nОписание: %@";
