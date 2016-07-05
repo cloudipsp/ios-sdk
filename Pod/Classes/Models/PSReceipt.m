@@ -102,6 +102,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, assign) PSCurrency actualCurrency;
 @property (nonatomic, strong) NSString *paymentSystem;
 @property (nonatomic, assign) PSReceiptVerificationStatus verificationStatus;
+@property (nonatomic, strong) NSString *signature;
 
 @end
 
@@ -133,6 +134,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
             aActualCurrency:(PSCurrency)actualCurrency
              aPaymentSystem:(NSString *)paymentSystem
         aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
+                 aSignature:(NSString *)signature
 {
     self = [super init];
     if (self) {
@@ -162,6 +164,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
         self.actualCurrency = actualCurrency;
         self.paymentSystem = paymentSystem;
         self.verificationStatus = verificationStatus;
+        self.signature = signature;
     }
     return self;
 }

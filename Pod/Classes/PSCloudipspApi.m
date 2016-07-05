@@ -134,7 +134,6 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
      aParams:(NSDictionary *)params
    onSuccess:(void (^)(NSDictionary *response))success
  payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    
     [self callByUrl:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]] aParams:@{@"request" : params} onSuccess:^(NSData *data) {
         success([self parseResponse:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]]);
     } payDelegate:delegate];
@@ -204,7 +203,12 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 - (void)checkResponse:(NSDictionary *)response {
     NSString *str = [response objectForKey:@"response_status"];
     if (![str isEqualToString:@"success"]) {
-        @throw [NSException exceptionWithName:@"PSIllegalResponseException" reason:[NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]] userInfo:@{@"error_code":[response objectForKey:@"error_code"], @"error_message":[response objectForKey:@"error_message"]}];
+        NSString *reason = [NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]];
+        NSDictionary *userInfo = @{@"error_code" : [response objectForKey:@"error_code"],
+                                   @"error_message" : [response objectForKey:@"error_message"],
+                                   @"request_id" : [response objectForKey:@"request_id"],
+                                   @"response_status" : [response objectForKey:@"response_status"]};
+        @throw [NSException exceptionWithName: @"PSIllegalResponseException" reason: reason userInfo: userInfo];
     }
 }
 
@@ -369,29 +373,30 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     NSInteger actualAmount = [orderData objectForKey:@"actual_amount"] ? [[orderData objectForKey:@"actual_amount"] integerValue] : -1;
     
     return [[PSReceipt alloc] initReceipt:[orderData objectForKey:@"masked_card"]
-                               aCardBin:[[orderData objectForKey:@"card_bin"] integerValue]
-                                aAmount:[[orderData objectForKey:@"amount"] integerValue]
-                             aPaymentId:[[orderData objectForKey:@"payment_id"] integerValue]
-                              acurrency:currencyEnum aStatus:statusEnum
-                        aTransationType:transitionTypeEnum
-                       aSenderCellPhone:[orderData objectForKey:@"sender_cell_phone"]
-                         aSenderAccount:[orderData objectForKey:@"sender_account"]
-                              aCardType:cardTypeEnum aRrn:[orderData objectForKey:@"rrn"]
-                          aApprovalCode:[orderData objectForKey:@"approval_code"]
-                          aResponseCode:[orderData objectForKey:@"response_code"]
-                             aProductId:[orderData objectForKey:@"product_id"]
-                              aRecToken:[orderData objectForKey:@"rectoken"]
-                      aRecTokenLifeTime:recTokenLifeTime
-                        aReversalAmount:reversalAmount
-                      aSettlementAmount:settlementAmount
-                    aSettlementCurrency:settlementCcyEnum
-                        aSettlementDate:settlementDate
-                                   aEci:eci
-                                   aFee:fee
-                          aActualAmount:actualAmount
-                        aActualCurrency:actualCcyEnum
-                         aPaymentSystem:[orderData objectForKey:@"payment_system"]
-                    aVerificationStatus:verificationStatusEnum];
+                                 aCardBin:[[orderData objectForKey:@"card_bin"] integerValue]
+                                  aAmount:[[orderData objectForKey:@"amount"] integerValue]
+                               aPaymentId:[[orderData objectForKey:@"payment_id"] integerValue]
+                                acurrency:currencyEnum aStatus:statusEnum
+                          aTransationType:transitionTypeEnum
+                         aSenderCellPhone:[orderData objectForKey:@"sender_cell_phone"]
+                           aSenderAccount:[orderData objectForKey:@"sender_account"]
+                                aCardType:cardTypeEnum aRrn:[orderData objectForKey:@"rrn"]
+                            aApprovalCode:[orderData objectForKey:@"approval_code"]
+                            aResponseCode:[orderData objectForKey:@"response_code"]
+                               aProductId:[orderData objectForKey:@"product_id"]
+                                aRecToken:[orderData objectForKey:@"rectoken"]
+                        aRecTokenLifeTime:recTokenLifeTime
+                          aReversalAmount:reversalAmount
+                        aSettlementAmount:settlementAmount
+                      aSettlementCurrency:settlementCcyEnum
+                          aSettlementDate:settlementDate
+                                     aEci:eci
+                                     aFee:fee
+                            aActualAmount:actualAmount
+                          aActualCurrency:actualCcyEnum
+                           aPaymentSystem:[orderData objectForKey:@"payment_system"]
+                      aVerificationStatus:verificationStatusEnum
+                               aSignature:[orderData objectForKey:@"signature"]];
 }
 
 - (void)url3ds:(PSCheckout *)checkout aPayCallbackDelegate:(id<PSPayCallbackDelegate>)delegate {

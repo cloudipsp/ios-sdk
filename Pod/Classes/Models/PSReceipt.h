@@ -63,6 +63,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) PSCurrency actualCurrency;
 @property (nonatomic, strong, readonly) NSString *paymentSystem;
 @property (nonatomic, assign, readonly) PSReceiptVerificationStatus verificationStatus;
+@property (nonatomic, strong, readonly) NSString *signature;
 
 - (instancetype)initReceipt:(NSString *)maskedCard
                    aCardBin:(NSInteger)cardBin
@@ -89,7 +90,8 @@ typedef enum : NSUInteger {
               aActualAmount:(NSInteger)actualAmount
             aActualCurrency:(PSCurrency)actualCurrency
              aPaymentSystem:(NSString *)paymentSystem
-        aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus;
+        aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
+                 aSignature:(NSString *)signature;
 
 + (NSString *)getStatusName:(PSReceiptStatus)status;
 + (PSReceiptStatus)getStatusSign:(NSString *)statusName;
