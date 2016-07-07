@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Cloudipsp"
-  s.version          = "0.1.7"
+  s.version          = "0.1.8"
   s.summary          = "Library for accepting payments directly from iOS application's clients."
 
   s.homepage         = "https://github.com/cloudipsp/ios-sdk"
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m}'
-  s.resources	= 'Pod/Classes/**/*.xib'
+  s.resources	= 'Pod/Classes/**/*.{xib,strings}'
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
 end
