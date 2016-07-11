@@ -103,12 +103,14 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, strong) NSString *paymentSystem;
 @property (nonatomic, assign) PSReceiptVerificationStatus verificationStatus;
 @property (nonatomic, strong) NSString *signature;
+@property (nonatomic, strong) NSDictionary *response;
 
 @end
 
 @implementation PSReceipt
 
-- (instancetype)initReceipt:(NSString *)maskedCard
+- (instancetype)initReceipt:(NSDictionary *)response
+                  aMaskCard:(NSString *)maskedCard
                    aCardBin:(NSInteger)cardBin
                     aAmount:(NSInteger)amount
                  aPaymentId:(NSInteger)paymentId
@@ -138,6 +140,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 {
     self = [super init];
     if (self) {
+        self.response = response;
         self.maskedCard = maskedCard;
         self.cardBin = cardBin;
         self.amount = amount;

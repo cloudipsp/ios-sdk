@@ -223,6 +223,8 @@ static NSString * const resultSegue = @"resultSegue";
     self.result = [NSString stringWithFormat:NSLocalizedString(@"PAID_STATUS_KEY", nil), [PSReceipt getStatusName:receipt.status], (long)receipt.paymentId];
     [self taskDidFinished];
     [self performSegueWithIdentifier:resultSegue sender:self];
+    //for getting all response fields
+    //[PSReceiptUtils dumpFields:receipt];
 }
 
 - (void)onPaidFailure:(NSError *)error {

@@ -15,6 +15,8 @@
 #import "PSUtils.h"
 #import "PSCard.h"
 
+#pragma mark - PSPayCallbackDelegateMainWrapper
+
 @interface PSPayCallbackDelegateMainWrapper : NSObject<PSPayCallbackDelegate>
 
 + (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin;
@@ -53,6 +55,8 @@
 
 @end
 
+#pragma mark - PSSendData
+
 @interface PSSendData : NSObject
 
 @property (nonatomic, strong) NSString *md;
@@ -75,6 +79,8 @@
 }
 
 @end
+
+#pragma mark - PSCheckout
 
 const NSInteger WITHOUT_3DS = 0;
 const NSInteger WITH_3DS = 1;
@@ -102,10 +108,46 @@ const NSInteger WITH_3DS = 1;
 
 @end
 
+#pragma mark - PSCard
 
 @interface PSCard (private)
 
 @property (nonatomic, strong, readonly) NSString *cardNumber;
+
+@end
+
+#pragma mark - PSReceipt
+
+@interface PSReceipt (private)
+
+- (instancetype)initReceipt:(NSDictionary *)response
+                  aMaskCard:(NSString *)maskedCard
+                   aCardBin:(NSInteger)cardBin
+                    aAmount:(NSInteger)amount
+                 aPaymentId:(NSInteger)paymentId
+                  acurrency:(PSCurrency)currency
+                    aStatus:(PSReceiptStatus)status
+            aTransationType:(PSReceiptTransationType)transationType
+           aSenderCellPhone:(NSString *)senderCellPhone
+             aSenderAccount:(NSString *)senderAccount
+                  aCardType:(PSCardType)cardType
+                       aRrn:(NSString *)rrn
+              aApprovalCode:(NSString *)approvalCode
+              aResponseCode:(NSString *)responseCode
+                 aProductId:(NSString *)productId
+                  aRecToken:(NSString *)recToken
+          aRecTokenLifeTime:(NSDate *)recTokenLifeTime
+            aReversalAmount:(NSInteger)reversalAmount
+          aSettlementAmount:(NSInteger)settlementAmount
+        aSettlementCurrency:(PSCurrency)settlementCurrency
+            aSettlementDate:(NSDate *)settlementDate
+                       aEci:(NSInteger)eci
+                       aFee:(NSInteger)fee
+              aActualAmount:(NSInteger)actualAmount
+            aActualCurrency:(PSCurrency)actualCurrency
+             aPaymentSystem:(NSString *)paymentSystem
+        aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
+                 aSignature:(NSString *)signature;
 
 @end
 
@@ -375,7 +417,8 @@ PSLocalization *_localization;
     
     NSInteger actualAmount = [orderData objectForKey:@"actual_amount"] ? [[orderData objectForKey:@"actual_amount"] integerValue] : -1;
     
-    return [[PSReceipt alloc] initReceipt:[orderData objectForKey:@"masked_card"]
+    return [[PSReceipt alloc] initReceipt:orderData
+                                aMaskCard:[orderData objectForKey:@"masked_card"]
                                  aCardBin:[[orderData objectForKey:@"card_bin"] integerValue]
                                   aAmount:[[orderData objectForKey:@"amount"] integerValue]
                                aPaymentId:[[orderData objectForKey:@"payment_id"] integerValue]

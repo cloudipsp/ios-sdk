@@ -65,34 +65,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) PSReceiptVerificationStatus verificationStatus;
 @property (nonatomic, strong, readonly) NSString *signature;
 
-- (instancetype)initReceipt:(NSString *)maskedCard
-                   aCardBin:(NSInteger)cardBin
-                    aAmount:(NSInteger)amount
-                 aPaymentId:(NSInteger)paymentId
-                  acurrency:(PSCurrency)currency
-                    aStatus:(PSReceiptStatus)status
-            aTransationType:(PSReceiptTransationType)transationType
-           aSenderCellPhone:(NSString *)senderCellPhone
-             aSenderAccount:(NSString *)senderAccount
-                  aCardType:(PSCardType)cardType
-                       aRrn:(NSString *)rrn
-              aApprovalCode:(NSString *)approvalCode
-              aResponseCode:(NSString *)responseCode
-                 aProductId:(NSString *)productId
-                  aRecToken:(NSString *)recToken
-          aRecTokenLifeTime:(NSDate *)recTokenLifeTime
-            aReversalAmount:(NSInteger)reversalAmount
-          aSettlementAmount:(NSInteger)settlementAmount
-        aSettlementCurrency:(PSCurrency)settlementCurrency
-            aSettlementDate:(NSDate *)settlementDate
-                       aEci:(NSInteger)eci
-                       aFee:(NSInteger)fee
-              aActualAmount:(NSInteger)actualAmount
-            aActualCurrency:(PSCurrency)actualCurrency
-             aPaymentSystem:(NSString *)paymentSystem
-        aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
-                 aSignature:(NSString *)signature;
-
 + (NSString *)getStatusName:(PSReceiptStatus)status;
 + (PSReceiptStatus)getStatusSign:(NSString *)statusName;
 

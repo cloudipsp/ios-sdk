@@ -28,6 +28,8 @@
 		8559A4931D3300E2001E97EF /* PSLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 8559A4911D3300E2001E97EF /* PSLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8559A4941D3300E2001E97EF /* PSLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8559A4921D3300E2001E97EF /* PSLocalization.m */; };
 		8559A4961D337FF4001E97EF /* PSCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8559A4951D337FF4001E97EF /* PSCardInputView.xib */; };
+		85F6090F1D33E04F00C7E228 /* PSReceiptUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 85F6090D1D33E04F00C7E228 /* PSReceiptUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85F609101D33E04F00C7E228 /* PSReceiptUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F6090E1D33E04F00C7E228 /* PSReceiptUtils.m */; };
 		8B4E2C2F0B4F5B977C9CA1CAA4BBDE91 /* PSCardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B8BB7DDDE3488920D47400AC642CB7F7 /* PSCardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		938676612D926C4F523ECFA397B53EB4 /* PSCloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = A77FED0D0D5A5D46E985CA46903D35EB /* PSCloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DEB1B25A4258DFFCAB6F30ED456EE1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
@@ -84,6 +86,8 @@
 		8559A4911D3300E2001E97EF /* PSLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocalization.h; sourceTree = "<group>"; };
 		8559A4921D3300E2001E97EF /* PSLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLocalization.m; sourceTree = "<group>"; };
 		8559A4951D337FF4001E97EF /* PSCardInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSCardInputView.xib; sourceTree = "<group>"; };
+		85F6090D1D33E04F00C7E228 /* PSReceiptUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSReceiptUtils.h; sourceTree = "<group>"; };
+		85F6090E1D33E04F00C7E228 /* PSReceiptUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSReceiptUtils.m; sourceTree = "<group>"; };
 		8A616E2BBC39A2075784FEF75FD6B11B /* PSPayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSPayConfirmation.m; sourceTree = "<group>"; };
 		8EEEF559843300AFDFE456D2E2C20C1B /* Cloudipsp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-umbrella.h"; sourceTree = "<group>"; };
 		9769D493B2D25C3AEAD59BC95493DD4E /* Pods-Cloudipsp_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cloudipsp_Example-dummy.m"; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				8559A4921D3300E2001E97EF /* PSLocalization.m */,
 				29A22085DA399CCDFD039AB5A68CDB0F /* PSUtils.h */,
 				E17E3A519C287EA51742A882226CE7FB /* PSUtils.m */,
+				85F6090D1D33E04F00C7E228 /* PSReceiptUtils.h */,
+				85F6090E1D33E04F00C7E228 /* PSReceiptUtils.m */,
 				B6BE015EF43C55FD77A791F778345F5D /* Models */,
 				697067E4FC607D955C52F9DF1034BE73 /* Views */,
 			);
@@ -376,6 +382,7 @@
 				850FC06525D6D5729381FCADEA9B5C24 /* PSPayConfirmation.h in Headers */,
 				850A6EDA1CEA3D7B00F8C56C /* PSCloudipspWKWebView.h in Headers */,
 				27EFED8AD2D671756FA076680320B0A1 /* PSReceipt.h in Headers */,
+				85F6090F1D33E04F00C7E228 /* PSReceiptUtils.h in Headers */,
 				8559A4931D3300E2001E97EF /* PSLocalization.h in Headers */,
 				B6AF6F1486E26CB749FA91B469E4B747 /* PSUtils.h in Headers */,
 			);
@@ -498,6 +505,7 @@
 				100BAD5BFEB64FE2AAC76C44C5C7340C /* PSCloudipspApi.m in Sources */,
 				7496BA5FEB08D756F301A94712CB9B96 /* PSCurrency.m in Sources */,
 				B80E29D2CBCC39DA7A8DCAABF59C0AEA /* PSOrder.m in Sources */,
+				85F609101D33E04F00C7E228 /* PSReceiptUtils.m in Sources */,
 				7F5C27E6812B46E60CF8E5E214358410 /* PSPayConfirmation.m in Sources */,
 				016F115AF349E418A1B190B6EC66474C /* PSReceipt.m in Sources */,
 				EB936F602B9B3EEA001518A547DFF7E1 /* PSUtils.m in Sources */,
