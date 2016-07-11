@@ -6,9 +6,12 @@
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import "PSCardInputView.h"
-#import "PSCard.h"
 #import "PSCardNumberTextField.h"
+#import "PSCardInputView.h"
+#import "PSLocalization.h"
+#import "PSCloudipspApi.h"
+#import "PSCard.h"
+
 
 @interface PSCard (private)
 
@@ -45,6 +48,10 @@
 
 @property (nonatomic, assign) NSInteger iter;
 
+@property (nonatomic, strong) IBOutlet UILabel *cardNumberLabel;
+@property (nonatomic, strong) IBOutlet UILabel *expiryLabel;
+@property (nonatomic, strong) IBOutlet UILabel *cvvLabel;
+
 @end
 
 @implementation PSCardInputView
@@ -53,11 +60,20 @@
     @try {
         [[[NSBundle bundleForClass:[PSCardInputView class]] loadNibNamed:@"PSCardInputView" owner:self options:nil] firstObject];
         [self.view setFrame:self.bounds];
+        [self setUpLocalization:[PSCloudipspApi getLocalization]];
         [self addSubview:self.view];
     }
     @catch (NSException *exception) {
         [NSException exceptionWithName:@"PSCardInputViewExeption" reason:exception.reason userInfo:nil];
     }
+}
+
+- (void)setUpLocalization:(PSLocalization *)localization {
+    self.cardNumberLabel.text = localization.cardNumber;
+    self.expiryLabel.text = localization.expiry;
+    self.expMonthTextField.placeholder = localization.month;
+    self.expYearTextField.placeholder = localization.year;
+    self.cvvLabel.text = localization.cvv;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder

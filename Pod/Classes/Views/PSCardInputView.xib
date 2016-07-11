@@ -7,10 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSCardInputView">
             <connections>
+                <outlet property="cardNumberLabel" destination="bZS-Bh-CFp" id="Evi-e0-wdb"/>
                 <outlet property="cardNumberTextField" destination="kya-L7-iy6" id="SdP-l8-hhb"/>
+                <outlet property="cvvLabel" destination="9hn-HI-27c" id="yGk-Wh-cvk"/>
                 <outlet property="cvvTextField" destination="ZY0-1Y-fK2" id="8Qn-Rs-dnd"/>
                 <outlet property="expMonthTextField" destination="BII-pG-Ezb" id="gdh-cv-Scm"/>
                 <outlet property="expYearTextField" destination="AWK-F7-Hc7" id="VrR-JV-2lW"/>
+                <outlet property="expiryLabel" destination="tbj-0D-tIH" id="E50-g4-lvn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Qhf-Kt-A5h"/>
                 <outletCollection property="fields" destination="kya-L7-iy6" id="Fko-kQ-APg"/>
                 <outletCollection property="fields" destination="BII-pG-Ezb" id="X95-3T-gQs"/>

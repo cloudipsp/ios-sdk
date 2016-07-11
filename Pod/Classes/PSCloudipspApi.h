@@ -12,6 +12,7 @@
 @class PSReceipt;
 @class PSCard;
 @class PSOrder;
+@class PSLocalization;
 
 typedef enum : NSUInteger {
     PSPayErrorCodeFailure,
@@ -35,5 +36,7 @@ typedef enum : NSUInteger {
 
 - (void)pay:(PSCard *)card aOrder:(PSOrder *)order aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
++ (void)setLocalization:(PSLocalization *)localization;
++ (PSLocalization *)getLocalization;
 
 @end

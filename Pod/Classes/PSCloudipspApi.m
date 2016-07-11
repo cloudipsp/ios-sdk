@@ -6,13 +6,14 @@
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
+#import "PSPayConfirmation.h"
 #import "PSCloudipspApi.h"
-#import "PSOrder.h"
+#import "PSLocalization.h"
 #import "PSCurrency.h"
+#import "PSReceipt.h"
+#import "PSOrder.h"
 #import "PSUtils.h"
 #import "PSCard.h"
-#import "PSReceipt.h"
-#import "PSPayConfirmation.h"
 
 @interface PSPayCallbackDelegateMainWrapper : NSObject<PSPayCallbackDelegate>
 
@@ -112,6 +113,8 @@ NSString * const HOST = @"https://api.oplata.com";
 NSString * const URL_CALLBACK = @"http://callback";
 NSString * const DATE_AND_TIME_FORMAT = @"dd.MM.yyyy HH:mm:ss";
 NSString * const DATE_FORMAT = @"dd.MM.yyyy";
+
+PSLocalization *_localization;
 
 @interface PSCloudipspApi () <NSURLSessionDelegate>
 
@@ -484,13 +487,25 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
     } payDelegate:wrapper];
 }
 
-#pragma mark - NSURLSessionDelegate
+#pragma mark - Localization
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-willPerformHTTPRedirection:(NSHTTPURLResponse *)response
-        newRequest:(NSURLRequest *)request
- completionHandler:(void (^)(NSURLRequest * __nullable))completionHandler {
-    
++ (void)setLocalization:(PSLocalization *)localization {
+    _localization = localization;
+}
+
++ (PSLocalization *)getLocalization {
+    if (_localization == nil) {
+        NSString *language = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
+        if ([language isEqualToString:@"uk"]) {
+            return [PSLocalization uk];
+        } else if ([language isEqualToString:@"ru"]) {
+            return [PSLocalization ru];
+        } else {
+            return [PSLocalization en];
+        }
+    } else {
+       return _localization;
+    }
 }
 
 @end

@@ -23,5 +23,6 @@ FOUNDATION_EXPORT const unsigned char CloudipspVersionString[];
 #import <Cloudipsp/PSCloudipspWKWebView.h>
 #import <Cloudipsp/PSCardNumberTextField.h>
 #import <Cloudipsp/PSCardInputView.h>
+#import <Cloudipsp/PSLocalization.h>
 
 
