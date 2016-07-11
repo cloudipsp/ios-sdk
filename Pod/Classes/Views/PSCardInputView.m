@@ -45,12 +45,10 @@
 @interface PSCardInputView ()
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *fields;
-
-@property (nonatomic, assign) NSInteger iter;
-
 @property (nonatomic, strong) IBOutlet UILabel *cardNumberLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expiryLabel;
 @property (nonatomic, strong) IBOutlet UILabel *cvvLabel;
+@property (nonatomic, assign) NSInteger iter;
 
 @end
 

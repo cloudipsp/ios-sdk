@@ -47,12 +47,10 @@ static NSString * const resultSegue = @"resultSegue";
     self.api = [PSCloudipspApi apiWithMerchant:1396424 andCloudipspView:self.webView];
 }
 
-//old - 1396424
-//real - 1395660
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)addCustomLocalization {
+    [PSCloudipspApi setLocalization:[PSLocalization customLocalization:@"card:" aExpiry:@"expiry:" aMonth:@"month" aYear:@"year" aCvv:@"cvv"]];
+    PSCardInputView *view = [[PSCardInputView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [self.view addSubview:view];
 }
 
 #pragma mark - setup pickerView
