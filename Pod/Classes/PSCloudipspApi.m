@@ -293,6 +293,11 @@ PSLocalization *_localization;
     if (![PSUtils isEmpty:order.serverCallbackUrl]) {
         [dictionary setObject:order.serverCallbackUrl forKey:@"server_callback_url"];
     }
+    
+    if (![PSUtils isEmpty:order.reservationData]) {
+        [dictionary setObject:order.reservationData forKey:@"reservation_data"];
+    }
+    
     if (order.lang != 0) {
         [dictionary setObject:[PSOrder getLangName:order.lang] forKey:@"lang"];
     }
