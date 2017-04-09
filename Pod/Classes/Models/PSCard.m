@@ -141,21 +141,6 @@ PSCardType cardTypeWithString(NSString *str) {
 - (BOOL)isValidCard {
     return [self isValidExpireDate] && [self isValidCvv] && [self isValidCardNumber];
 }
-//
-//- (NSString *)getFormattedCardNumber {
-//    if (![self isValidCardNumber]) {
-//        @throw [NSException exceptionWithName:@"IllegalCardNumberException" reason:@"CardNumber should be valid before formatting" userInfo:nil];
-//    }
-//    NSMutableString *newStr = [NSMutableString stringWithCapacity:20];
-//
-//    for (NSInteger i = 0; i < 16; i += 4) {
-//        if (i != 0) {
-//            [newStr appendString:@" "];
-//        }
-//        [newStr appendString:[self.cardNumber substringWithRange:NSMakeRange(i, 4)]];
-//    }
-//    return newStr;
-//}
 
 - (PSCardType)type {
     if (![self isValidCardNumber]) {
@@ -171,6 +156,5 @@ PSCardType cardTypeWithString(NSString *str) {
 + (PSCardType)getCardType:(NSString *)typeName {
     return cardTypeWithString(typeName);
 }
-
 
 @end
