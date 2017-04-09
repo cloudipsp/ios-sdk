@@ -25,7 +25,11 @@ PSCardType cardTypeWithString(NSString *str) {
                      @"MASTERCARD",
                      @"MAESTRO"
                      ];
-    return (PSCardType)[arr indexOfObject:str];
+    if (![arr containsObject:str]) {
+        return PSCardTypeUnknown;
+    } else {
+        return (PSCardType)[arr indexOfObject:str];
+    }
 }
 
 @interface PSCard ()
@@ -70,7 +74,7 @@ PSCardType cardTypeWithString(NSString *str) {
 }
 
 - (BOOL)isValidExpireYearValue {
-    return self.yy >= 15 && self.yy <= 99;
+    return self.yy >= 17 && self.yy <= 99;
 }
 
 - (BOOL)isValidExpireYear {
@@ -102,31 +106,36 @@ PSCardType cardTypeWithString(NSString *str) {
 
 - (BOOL)lunaCheck:(NSString *)cardNumber {
     NSInteger sum = 0;
-    NSInteger num;
+    Boolean odd = true;
+    int length = (int)cardNumber.length;
     char *chars = (char *)[cardNumber dataUsingEncoding:NSUTF8StringEncoding].bytes;
 
-    for (int i = 0; i < 16; i += 2) {
+    for (int i = length - 1; i >= 0; i -= 1) {
         char a = (char)chars[i];
-        char b = (char)chars[i + 1];
         
-        if (!(('0' <= a && a <= '9') && ('0' <= b && b <= '9'))) {
+        if (!(('0' <= a && a <= '9'))) {
             return false;
         }
-        num = (a - '0') * 2;
+        int num = (a - '0');
+        odd = !odd;
+        if (odd) {
+            num *= 2;
+        }
         if (num > 9) {
             num -= 9;
         }
-        sum += num + (b - '0');
+        sum += num;
     }
     return sum % 10 == 0;
 }
 
 - (BOOL)isValidCardNumber {
-    if (self.cardNumber == nil || self.cardNumber.length != 16) {
+    if (self.cardNumber == nil) {
         return false;
     }
 
-    if ([self cardType:self.cardNumber] == PSCardTypeUnknown) {
+    int length = (int)self.cardNumber.length;
+    if (!(12 <= length && length <= 19)) {
         return false;
     }
     

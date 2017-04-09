@@ -205,25 +205,10 @@
         return YES;
     }
     if ([textField isEqual:self.cardNumberTextField]) {
-        NSString *fullStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        NSMutableString *resultString = [NSMutableString stringWithString:[[fullStr componentsSeparatedByCharactersInSet:validationSet] componentsJoinedByString:@""]];
-        static const int separatorLength = 4;
-        if ([resultString length] > separatorLength*4) {
+        if (newLength > 19) {
             return NO;
         }
-        if ([resultString length] > separatorLength*3) {
-            [resultString insertString:@" " atIndex:4];
-            [resultString insertString:@" " atIndex:9];
-            [resultString insertString:@" " atIndex:14];
-        }
-        else if ([resultString length] > separatorLength*2) {
-            [resultString insertString:@" " atIndex:4];
-            [resultString insertString:@" " atIndex:9];
-        }
-        else if ([resultString length] > separatorLength) {
-            [resultString insertString:@" " atIndex:4];
-        }
-        textField.text = resultString;
+        return YES;
     }
     return NO;
 }
