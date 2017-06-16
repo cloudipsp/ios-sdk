@@ -18,6 +18,8 @@ typedef enum : NSUInteger {
     PSConfirmationErrorInvalidCvv
 } PSConfirmationError;
 
+#pragma mark - PSConfirmationErrorHandler
+
 @protocol PSConfirmationErrorHandler <NSObject>
 
 - (void)onCardInputErrorClear:(PSCardInputView *)cardInputView
@@ -29,6 +31,16 @@ typedef enum : NSUInteger {
 
 @end
 
+#pragma mark - PSCardInputViewDelegate
+
+@protocol PSCardInputViewDelegate <NSObject>
+@required
+- (void)didEndEditing:(PSCardInputView *)cardInputView;
+
+@end
+
+#pragma mark - PSCardInputView
+
 @class PSCardNumberTextField;
 @class PSCard;
 
@@ -39,6 +51,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) IBOutlet UITextField *expYearTextField;
 @property (nonatomic, weak) IBOutlet UITextField *cvvTextField;
 @property (nonatomic, strong) IBOutlet UIView *view;
+@property (nonatomic, weak) IBOutlet id<PSCardInputViewDelegate> inputDelegate;
 
 - (void)clear;
 - (PSCard *)confirm;

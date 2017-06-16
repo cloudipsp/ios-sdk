@@ -216,6 +216,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual:[self.fields lastObject]]) {
         [textField resignFirstResponder];
+        [self.inputDelegate didEndEditing:self];
     } else {
         [textField resignFirstResponder];
         UITextField *next = [self.fields objectAtIndex:[self.fields indexOfObject:textField] + 1];

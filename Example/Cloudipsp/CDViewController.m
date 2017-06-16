@@ -12,7 +12,7 @@
 
 static NSString * const resultSegue = @"resultSegue";
 
-@interface CDViewController () <PSPayCallbackDelegate, PSConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface CDViewController () <PSPayCallbackDelegate, PSConfirmationErrorHandler, UIPickerViewDataSource, UIPickerViewDelegate, PSCardInputViewDelegate>
 
 @property (nonatomic, strong) PSCloudipspWKWebView *webView;
 
@@ -40,6 +40,7 @@ static NSString * const resultSegue = @"resultSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cardInputView.inputDelegate = self;
     [self registerForKeyboardNotifications];
     [self setupPickerView];
     self.webView = [[PSCloudipspWKWebView alloc] initWithFrame:self.view.frame];
@@ -50,6 +51,7 @@ static NSString * const resultSegue = @"resultSegue";
 - (void)addCustomLocalization {
     [PSCloudipspApi setLocalization:[PSLocalization customLocalization:@"card:" aExpiry:@"expiry:" aMonth:@"month" aYear:@"year" aCvv:@"cvv"]];
     PSCardInputView *view = [[PSCardInputView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    view.inputDelegate = self;
     [self.view addSubview:view];
 }
 
@@ -300,6 +302,12 @@ static NSString * const resultSegue = @"resultSegue";
     self.emailTextField.text = @"";
     self.descriptionTextField.text = @"";
     [self.cardInputView clear];
+}
+
+#pragma mark - PSCardInputViewDelegate
+
+- (void)didEndEditing:(PSCardInputView *)cardInputView {
+    NSLog(@"End editing PSCardInputView");
 }
 
 @end
