@@ -199,7 +199,7 @@
         return YES;
     }
     if ([textField isEqual:self.cvvTextField]) {
-        if (newLength > 3) {
+        if (newLength > 4) {
             return NO;
         }
         return YES;

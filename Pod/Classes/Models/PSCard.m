@@ -101,7 +101,7 @@ PSCardType cardTypeWithString(NSString *str) {
 }
 
 - (BOOL)isValidCvv {
-    return self.cvv != nil && self.cvv.length == 3;
+    return self.cvv != nil && (self.cvv.length == 3 || self.cvv.length == 4);
 }
 
 - (BOOL)lunaCheck:(NSString *)cardNumber {
