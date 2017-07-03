@@ -6,9 +6,10 @@
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-@interface PSCardNumberTextField : UITextField
+#import "PSBaseTextField.h"
+
+@interface PSCardNumberTextField : PSBaseTextField
 
 
 @end

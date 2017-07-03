@@ -7,34 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSDefaultConfirmationErrorHandler.h"
 
 @class PSCardInputView;
-
-typedef enum : NSUInteger {
-    PSConfirmationErrorInvalidCardNumber,
-    PSConfirmationErrorInvalidMm,
-    PSConfirmationErrorInvalidYy,
-    PSConfirmationErrorInvalidDate,
-    PSConfirmationErrorInvalidCvv
-} PSConfirmationError;
-
-#pragma mark - PSConfirmationErrorHandler
-
-@protocol PSConfirmationErrorHandler <NSObject>
-
-- (void)onCardInputErrorClear:(PSCardInputView *)cardInputView
-                   aTextField:(UITextField *)textField;
-
-- (void)onCardInputErrorCatched:(PSCardInputView *)cardInputView
-                     aTextField:(UITextField *)textField
-                         aError:(PSConfirmationError)error;
-
-@end
 
 #pragma mark - PSCardInputViewDelegate
 
 @protocol PSCardInputViewDelegate <NSObject>
-@required
+
 - (void)didEndEditing:(PSCardInputView *)cardInputView;
 
 @end
@@ -47,15 +27,15 @@ typedef enum : NSUInteger {
 @interface PSCardInputView : UIView
 
 @property (nonatomic, weak) IBOutlet PSCardNumberTextField *cardNumberTextField;
-@property (nonatomic, weak) IBOutlet UITextField *expMonthTextField;
-@property (nonatomic, weak) IBOutlet UITextField *expYearTextField;
-@property (nonatomic, weak) IBOutlet UITextField *cvvTextField;
+@property (nonatomic, weak) IBOutlet PSExpMonthTextField *expMonthTextField;
+@property (nonatomic, weak) IBOutlet PSExpYearTextField *expYearTextField;
+@property (nonatomic, weak) IBOutlet PSCVVTextField *cvvTextField;
 @property (nonatomic, strong) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet id<PSCardInputViewDelegate> inputDelegate;
 
-- (void)clear;
-- (PSCard *)confirm;
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler;
+- (PSCard *)confirm;
+- (void)clear;
 - (void)test;
 
 @end

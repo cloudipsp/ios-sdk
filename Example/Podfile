@@ -1,11 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 use_frameworks!
 
-target 'Cloudipsp_Example', :exclusive => true do
+target 'Cloudipsp_Example' do
   pod 'Cloudipsp', :path => '../'
 end
 
-target 'Cloudipsp_Tests', :exclusive => true do
+target 'Cloudipsp_Tests' do
   pod 'Cloudipsp', :path => '../'
 
   

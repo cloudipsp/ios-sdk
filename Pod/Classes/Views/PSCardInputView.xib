@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSCardInputView">
             <connections>
+                <outlet property="cardInputLayout" destination="aQM-jT-g18" id="E4o-Jv-hvR"/>
                 <outlet property="cardNumberLabel" destination="bZS-Bh-CFp" id="Evi-e0-wdb"/>
                 <outlet property="cardNumberTextField" destination="kya-L7-iy6" id="SdP-l8-hhb"/>
                 <outlet property="cvvLabel" destination="9hn-HI-27c" id="yGk-Wh-cvk"/>
@@ -26,77 +31,89 @@
             <rect key="frame" x="0.0" y="0.0" width="404" height="209"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Bh-CFp">
-                    <rect key="frame" x="20" y="8" width="88.5" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-0D-tIH">
-                    <rect key="frame" x="20" y="71" width="44" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BII-pG-Ezb">
-                    <rect key="frame" x="20" y="96" width="178" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="d4Z-zr-98j"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-1Y-fK2">
-                    <rect key="frame" x="20" y="159" width="364" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="oua-8K-I5e"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kya-L7-iy6" customClass="PSCardNumberTextField">
-                    <rect key="frame" x="20" y="33" width="364" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="xIX-4j-ZUh"/>
-                    </connections>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hn-HI-27c">
-                    <rect key="frame" x="20" y="134" width="32" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWK-F7-Hc7">
-                    <rect key="frame" x="206" y="96" width="177.5" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="ZeU-hg-FpO"/>
-                    </connections>
-                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQM-jT-g18" customClass="PSCardInputLayout">
+                    <rect key="frame" x="0.0" y="0.0" width="404" height="209"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Bh-CFp">
+                            <rect key="frame" x="20" y="8" width="88.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kya-L7-iy6" customClass="PSCardNumberTextField">
+                            <rect key="frame" x="20" y="33" width="364" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="xIX-4j-ZUh"/>
+                            </connections>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-0D-tIH">
+                            <rect key="frame" x="20" y="71" width="44" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BII-pG-Ezb" customClass="PSExpMonthTextField">
+                            <rect key="frame" x="20" y="96" width="178" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="d4Z-zr-98j"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWK-F7-Hc7" customClass="PSExpYearTextField">
+                            <rect key="frame" x="206" y="96" width="178" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="ZeU-hg-FpO"/>
+                            </connections>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hn-HI-27c">
+                            <rect key="frame" x="20" y="134" width="32" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-1Y-fK2" customClass="PSCVVTextField">
+                            <rect key="frame" x="20" y="159" width="364" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="oua-8K-I5e"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AWK-F7-Hc7" firstAttribute="centerY" secondItem="BII-pG-Ezb" secondAttribute="centerY" id="0eW-IE-IA1"/>
+                        <constraint firstItem="tbj-0D-tIH" firstAttribute="top" secondItem="kya-L7-iy6" secondAttribute="bottom" constant="8" symbolic="YES" id="3yK-t7-T5q"/>
+                        <constraint firstItem="ZY0-1Y-fK2" firstAttribute="top" secondItem="9hn-HI-27c" secondAttribute="bottom" constant="8" symbolic="YES" id="9FT-JX-Ocs"/>
+                        <constraint firstItem="bZS-Bh-CFp" firstAttribute="top" secondItem="aQM-jT-g18" secondAttribute="top" constant="8" id="O2a-aZ-fR8"/>
+                        <constraint firstItem="AWK-F7-Hc7" firstAttribute="leading" secondItem="BII-pG-Ezb" secondAttribute="trailing" constant="8" symbolic="YES" id="O8z-7W-Wzw"/>
+                        <constraint firstItem="ZY0-1Y-fK2" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="QU2-FJ-bMc"/>
+                        <constraint firstAttribute="trailing" secondItem="ZY0-1Y-fK2" secondAttribute="trailing" constant="20" symbolic="YES" id="T9F-Zz-MMH"/>
+                        <constraint firstItem="BII-pG-Ezb" firstAttribute="top" secondItem="tbj-0D-tIH" secondAttribute="bottom" constant="8" symbolic="YES" id="VSs-9g-Xi0"/>
+                        <constraint firstItem="kya-L7-iy6" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="W05-eo-Fm3"/>
+                        <constraint firstItem="9hn-HI-27c" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="ZT1-hx-bcd"/>
+                        <constraint firstAttribute="trailing" secondItem="kya-L7-iy6" secondAttribute="trailing" constant="20" symbolic="YES" id="aQ6-Vs-ZtC"/>
+                        <constraint firstItem="tbj-0D-tIH" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="ad0-5u-TeU"/>
+                        <constraint firstItem="bZS-Bh-CFp" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="gCB-pV-Eot"/>
+                        <constraint firstAttribute="trailing" secondItem="AWK-F7-Hc7" secondAttribute="trailing" constant="20" symbolic="YES" id="gsX-yx-MTB"/>
+                        <constraint firstItem="9hn-HI-27c" firstAttribute="top" secondItem="BII-pG-Ezb" secondAttribute="bottom" constant="8" symbolic="YES" id="jQk-4m-9sd"/>
+                        <constraint firstItem="BII-pG-Ezb" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="qyl-R2-itU"/>
+                        <constraint firstItem="kya-L7-iy6" firstAttribute="top" secondItem="bZS-Bh-CFp" secondAttribute="bottom" constant="8" symbolic="YES" id="syt-Ld-Fj2"/>
+                        <constraint firstItem="AWK-F7-Hc7" firstAttribute="width" secondItem="BII-pG-Ezb" secondAttribute="width" id="xaB-LB-Uvj"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ZY0-1Y-fK2" secondAttribute="trailing" constant="20" symbolic="YES" id="1at-pN-Neg"/>
-                <constraint firstItem="bZS-Bh-CFp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6Bh-cy-wdV"/>
-                <constraint firstItem="tbj-0D-tIH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="6fi-Z5-YP1"/>
-                <constraint firstAttribute="trailing" secondItem="AWK-F7-Hc7" secondAttribute="trailing" constant="20" symbolic="YES" id="BWc-Kh-fEh"/>
-                <constraint firstItem="9hn-HI-27c" firstAttribute="top" secondItem="BII-pG-Ezb" secondAttribute="bottom" constant="8" symbolic="YES" id="BkT-Gh-TLn"/>
-                <constraint firstItem="kya-L7-iy6" firstAttribute="top" secondItem="bZS-Bh-CFp" secondAttribute="bottom" constant="8" symbolic="YES" id="IJl-w9-rNl"/>
-                <constraint firstItem="BII-pG-Ezb" firstAttribute="top" secondItem="tbj-0D-tIH" secondAttribute="bottom" constant="8" symbolic="YES" id="Qv1-1q-60W"/>
-                <constraint firstItem="kya-L7-iy6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="Yjt-2h-5M7"/>
-                <constraint firstItem="ZY0-1Y-fK2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="bhB-Fe-b8U"/>
-                <constraint firstItem="bZS-Bh-CFp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="eW4-zj-ryE"/>
-                <constraint firstItem="AWK-F7-Hc7" firstAttribute="leading" secondItem="BII-pG-Ezb" secondAttribute="trailing" constant="8" symbolic="YES" id="iJp-qb-ymN"/>
-                <constraint firstAttribute="trailing" secondItem="kya-L7-iy6" secondAttribute="trailing" constant="20" symbolic="YES" id="lmO-pY-moM"/>
-                <constraint firstItem="tbj-0D-tIH" firstAttribute="top" secondItem="kya-L7-iy6" secondAttribute="bottom" constant="8" symbolic="YES" id="p00-0l-idf"/>
-                <constraint firstItem="AWK-F7-Hc7" firstAttribute="centerY" secondItem="BII-pG-Ezb" secondAttribute="centerY" id="tfR-mq-EES"/>
-                <constraint firstItem="BII-pG-Ezb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="ueb-J5-Y25"/>
-                <constraint firstItem="ZY0-1Y-fK2" firstAttribute="top" secondItem="9hn-HI-27c" secondAttribute="bottom" constant="8" symbolic="YES" id="y91-UZ-1Sp"/>
-                <constraint firstItem="9hn-HI-27c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="yoE-QN-Cyo"/>
-                <constraint firstItem="BII-pG-Ezb" firstAttribute="width" secondItem="AWK-F7-Hc7" secondAttribute="width" id="zKc-Tj-4Vw"/>
+                <constraint firstAttribute="bottom" secondItem="aQM-jT-g18" secondAttribute="bottom" id="0cm-fz-K4K"/>
+                <constraint firstAttribute="trailing" secondItem="aQM-jT-g18" secondAttribute="trailing" id="8px-8I-FDH"/>
+                <constraint firstItem="aQM-jT-g18" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HSo-12-IMO"/>
+                <constraint firstItem="aQM-jT-g18" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VlE-FR-QgY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
