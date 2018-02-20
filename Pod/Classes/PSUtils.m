@@ -9,6 +9,15 @@
 #import "PSUtils.h"
 
 @implementation PSUtils
+    
++ (NSArray *)bins {
+    static NSArray *_bins;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _bins = @[@"32", @"33", @"34", @"37"];
+    });
+    return _bins;
+}
 
 + (BOOL)isValidatEmail:(NSString *)candidate {
     if (![PSUtils isEmpty:candidate]) {
@@ -42,6 +51,15 @@
     } else {
         return nil;
     }
+}
+    
++ (BOOL)isCvv4Length:(NSString *)cardNumber {
+    for (NSString *bin in PSUtils.bins) {
+        if ([cardNumber hasPrefix:bin]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

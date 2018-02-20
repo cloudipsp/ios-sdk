@@ -7,6 +7,11 @@
 //
 
 #import "PSTextFieldHandler.h"
+#import "PSCardInputLayout.h"
+
+@interface PSCardInputLayout (private)
+- (BOOL)lengthHandlerFor:(UITextField *)textField aNewString:(NSString *)newString aMaxLength:(NSUInteger)maxLength;
+@end
 
 @interface PSTextFieldHandler ()
     
@@ -62,18 +67,15 @@
 }
     
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
     NSCharacterSet *validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSArray *components = [string componentsSeparatedByCharactersInSet:validationSet];
     if ([components count] > 1) {
         return NO;
     }
-    NSUInteger oldLength = [textField.text length];
-    NSUInteger replacementLength = [string length];
-    NSUInteger rangeLength = range.length;
-    NSUInteger newLength = oldLength - rangeLength + replacementLength;
-    
-    return newLength <= self.maxLength;
+    NSString *proposedString = [textField.text stringByReplacingCharactersInRange:range
+                                                                  withString:string];
+    PSCardInputLayout *layout = (PSCardInputLayout *)textField.superview;
+    return [layout lengthHandlerFor:textField aNewString:proposedString aMaxLength:self.maxLength];
 }
     
 - (BOOL)textFieldShouldClear:(UITextField *)textField {

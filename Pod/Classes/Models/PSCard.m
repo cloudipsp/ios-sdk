@@ -7,6 +7,7 @@
 //
 
 #import "PSCard.h"
+#import "PSUtils.h"
 
 NSString *stringWithCardType(PSCardType type) {
     NSArray *arr = @[
@@ -74,7 +75,7 @@ PSCardType cardTypeWithString(NSString *str) {
 }
 
 - (BOOL)isValidExpireYearValue {
-    return self.yy >= 17 && self.yy <= 99;
+    return self.yy >= 18 && self.yy <= 99;
 }
 
 - (BOOL)isValidExpireYear {
@@ -101,7 +102,7 @@ PSCardType cardTypeWithString(NSString *str) {
 }
 
 - (BOOL)isValidCvv {
-    return self.cvv != nil && (self.cvv.length == 3 || self.cvv.length == 4);
+    return self.cvv != nil && ([PSUtils isCvv4Length:self.cardNumber] ? self.cvv.length == 4 : self.cvv.length == 3 );
 }
 
 - (BOOL)lunaCheck:(NSString *)cardNumber {

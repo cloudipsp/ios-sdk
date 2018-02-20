@@ -13,5 +13,6 @@
 + (BOOL)isValidatEmail:(NSString *)candidate;
 + (BOOL)isEmpty:(NSString *)candidate;
 + (NSDate *)dateFromString:(NSString *)string withFormat:(NSString *)format;
++ (BOOL)isCvv4Length:(NSString *)cardNumber;
 
 @end

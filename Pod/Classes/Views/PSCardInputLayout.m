@@ -14,6 +14,7 @@
 #import "PSLocalization.h"
 #import "PSCloudipspApi.h"
 #import "PSCard.h"
+#import "PSUtils.h"
 
 #pragma mark - PSCard
 
@@ -149,6 +150,13 @@
         self.expMonthTextField.text = @"11";
         self.expYearTextField.text = @"17";
         self.cvvTextField.text = @"123";
+        self.iter++;
+        break;
+        case 4:
+        self.cardNumberTextField.text = @"378282246310005";
+        self.expMonthTextField.text = @"11";
+        self.expYearTextField.text = @"17";
+        self.cvvTextField.text = @"123";
         self.iter = 0;
         break;
         default:
@@ -197,4 +205,20 @@
     return nil;
 }
     
+- (BOOL)lengthHandlerFor:(UITextField *)textField aNewString:(NSString *)newString aMaxLength:(NSUInteger)maxLength {
+    if ([textField isKindOfClass: [PSCVVTextField class]]) {
+        return newString.length <= [self cvvMaxLength: self.cardNumberTextField.text];
+    }
+    if ([textField isKindOfClass: [PSCardNumberTextField class]]) {
+        if (self.cvvTextField.text.length > [self cvvMaxLength: newString]) {
+            self.cvvTextField.text = [self.cvvTextField.text substringToIndex:3];
+        }
+    }
+    return newString.length <= maxLength;
+}
+    
+- (NSUInteger)cvvMaxLength:(NSString *)cardNumber {
+    return [PSUtils isCvv4Length:cardNumber] ? 4 : 3;
+}
+
 @end
