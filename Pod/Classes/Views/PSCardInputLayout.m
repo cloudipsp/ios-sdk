@@ -148,14 +148,14 @@
         case 3:
         self.cardNumberTextField.text = @"4444555566661111";
         self.expMonthTextField.text = @"11";
-        self.expYearTextField.text = @"17";
+        self.expYearTextField.text = @"18";
         self.cvvTextField.text = @"123";
         self.iter++;
         break;
         case 4:
         self.cardNumberTextField.text = @"378282246310005";
         self.expMonthTextField.text = @"11";
-        self.expYearTextField.text = @"17";
+        self.expYearTextField.text = @"18";
         self.cvvTextField.text = @"123";
         self.iter = 0;
         break;
