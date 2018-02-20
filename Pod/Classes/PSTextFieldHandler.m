@@ -85,10 +85,11 @@
     return YES;
 }
     
-#available(iOS 10.0, *)
 - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason {
-    if ([self.next respondsToSelector:@selector(textFieldDidEndEditing:reason:)]) {
-        [self.next textFieldDidEndEditing:textField reason:reason];
+    if (@available(iOS 10.0, *)) {
+        if ([self.next respondsToSelector:@selector(textFieldDidEndEditing:reason:)]) {
+            [self.next textFieldDidEndEditing:textField reason:reason];
+        }
     }
 }
     
