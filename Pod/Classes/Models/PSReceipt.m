@@ -80,7 +80,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, assign) NSInteger cardBin;
 @property (nonatomic, assign) NSInteger amount;
 @property (nonatomic, assign) NSInteger paymentId;
-@property (nonatomic, assign) PSCurrency currency;
+@property (nonatomic, strong) NSString *currency;
 @property (nonatomic, assign) PSReceiptStatus status;
 @property (nonatomic, assign) PSReceiptTransationType transationType;
 @property (nonatomic, strong) NSString *senderCellPhone;
@@ -94,12 +94,12 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, strong) NSDate *recTokenLifeTime;
 @property (nonatomic, assign) NSInteger reversalAmount;
 @property (nonatomic, assign) NSInteger settlementAmount;
-@property (nonatomic, assign) PSCurrency settlementCurrency;
+@property (nonatomic, assign) NSString *settlementCurrency;
 @property (nonatomic, strong) NSDate *settlementDate;
 @property (nonatomic, assign) NSInteger eci;
 @property (nonatomic, assign) NSInteger fee;
 @property (nonatomic, assign) NSInteger actualAmount;
-@property (nonatomic, assign) PSCurrency actualCurrency;
+@property (nonatomic, strong) NSString *actualCurrency;
 @property (nonatomic, strong) NSString *paymentSystem;
 @property (nonatomic, assign) PSReceiptVerificationStatus verificationStatus;
 @property (nonatomic, strong) NSString *signature;
@@ -114,7 +114,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
                    aCardBin:(NSInteger)cardBin
                     aAmount:(NSInteger)amount
                  aPaymentId:(NSInteger)paymentId
-                  acurrency:(PSCurrency)currency
+                  acurrency:(NSString *)currency
                     aStatus:(PSReceiptStatus)status
             aTransationType:(PSReceiptTransationType)transationType
            aSenderCellPhone:(NSString *)senderCellPhone
@@ -128,12 +128,12 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
           aRecTokenLifeTime:(NSDate *)recTokenLifeTime
             aReversalAmount:(NSInteger)reversalAmount
           aSettlementAmount:(NSInteger)settlementAmount
-        aSettlementCurrency:(PSCurrency)settlementCurrency
+        aSettlementCurrency:(NSString *)settlementCurrency
             aSettlementDate:(NSDate *)settlementDate
                        aEci:(NSInteger)eci
                        aFee:(NSInteger)fee
               aActualAmount:(NSInteger)actualAmount
-            aActualCurrency:(PSCurrency)actualCurrency
+            aActualCurrency:(NSString *)actualCurrency
              aPaymentSystem:(NSString *)paymentSystem
         aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
                  aSignature:(NSString *)signature

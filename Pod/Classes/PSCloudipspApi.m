@@ -125,7 +125,7 @@ const NSInteger WITH_3DS = 1;
                    aCardBin:(NSInteger)cardBin
                     aAmount:(NSInteger)amount
                  aPaymentId:(NSInteger)paymentId
-                  acurrency:(PSCurrency)currency
+                  acurrency:(NSString *)currency
                     aStatus:(PSReceiptStatus)status
             aTransationType:(PSReceiptTransationType)transationType
            aSenderCellPhone:(NSString *)senderCellPhone
@@ -139,12 +139,12 @@ const NSInteger WITH_3DS = 1;
           aRecTokenLifeTime:(NSDate *)recTokenLifeTime
             aReversalAmount:(NSInteger)reversalAmount
           aSettlementAmount:(NSInteger)settlementAmount
-        aSettlementCurrency:(PSCurrency)settlementCurrency
+        aSettlementCurrency:(NSString *)settlementCurrency
             aSettlementDate:(NSDate *)settlementDate
                        aEci:(NSInteger)eci
                        aFee:(NSInteger)fee
               aActualAmount:(NSInteger)actualAmount
-            aActualCurrency:(PSCurrency)actualCurrency
+            aActualCurrency:(NSString *)actualCurrency
              aPaymentSystem:(NSString *)paymentSystem
         aVerificationStatus:(PSReceiptVerificationStatus)verificationStatus
                  aSignature:(NSString *)signature;
@@ -211,25 +211,25 @@ PSLocalization *_localization;
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-    {
-        if (error) {
-            error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeNetworkAccess userInfo:nil];
-            [delegate onPaidFailure:error];
-        } else {
-            @try {
-                success(data);
-            }
-            @catch (NSException *exception) {
-                NSError *error;
-                if (exception.userInfo == nil) {
-                    error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeUnknown userInfo:nil];
-                } else {
-                    error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeFailure userInfo:exception.userInfo];
-                }
-                [delegate onPaidFailure:error];
-                
-            }
-    }}];
+                                          {
+                                              if (error) {
+                                                  error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeNetworkAccess userInfo:nil];
+                                                  [delegate onPaidFailure:error];
+                                              } else {
+                                                  @try {
+                                                      success(data);
+                                                  }
+                                                  @catch (NSException *exception) {
+                                                      NSError *error;
+                                                      if (exception.userInfo == nil) {
+                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeUnknown userInfo:nil];
+                                                      } else {
+                                                          error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeFailure userInfo:exception.userInfo];
+                                                      }
+                                                      [delegate onPaidFailure:error];
+                                                      
+                                                  }
+                                              }}];
     
     [postDataTask resume];
 }
@@ -267,7 +267,7 @@ PSLocalization *_localization;
                                          @"order_desc" : order.about,
                                          @"delayed" : @"n",
                                          @"amount" : [NSString stringWithFormat:@"%ld", (long)order.amount],
-                                         @"currency" : getCurrencyName(order.currency),
+                                         @"currency" : order.currency,
                                          @"merchant_data" : @"[]",
                                          @"signature" : @"button"
                                          }];
@@ -329,7 +329,7 @@ PSLocalization *_localization;
                                 @"card", @"payment_system",
                                 token, @"token",
                                 email, @"email", nil];
-
+    
     [self call:@"/api/checkout/ajax" aParams:dictionary onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
         if ([URL_CALLBACK isEqualToString:url]) {
@@ -370,15 +370,6 @@ PSLocalization *_localization;
     @catch (NSException *exception) {
         settlementDate = nil;
     }
-    
-    NSString *settlementCcy = [orderData objectForKey:@"settlement_currency"];
-    PSCurrency settlementCcyEnum = getCurrency(settlementCcy);
-    
-    NSString *actualCcy = [orderData objectForKey:@"actual_currency"];
-    PSCurrency actualCcyEnum = getCurrency(actualCcy);
-    
-    NSString *currency = [orderData objectForKey:@"currency"];
-    PSCurrency currencyEnum = getCurrency(currency);
     
     NSString *verificationStatus = [orderData objectForKey:@"verification_status"];
     PSReceiptVerificationStatus verificationStatusEnum;
@@ -427,7 +418,8 @@ PSLocalization *_localization;
                                  aCardBin:[[orderData objectForKey:@"card_bin"] integerValue]
                                   aAmount:[[orderData objectForKey:@"amount"] integerValue]
                                aPaymentId:[[orderData objectForKey:@"payment_id"] integerValue]
-                                acurrency:currencyEnum aStatus:statusEnum
+                                acurrency:[orderData objectForKey:@"currency"]
+                                  aStatus:statusEnum
                           aTransationType:transitionTypeEnum
                          aSenderCellPhone:[orderData objectForKey:@"sender_cell_phone"]
                            aSenderAccount:[orderData objectForKey:@"sender_account"]
@@ -439,12 +431,12 @@ PSLocalization *_localization;
                         aRecTokenLifeTime:recTokenLifeTime
                           aReversalAmount:reversalAmount
                         aSettlementAmount:settlementAmount
-                      aSettlementCurrency:settlementCcyEnum
+                      aSettlementCurrency:[orderData objectForKey:@"settlement_currency"]
                           aSettlementDate:settlementDate
                                      aEci:eci
                                      aFee:fee
                             aActualAmount:actualAmount
-                          aActualCurrency:actualCcyEnum
+                          aActualCurrency:[orderData objectForKey:@"actual_currency"]
                            aPaymentSystem:[orderData objectForKey:@"payment_system"]
                       aVerificationStatus:verificationStatusEnum
                                aSignature:[orderData objectForKey:@"signature"]];
@@ -454,18 +446,18 @@ PSLocalization *_localization;
     void (^successCallback)(NSData * data) = ^(NSData *data) {
         NSString *htmlPageContent = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         PSPayConfirmation *confirmation = [[PSPayConfirmation alloc] initPayConfirmation:htmlPageContent
-                                                                                aUrl:checkout.url
-                                                                         onConfirmed:^(NSString *jsonOfConfirmation)
-                                         {
-                                             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonOfConfirmation dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-                                             NSString *url = [json objectForKey:@"url"];
-                                             if (![url isEqualToString:URL_CALLBACK]) {
-                                                 @throw [NSException exceptionWithName:@"" reason:nil userInfo:nil];
-                                             }
-                                             NSDictionary *orderData = [json objectForKey:@"params"];
-                                             [self checkResponse:orderData];
-                                             [delegate onPaidProcess:[self parseOrder:orderData]];
-                                         }];
+                                                                                    aUrl:checkout.url
+                                                                             onConfirmed:^(NSString *jsonOfConfirmation)
+                                           {
+                                               NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonOfConfirmation dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+                                               NSString *url = [json objectForKey:@"url"];
+                                               if (![url isEqualToString:URL_CALLBACK]) {
+                                                   @throw [NSException exceptionWithName:@"" reason:nil userInfo:nil];
+                                               }
+                                               NSDictionary *orderData = [json objectForKey:@"params"];
+                                               [self checkResponse:orderData];
+                                               [delegate onPaidProcess:[self parseOrder:orderData]];
+                                           }];
         [self.cloudipspView confirm:confirmation];
         [delegate onWaitConfirm];
     };
@@ -552,7 +544,7 @@ PSLocalization *_localization;
             return [PSLocalization en];
         }
     } else {
-       return _localization;
+        return _localization;
     }
 }
 

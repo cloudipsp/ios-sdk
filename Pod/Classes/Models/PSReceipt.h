@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "PSCard.h"
-#import "PSCurrency.h"
 
 typedef enum : NSUInteger {
     PSReceiptStatusUnknown,
@@ -41,7 +40,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) NSInteger cardBin;
 @property (nonatomic, assign, readonly) NSInteger amount;
 @property (nonatomic, assign, readonly) NSInteger paymentId;
-@property (nonatomic, assign, readonly) PSCurrency currency;
+@property (nonatomic, strong, readonly) NSString *currency;
 @property (nonatomic, assign, readonly) PSReceiptStatus status;
 @property (nonatomic, assign, readonly) PSReceiptTransationType transationType;
 @property (nonatomic, strong, readonly) NSString *senderCellPhone;
@@ -55,12 +54,12 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong, readonly) NSDate *recTokenLifeTime;
 @property (nonatomic, assign, readonly) NSInteger reversalAmount;
 @property (nonatomic, assign, readonly) NSInteger settlementAmount;
-@property (nonatomic, assign, readonly) PSCurrency settlementCurrency;
+@property (nonatomic, strong, readonly) NSString *settlementCurrency;
 @property (nonatomic, strong, readonly) NSDate *settlementDate;
 @property (nonatomic, assign, readonly) NSInteger eci;
 @property (nonatomic, assign, readonly) NSInteger fee;
 @property (nonatomic, assign, readonly) NSInteger actualAmount;
-@property (nonatomic, assign, readonly) PSCurrency actualCurrency;
+@property (nonatomic, strong, readonly) NSString *actualCurrency;
 @property (nonatomic, strong, readonly) NSString *paymentSystem;
 @property (nonatomic, assign, readonly) PSReceiptVerificationStatus verificationStatus;
 @property (nonatomic, strong, readonly) NSString *signature;

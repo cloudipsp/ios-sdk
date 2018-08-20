@@ -55,7 +55,7 @@ PSLang langWithString(NSString *str) {
 @interface PSOrder ()
 
 @property (nonatomic, assign) NSInteger amount;
-@property (nonatomic, assign) PSCurrency currency;
+@property (nonatomic, strong) NSString *currency;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *about;
 @property (nonatomic, strong) NSDictionary *arguments;
@@ -67,6 +67,18 @@ PSLang langWithString(NSString *str) {
 
 - (instancetype)initOrder:(NSInteger)amount
                 aCurrency:(PSCurrency)currency
+              aIdentifier:(NSString * _Nonnull )identifier
+                   aAbout:(NSString * _Nonnull )about
+{
+    
+    
+    return [self initOrder:amount
+           aStringCurrency:getCurrencyName(currency)
+               aIdentifier:identifier aAbout:about];
+}
+
+- (instancetype)initOrder:(NSInteger)amount
+          aStringCurrency:(NSString *)currency
               aIdentifier:(NSString * _Nonnull )identifier
                    aAbout:(NSString * _Nonnull )about
 {

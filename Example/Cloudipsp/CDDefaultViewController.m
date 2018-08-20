@@ -125,7 +125,7 @@
 }
     
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 5;
+    return 6;
 }
     
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -138,7 +138,7 @@
 #pragma mark - UIPickerViewDelegate
     
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.currencyTextField.text = getCurrencyName(row +1);
+    self.currencyTextField.text = getCurrencyName(row + 1);
 }
 
 #pragma mark - UITextFieldDelegate

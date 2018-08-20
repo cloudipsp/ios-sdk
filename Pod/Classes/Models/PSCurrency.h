@@ -14,7 +14,8 @@ typedef enum : NSUInteger {
     PSCurrencyRUB,
     PSCurrencyUSD,
     PSCurrencyEUR,
-    PSCurrencyGBP
+    PSCurrencyGBP,
+    PSCurrencyKZT
 } PSCurrency;
 
 NSString *getCurrencyName(PSCurrency сurrency);

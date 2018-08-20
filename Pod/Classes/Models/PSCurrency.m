@@ -15,7 +15,8 @@ NSString *stringWithCurrency(PSCurrency sign) {
                      @"RUB",
                      @"USD",
                      @"EUR",
-                     @"GBP"
+                     @"GBP",
+                     @"KZT"
                      ];
     return (NSString *)[arr objectAtIndex:sign];
 }
@@ -27,7 +28,8 @@ PSCurrency currencyWithString(NSString *str) {
                      @"RUB",
                      @"USD",
                      @"EUR",
-                     @"GBP"
+                     @"GBP",
+                     @"KZT"
                      ];
     return (PSCurrency)[arr indexOfObject:str];
 }
