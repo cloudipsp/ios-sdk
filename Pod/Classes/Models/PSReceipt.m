@@ -94,7 +94,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, strong) NSDate *recTokenLifeTime;
 @property (nonatomic, assign) NSInteger reversalAmount;
 @property (nonatomic, assign) NSInteger settlementAmount;
-@property (nonatomic, assign) NSString *settlementCurrency;
+@property (nonatomic, strong) NSString *settlementCurrency;
 @property (nonatomic, strong) NSDate *settlementDate;
 @property (nonatomic, assign) NSInteger eci;
 @property (nonatomic, assign) NSInteger fee;
