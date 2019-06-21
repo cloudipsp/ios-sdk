@@ -88,11 +88,11 @@ API_AVAILABLE(ios(11.0))
     
 - (void)onPaidProcess:(PSReceipt *)receipt {
     [self.origin onPaidProcess:receipt];
-//    if (receipt.status == PSReceiptStatusDeclined) {
-//        self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:nil]);
-//    } else {
+    if (receipt.status == PSReceiptStatusDeclined) {
+        self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:nil]);
+    } else {
         self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusSuccess errors:nil]);
-//    }
+    }
 }
     
 - (void)onPaidFailure:(NSError *)error {
