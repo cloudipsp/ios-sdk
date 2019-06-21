@@ -9,11 +9,15 @@
 #import "PSPayConfirmation.h"
 #import "PSCloudipspApi.h"
 #import "PSLocalization.h"
-#import "PSCurrency.h"
-#import "PSReceipt.h"
-#import "PSOrder.h"
 #import "PSUtils.h"
-#import "PSCard.h"
+
+#import "Models/PSCard.h"
+#import "Models/PSCurrency.h"
+#import "Models/PSReceipt.h"
+#import "Models/PSOrder.h"
+
+#import <PassKit/PassKit.h>
+
 
 #pragma mark - PSPayCallbackDelegateMainWrapper
 
@@ -53,6 +57,54 @@
     });
 }
 
+@end
+
+
+
+#pragma mark - PSPayCallbackDelegateApplePayWrapper
+
+API_AVAILABLE(ios(11.0))
+@interface PSPayCallbackDelegateApplePayWrapper : NSObject<PSPayCallbackDelegate>
+    
++ (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin
+              andApplePayCallback:(void (^)(PKPaymentAuthorizationResult *))applePayCallback;
+    
+@property (nonatomic, strong) id<PSPayCallbackDelegate> origin;
+@property (nonatomic, strong) void (^applePayCallback)(PKPaymentAuthorizationResult *);
+    
+@end
+
+@implementation PSPayCallbackDelegateApplePayWrapper
+    
++ (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin
+              andApplePayCallback:(void (^)(PKPaymentAuthorizationResult *))applePayCallback {
+    PSPayCallbackDelegateApplePayWrapper *wrapper = [[PSPayCallbackDelegateApplePayWrapper alloc] init];
+    
+    wrapper.origin = origin;
+    wrapper.applePayCallback = applePayCallback;
+    
+    return wrapper;
+}
+    
+- (void)onPaidProcess:(PSReceipt *)receipt {
+    [self.origin onPaidProcess:receipt];
+//    if (receipt.status == PSReceiptStatusDeclined) {
+//        self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:nil]);
+//    } else {
+        self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusSuccess errors:nil]);
+//    }
+}
+    
+- (void)onPaidFailure:(NSError *)error {
+    [self.origin onPaidFailure:error];
+
+    self.applePayCallback([[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:@[error]]);
+}
+    
+- (void)onWaitConfirm {
+    [self.origin onWaitConfirm];
+}
+    
 @end
 
 #pragma mark - PSSendData
@@ -158,14 +210,20 @@ NSString * const DATE_FORMAT = @"dd.MM.yyyy";
 
 PSLocalization *_localization;
 
-@interface PSCloudipspApi () <NSURLSessionDelegate>
+@interface PSCloudipspApi () <NSURLSessionDelegate, PKPaymentAuthorizationViewControllerDelegate>
 
 @property (nonatomic, assign) NSInteger merchantId;
+@property (nonatomic, strong) PSOrder *applePayOrder;
+@property (nonatomic, strong) id<PSPayCallbackDelegate> applePayPayCallbackDelegate;
 @property (nonatomic, weak) id<PSCloudipspView> cloudipspView;
 
 @end
 
 @implementation PSCloudipspApi
+
++ (BOOL)supportsApplePay {
+    return [PKPaymentAuthorizationViewController canMakePayments];
+}
 
 + (instancetype)apiWithMerchant:(NSInteger)merchantId andCloudipspView:(id<PSCloudipspView>)cloudipspView;
 {
@@ -180,7 +238,8 @@ PSLocalization *_localization;
    onSuccess:(void (^)(NSDictionary *response))success
  payDelegate:(id<PSPayCallbackDelegate>)delegate {
     [self callByUrl:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]] aParams:@{@"request" : params} onSuccess:^(NSData *data) {
-        success([self parseResponse:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]]);
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        success([self parseResponse: json]);
     } payDelegate:delegate];
 }
 
@@ -247,7 +306,7 @@ PSLocalization *_localization;
 
 - (void)checkResponse:(NSDictionary *)response {
     NSString *str = [response objectForKey:@"response_status"];
-    if (![str isEqualToString:@"success"]) {
+    if (str != nil && ![str isEqualToString:@"success"]) {
         NSString *reason = [NSString stringWithFormat:@"%@, %@",[response objectForKey:@"error_message"], [response objectForKey:@"error_code"]];
         NSDictionary *userInfo = @{@"error_code" : [response objectForKey:@"error_code"],
                                    @"error_message" : [response objectForKey:@"error_message"],
@@ -527,6 +586,112 @@ PSLocalization *_localization;
     } payDelegate:wrapper];
 }
 
+- (UIViewController *)applePay:(NSString *)appleMerchantId
+                        aOrder:(PSOrder *)order
+          aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate {
+    PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
+    paymentRequest.countryCode = @"US";
+    paymentRequest.supportedNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    paymentRequest.merchantCapabilities = PKMerchantCapability3DS;
+    paymentRequest.merchantIdentifier = appleMerchantId;
+    paymentRequest.currencyCode = order.currency;
+
+    NSDecimalNumber *amount = [[NSDecimalNumber alloc] initWithMantissa:order.amount exponent:-2 isNegative:NO];
+    PKPaymentSummaryItem *item = [PKPaymentSummaryItem summaryItemWithLabel: order.about amount:amount];
+    paymentRequest.paymentSummaryItems = @[item];
+
+    self.applePayOrder = order;
+    self.applePayPayCallbackDelegate = payCallbackDelegate;
+
+    PKPaymentAuthorizationViewController *controller = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:paymentRequest];
+    controller.delegate = self;
+    return controller;
+}
+
+
+    
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+    
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
+                       didAuthorizePayment:(PKPayment *)payment
+                                   handler:(void (^)(PKPaymentAuthorizationResult *result))completion
+    API_AVAILABLE(ios(11.0))
+{
+    PSPayCallbackDelegateApplePayWrapper *applePayWrapper = [PSPayCallbackDelegateApplePayWrapper wrapperWithOrigin:self.applePayPayCallbackDelegate andApplePayCallback:completion];
+    
+    [self processApplePay:payment payDelegate:applePayWrapper];
+}
+
+- (void)processApplePay:(PKPayment *)payment payDelegate:(id<PSPayCallbackDelegate>)delegate
+    API_AVAILABLE(ios(11.0))
+{
+    NSError *jsonError;
+        
+    NSDictionary *paymentData = [NSJSONSerialization JSONObjectWithData:payment.token.paymentData options:NSJSONReadingMutableContainers error:&jsonError];
+    NSDictionary *paymentMethod = @{
+                                        @"displayName":payment.token.paymentMethod.displayName,
+                                        @"network":payment.token.paymentMethod.network,
+                                        @"type": [PSCloudipspApi paymentMethodName: payment.token.paymentMethod.type],
+                                        };
+    NSDictionary *paymentToken = @{
+                                       @"paymentData": paymentData,
+                                       @"paymentMethod": paymentMethod,
+                                       @"transactionIdentifier": payment.token.transactionIdentifier
+                                       };
+    NSMutableDictionary *data = [NSMutableDictionary new];
+    [data setObject:paymentToken forKey:@"token"];
+    if (payment.shippingContact != nil) {
+        NSDictionary *shipingContact = @{
+                                             @"emailAddress": payment.shippingContact.emailAddress,
+                                             @"familyName": payment.shippingContact.name.familyName,
+                                             @"givenName": payment.shippingContact.name.givenName,
+                                             @"phoneNumber": payment.shippingContact.phoneNumber.stringValue,
+                                             };
+        [data setObject:shipingContact forKey:@"shippingContact"];
+    }
+        
+    PSPayCallbackDelegateMainWrapper *mainDelegate = [PSPayCallbackDelegateMainWrapper wrapperWithOrigin:delegate];
+    
+    [self getToken:self.applePayOrder onSuccess:^(NSString *token) {
+        [self checkoutApplePay:data aToken:token aEmail:self.applePayOrder.email onSuccess:^(PSCheckout *checkout) {
+            if (checkout.action == WITHOUT_3DS) {
+                [self order:token onSuccess:^(PSReceipt *receipt) {
+                    [mainDelegate onPaidProcess:receipt];
+                } payDelegate:mainDelegate];
+            } else {
+                [self url3ds:checkout aPayCallbackDelegate:mainDelegate];
+            }
+        } payDelegate:mainDelegate];
+    } payDelegate:mainDelegate];
+}
+
+- (void)checkoutApplePay:(NSDictionary *)paymentData
+                  aToken:(NSString *)token
+                  aEmail:(NSString *)email
+               onSuccess:(void (^)(PSCheckout *checkout))success
+             payDelegate:(id<PSPayCallbackDelegate>)delegate {
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                paymentData, @"data",
+                                @"mobile_pay", @"payment_system",
+                                token, @"token",
+                                email, @"email", nil];
+    
+    [self call:@"/api/checkout/ajax" aParams:dictionary onSuccess:^(NSDictionary *response) {
+        NSString *url = [response objectForKey:@"url"];
+        if ([URL_CALLBACK isEqualToString:url]) {
+            PSCheckout *checkout = [[PSCheckout alloc] initCheckout:nil aUrl:url aAction:WITHOUT_3DS];
+            success(checkout);
+        } else {
+            NSDictionary *sendData = [response objectForKey:@"send_data"];
+            NSString *md = [NSString stringWithFormat:@"%@",[sendData objectForKey:@"MD"]];
+            PSCheckout *checkout = [[PSCheckout alloc] initCheckout:[[PSSendData alloc] initSendData:md aPaReq:[sendData objectForKey:@"PaReq"] aTermUrl:[sendData objectForKey:@"TermUrl"]] aUrl:url aAction:WITH_3DS];
+            success(checkout);
+        }
+    } payDelegate:delegate];
+}
+    
 #pragma mark - Localization
 
 + (void)setLocalization:(PSLocalization *)localization {
@@ -545,6 +710,21 @@ PSLocalization *_localization;
         }
     } else {
         return _localization;
+    }
+}
+
++ (NSString *)paymentMethodName:(PKPaymentMethodType)type API_AVAILABLE(ios(9.0)){
+    switch (type) {
+        case PKPaymentMethodTypeDebit:
+            return @"debit";
+        case PKPaymentMethodTypeCredit:
+            return @"credit";
+        case PKPaymentMethodTypePrepaid:
+            return @"prepaid";
+        case PKPaymentMethodTypeStore:
+            return @"store";
+        default:
+            return @"unknown";
     }
 }
 

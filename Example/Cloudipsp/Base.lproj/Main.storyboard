@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jlH-81-bEN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jlH-81-bEN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -107,7 +107,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Y7r-uz-nyw">
-                                                <rect key="frame" x="168.5" y="247" width="37" height="37"/>
+                                                <rect key="frame" x="169" y="247" width="37" height="37"/>
                                                 <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </activityIndicatorView>
                                         </subviews>
@@ -305,16 +305,28 @@
                                     <action selector="customProgrammaticallyClicked:" destination="Sbf-kw-yn6" eventType="touchUpInside" id="nPR-Ul-rN4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-F6-Wpc" customClass="PKPaymentButton">
+                                <rect key="frame" x="20" y="394" width="335" height="30"/>
+                                <connections>
+                                    <action selector="applePayClicked:" destination="Sbf-kw-yn6" eventType="touchUpInside" id="TJt-u9-hOl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="z5d-F6-Wpc" secondAttribute="trailing" constant="4" id="1C7-ea-Qev"/>
                             <constraint firstItem="NkT-iO-3ep" firstAttribute="top" secondItem="h1R-8Y-6uu" secondAttribute="bottom" constant="8" symbolic="YES" id="4DR-0v-rU0"/>
                             <constraint firstItem="h1R-8Y-6uu" firstAttribute="centerY" secondItem="v7w-B1-487" secondAttribute="centerY" id="989-xI-1OG"/>
+                            <constraint firstItem="z5d-F6-Wpc" firstAttribute="top" secondItem="NkT-iO-3ep" secondAttribute="bottom" constant="7.5" id="GG6-g6-acU"/>
                             <constraint firstAttribute="trailing" secondItem="NkT-iO-3ep" secondAttribute="trailing" constant="20" symbolic="YES" id="GNb-vu-m4l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z5d-F6-Wpc" secondAttribute="trailing" constant="4" id="Pxf-15-0gi"/>
+                            <constraint firstItem="z5d-F6-Wpc" firstAttribute="leading" secondItem="v7w-B1-487" secondAttribute="leadingMargin" constant="4" id="XkJ-yM-Jv8"/>
                             <constraint firstAttribute="trailing" secondItem="h1R-8Y-6uu" secondAttribute="trailing" constant="20" symbolic="YES" id="Zzf-Q5-ZJ3"/>
                             <constraint firstItem="NkT-iO-3ep" firstAttribute="leading" secondItem="v7w-B1-487" secondAttribute="leading" constant="20" symbolic="YES" id="awu-ro-bJp"/>
                             <constraint firstItem="h1R-8Y-6uu" firstAttribute="top" secondItem="xl8-4Y-RgQ" secondAttribute="bottom" constant="8" symbolic="YES" id="bzS-hM-Eik"/>
                             <constraint firstItem="h1R-8Y-6uu" firstAttribute="leading" secondItem="v7w-B1-487" secondAttribute="leading" constant="20" symbolic="YES" id="jvF-7j-yYG"/>
+                            <constraint firstItem="z5d-F6-Wpc" firstAttribute="leading" secondItem="v7w-B1-487" secondAttribute="leadingMargin" constant="4" id="tPB-dd-We8"/>
+                            <constraint firstItem="z5d-F6-Wpc" firstAttribute="top" secondItem="NkT-iO-3ep" secondAttribute="bottom" constant="7.5" id="ufT-WR-kyH"/>
                             <constraint firstItem="xl8-4Y-RgQ" firstAttribute="leading" secondItem="v7w-B1-487" secondAttribute="leading" constant="20" symbolic="YES" id="uyw-MW-nQz"/>
                             <constraint firstAttribute="trailing" secondItem="xl8-4Y-RgQ" secondAttribute="trailing" constant="20" symbolic="YES" id="xMz-KN-fCu"/>
                         </constraints>
@@ -446,7 +458,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jGa-LD-y31">
-                                                <rect key="frame" x="168.5" y="153.5" width="37" height="37"/>
+                                                <rect key="frame" x="169" y="153.5" width="37" height="37"/>
                                                 <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </activityIndicatorView>
                                         </subviews>

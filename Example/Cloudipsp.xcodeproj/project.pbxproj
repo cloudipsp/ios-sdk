@@ -15,7 +15,6 @@
 		6003F59E195388D20070C39A /* CDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* CDAppDelegate.m */; };
 		6003F5A7195388D20070C39A /* CDDefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* CDDefaultViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
-		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
@@ -27,8 +26,8 @@
 		85E4DB611F06C2AE007EC4C7 /* CDStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E4DB601F06C2AE007EC4C7 /* CDStartViewController.m */; };
 		85E4DB6E1F096931007EC4C7 /* CDCustomStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E4DB6D1F096931007EC4C7 /* CDCustomStoryboardViewController.m */; };
 		85FBEC311C60CE8100536DF1 /* CDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FBEC2E1C60CE8100536DF1 /* CDResultViewController.m */; };
-		9E5763F0CAFD12CF742FF9A8 /* Pods_Cloudipsp_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1ADEE125F239546A156D67 /* Pods_Cloudipsp_Tests.framework */; };
-		CB021DEA92576D5F1DD0B7D7 /* Pods_Cloudipsp_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E382E6A95ACEB080932AF622 /* Pods_Cloudipsp_Example.framework */; };
+		93919ED68D11A940CF13FA1D /* Pods_Cloudipsp_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E621DE684A946DC3C380467F /* Pods_Cloudipsp_Example.framework */; };
+		E774015303EFB1F52DA6BBD7 /* Pods_Cloudipsp_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D7FB3FA480B581EADB33F5 /* Pods_Cloudipsp_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B1ADEE125F239546A156D67 /* Pods_Cloudipsp_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42D7FB3FA480B581EADB33F5 /* Pods_Cloudipsp_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52345EC1E9A61E141C87CA2D /* Pods-Cloudipsp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Cloudipsp_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudipsp_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,7 +57,6 @@
 		6003F5A6195388D20070C39A /* CDDefaultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDDefaultViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* Cloudipsp_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cloudipsp_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
@@ -88,8 +86,12 @@
 		9303EC2928F795F6031736B2 /* Pods-Cloudipsp_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AACE6F1A8FF6AB48B8858F40 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C32B3BF3E0F7A99418DF1ADC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C70269CB227B27190045F4DC /* Pods-Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = "Pods-Cloudipsp_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C70269CD227B27C10045F4DC /* Cloudipsp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cloudipsp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7C872FF22BCD44F00800219 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		C7DEF750227B02D600C3DF2B /* Cloudipsp_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cloudipsp_Example.entitlements; sourceTree = "<group>"; };
 		E2C4C536459AD8DFFBC080E7 /* Pods-Cloudipsp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudipsp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E382E6A95ACEB080932AF622 /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E621DE684A946DC3C380467F /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloudipsp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				CB021DEA92576D5F1DD0B7D7 /* Pods_Cloudipsp_Example.framework in Frameworks */,
+				93919ED68D11A940CF13FA1D /* Pods_Cloudipsp_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				9E5763F0CAFD12CF742FF9A8 /* Pods_Cloudipsp_Tests.framework in Frameworks */,
+				E774015303EFB1F52DA6BBD7 /* Pods_Cloudipsp_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +133,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				C7DEF750227B02D600C3DF2B /* Cloudipsp_Example.entitlements */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for Cloudipsp */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -153,12 +155,14 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7C872FF22BCD44F00800219 /* PassKit.framework */,
+				C70269CD227B27C10045F4DC /* Cloudipsp.framework */,
+				C70269CB227B27190045F4DC /* Pods-Cloudipsp_Example.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				6003F5AF195388D20070C39A /* XCTest.framework */,
-				E382E6A95ACEB080932AF622 /* Pods_Cloudipsp_Example.framework */,
-				1B1ADEE125F239546A156D67 /* Pods_Cloudipsp_Tests.framework */,
+				E621DE684A946DC3C380467F /* Pods_Cloudipsp_Example.framework */,
+				42D7FB3FA480B581EADB33F5 /* Pods_Cloudipsp_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,7 +245,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				0BA87D55AE7EF821F2C93215 /* [CP] Embed Pods Frameworks */,
-				D56141178C59CDAB3DEDCED7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,7 +264,6 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				A985AE70CBC51BCBBDDBF8F2 /* [CP] Embed Pods Frameworks */,
-				55FD88DA14453762C4E6D1AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,12 +282,17 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CD;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Nadiia;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = MW535D8DLL;
+						DevelopmentTeam = 4E3JW597ZD;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -294,7 +301,7 @@
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "Cloudipsp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -342,28 +349,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cloudipsp/Cloudipsp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudipsp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55FD88DA14453762C4E6D1AB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		99A8733CB5BED4C59CF4C748 /* [CP] Check Pods Manifest.lock */ = {
@@ -372,13 +367,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cloudipsp_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A985AE70CBC51BCBBDDBF8F2 /* [CP] Embed Pods Frameworks */ = {
@@ -387,13 +385,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cloudipsp/Cloudipsp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudipsp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cloudipsp_Tests/Pods-Cloudipsp_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B47E5432DE3BD50223D1DF49 /* [CP] Check Pods Manifest.lock */ = {
@@ -402,28 +403,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cloudipsp_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D56141178C59CDAB3DEDCED7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloudipsp_Example/Pods-Cloudipsp_Example-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -519,12 +508,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -571,12 +562,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -609,17 +602,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Cloudipsp_Example.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = MW535D8DLL;
+				DEVELOPMENT_TEAM = 4E3JW597ZD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloudipsp/Cloudipsp-Prefix.pch";
 				INFOPLIST_FILE = "Cloudipsp/Cloudipsp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudipsp.sdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d1f93c15-3405-4793-9d99-6baa8726ec89";
-				PROVISIONING_PROFILE_SPECIFIER = "CloudipspExample Dev";
+				PROVISIONING_PROFILE_SPECIFIER = CloudipspSdkExample;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -630,6 +625,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Cloudipsp_Example.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -637,7 +634,7 @@
 				INFOPLIST_FILE = "Cloudipsp/Cloudipsp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudipsp.sdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;

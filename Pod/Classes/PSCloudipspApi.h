@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PassKit/PassKit.h>
 
 @protocol PSCloudipspView;
 @class PSReceipt;
@@ -32,9 +33,17 @@ typedef enum : NSUInteger {
 
 @interface PSCloudipspApi : NSObject
 
++ (BOOL)supportsApplePay;
+
 + (instancetype)apiWithMerchant:(NSInteger)merchantId andCloudipspView:(id<PSCloudipspView>)cloudipspView;
 
-- (void)pay:(PSCard *)card aOrder:(PSOrder *)order aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+- (void)pay:(PSCard *)card
+     aOrder:(PSOrder *)order
+aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+
+- (UIViewController *)applePay:(NSString *)appleMerchantId
+                        aOrder:(PSOrder *)order
+          aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
 + (void)setLocalization:(PSLocalization *)localization;
 + (PSLocalization *)getLocalization;
