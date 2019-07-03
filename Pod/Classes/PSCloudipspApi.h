@@ -41,6 +41,10 @@ typedef enum : NSUInteger {
      aOrder:(PSOrder *)order
 aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
+- (void)payToken:(PSCard *)card
+          aToken:(NSString *)token
+aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+
 - (UIViewController *)applePay:(NSString *)appleMerchantId
                         aOrder:(PSOrder *)order
           aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;

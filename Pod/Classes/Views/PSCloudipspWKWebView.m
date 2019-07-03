@@ -54,8 +54,10 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
         @throw [NSException exceptionWithName:@"NullPointerException" reason:@"confirmation should be not null" userInfo:nil];
     }
     self.confirmation = confirmation;
-    self.navigationDelegate = self;
-    [self loadHTMLString:confirmation.htmlPageContent baseURL:[NSURL URLWithString:confirmation.url]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.navigationDelegate = self;
+        [self loadHTMLString:confirmation.htmlPageContent baseURL:[NSURL URLWithString:confirmation.url]];
+    });
 }
 
 #pragma mark - WKNavigationDelegate

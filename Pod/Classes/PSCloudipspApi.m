@@ -327,8 +327,7 @@ PSLocalization *_localization;
                                          @"delayed" : @"n",
                                          @"amount" : [NSString stringWithFormat:@"%ld", (long)order.amount],
                                          @"currency" : order.currency,
-                                         @"merchant_data" : @"[]",
-                                         @"signature" : @"button"
+                                         @"merchant_data" : @"[]"
                                          }];
     
     if (![PSUtils isEmpty:order.productId]) {
@@ -369,9 +368,8 @@ PSLocalization *_localization;
     }
     [dictionary addEntriesFromDictionary:order.arguments];
     [dictionary setObject:URL_CALLBACK forKey:@"response_url"];
-    [self call:@"/api/button" aParams:dictionary onSuccess:^(NSDictionary *response) {
-        NSString *url = [response objectForKey:@"checkout_url"];
-        NSString *token = [[url componentsSeparatedByString:@"token="] objectAtIndex:1];
+    [self call:@"/api/checkout/token" aParams:dictionary onSuccess:^(NSDictionary *response) {
+        NSString *token = [response objectForKey:@"token"];
         success(token);
     } payDelegate:delegate];
 }
@@ -381,13 +379,15 @@ PSLocalization *_localization;
           aEmail:(NSString *)email
        onSuccess:(void (^)(PSCheckout *checkout))success
      payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                 card.cardNumber, @"card_number",
                                 card.cvv, @"cvv2",
                                 [NSString stringWithFormat:@"%02d%02d", card.mm, card.yy], @"expiry_date",
                                 @"card", @"payment_system",
-                                token, @"token",
-                                email, @"email", nil];
+                                token, @"token", nil];
+    if (email != nil) {
+        [dictionary setObject:email forKey:@"email"];
+    }
     
     [self call:@"/api/checkout/ajax" aParams:dictionary onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
@@ -575,15 +575,35 @@ PSLocalization *_localization;
     
     [self getToken:order onSuccess:^(NSString *token) {
         [self checkout:card aToken:token aEmail:order.email onSuccess:^(PSCheckout *checkout) {
-            if (checkout.action == WITHOUT_3DS) {
-                [self order:token onSuccess:^(PSReceipt *receipt) {
-                    [wrapper onPaidProcess:receipt];
-                } payDelegate:wrapper];
-            } else {
-                [self url3ds:checkout aPayCallbackDelegate:wrapper];
-            }
+            [self payContinue:checkout aToken:token aWrapper:wrapper];
         } payDelegate:wrapper];
     } payDelegate:wrapper];
+}
+
+- (void)payToken:(PSCard *)card aToken:(NSString *)token aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate {
+    if (![card isValidCard]) {
+        @throw [NSException exceptionWithName:@"PSIllegalArgumentException"
+                                       reason:@"Card should be valid"
+                                     userInfo:nil];
+    }
+    
+    PSPayCallbackDelegateMainWrapper *wrapper = [PSPayCallbackDelegateMainWrapper wrapperWithOrigin:payCallbackDelegate];
+    
+    [self checkout:card aToken:token aEmail:nil onSuccess:^(PSCheckout *checkout) {
+        [self payContinue:checkout aToken:token aWrapper:wrapper];
+    } payDelegate:wrapper];
+}
+
+- (void)payContinue:(PSCheckout *)checkout
+                   aToken:(NSString *)token
+                 aWrapper:(PSPayCallbackDelegateMainWrapper *)wrapper {
+    if (checkout.action == WITHOUT_3DS) {
+        [self order:token onSuccess:^(PSReceipt *receipt) {
+            [wrapper onPaidProcess:receipt];
+        } payDelegate:wrapper];
+    } else {
+        [self url3ds:checkout aPayCallbackDelegate:wrapper];
+    }
 }
 
 - (UIViewController *)applePay:(NSString *)appleMerchantId
@@ -607,8 +627,6 @@ PSLocalization *_localization;
     controller.delegate = self;
     return controller;
 }
-
-
     
 - (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
     [controller dismissViewControllerAnimated:YES completion:nil];

@@ -106,7 +106,6 @@
                                       aCurrency:getCurrency(self.currencyTextField.text)
                                     aIdentifier:orderId
                                          aAbout:self.descriptionTextField.text];
-        order.reservationData = @"eyJwaG9uZW1vYmlsZSI6IjE1MDI3MTIzMTEiLCJjdXN0b21lcl9hZGRyZXNzIjoiM3JkIFN0cmVldCIsImN1c3RvbWVyX2NvdW50cnkiOiJDQSIsImN1c3RvbWVyX3N0YXRlIjoiT04iLCJjdXN0b21lcl9uYW1lIjoiWXZvbm5lIFRoaWJhdWx0IiwiY3VzdG9tZXJfY2l0eSI6IkFsYmVydGEiLCJjdXN0b21lcl96aXAiOiI0MiJ9";
         if (![self isEmpty:self.emailTextField.text]) {
             order.email = self.emailTextField.text;
         }

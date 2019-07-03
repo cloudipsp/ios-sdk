@@ -1,6 +1,6 @@
 {
   "name": "Cloudipsp",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "summary": "Library for accepting payments directly from iOS application's clients.",
   "homepage": "https://github.com/cloudipsp/ios-sdk",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/cloudipsp/ios-sdk.git",
-    "tag": "0.4.0"
+    "tag": "0.4.1"
   },
   "platforms": {
     "ios": "8.0"
