@@ -52,14 +52,6 @@ andDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
   withToken:(NSString *)token
 andDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
-- (void)applePay:(NSString *)appleMerchantId
-       withOrder:(PSOrder *)order
-     andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
-
-- (void)applePay:(NSString *)appleMerchantId
-       withToken:(NSString *)token
-     andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
-
 - (void)applePay:(PSOrder *)order
      andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
 
