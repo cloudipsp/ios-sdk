@@ -10,7 +10,7 @@
 #import "CDCustomProgramViewController.h"
 #import <Cloudipsp/PSCloudipsp.h>
 
-@interface CDStartViewController () <PSPayCallbackDelegate>
+@interface CDStartViewController () <PSPayCallbackDelegate, PSApplePayCallbackDelegate>
 
 @property(nonatomic, strong) PSCloudipspApi *api;
 
@@ -34,8 +34,7 @@
         NSString *orderId = [NSString stringWithFormat:@"ApplePayTest_%ld", (long)NSDate.date.timeIntervalSince1970];
         PSOrder *order = [[PSOrder alloc] initOrder:123 aCurrency:PSCurrencyRUB aIdentifier:orderId aAbout:@"Test_ApplePay_:)"];
 
-        UIViewController *applePayViewController = [self.api applePay:@"merchant.fondy.eu" aOrder:order aPayCallbackDelegate:self];
-        [self presentViewController:applePayViewController animated:YES completion:nil];
+        [self.api applePay:order andDelegate:self];
     } else {
         UIAlertController *alert =  [UIAlertController
                                    alertControllerWithTitle:@"Whoops"
@@ -54,11 +53,15 @@
 }
 
 - (void)onPaidFailure:(NSError *)error {
-    
+    NSLog(@"onPaidFailure %@", error);
 }
 
 - (void)onWaitConfirm {
     
+}
+
+- (void)onApplePayNavigate:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

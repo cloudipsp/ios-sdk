@@ -14,6 +14,8 @@ typedef void(^OnConfirmed)(NSString *jsonOfConfirmation);
 
 - (instancetype)initPayConfirmation:(NSString *)htmlPageContent
                                aUrl:(NSString *)url
+                       aCallbackUrl:(NSString *)callbackUrl
+                              aHost:(NSString *)host
                         onConfirmed:(OnConfirmed)onConfirmed;
 
 @end

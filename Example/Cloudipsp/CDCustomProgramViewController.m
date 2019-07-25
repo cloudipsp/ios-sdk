@@ -254,7 +254,7 @@
         PSCard *card = [self.cardInputLayout confirm:self];
         if (card != nil) {
             [self taskWillStarted];
-            [self.api pay:card aOrder:order aPayCallbackDelegate:self];
+            [self.api pay:card withOrder:order andDelegate:self];
         }
     }
 }

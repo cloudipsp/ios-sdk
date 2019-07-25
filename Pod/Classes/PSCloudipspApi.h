@@ -20,6 +20,7 @@ typedef enum : NSUInteger {
     PSPayErrorCodeIllegalServerResponse,
     PSPayErrorCodeNetworkSecurity,
     PSPayErrorCodeNetworkAccess,
+    PSPayErrorCodeApplePayUnsupported,
     PSPayErrorCodeUnknown
 } PSPayErrorCode;
 
@@ -31,6 +32,12 @@ typedef enum : NSUInteger {
 
 @end
 
+@protocol PSApplePayCallbackDelegate <PSPayCallbackDelegate>
+
+- (void)onApplePayNavigate:(UIViewController *)viewController;
+
+@end
+
 @interface PSCloudipspApi : NSObject
 
 + (BOOL)supportsApplePay;
@@ -38,16 +45,26 @@ typedef enum : NSUInteger {
 + (instancetype)apiWithMerchant:(NSInteger)merchantId andCloudipspView:(id<PSCloudipspView>)cloudipspView;
 
 - (void)pay:(PSCard *)card
-     aOrder:(PSOrder *)order
-aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+  withOrder:(PSOrder *)order
+andDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
-- (void)payToken:(PSCard *)card
-          aToken:(NSString *)token
-aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+- (void)pay:(PSCard *)card
+  withToken:(NSString *)token
+andDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
-- (UIViewController *)applePay:(NSString *)appleMerchantId
-                        aOrder:(PSOrder *)order
-          aPayCallbackDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
+- (void)applePay:(NSString *)appleMerchantId
+       withOrder:(PSOrder *)order
+     andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
+
+- (void)applePay:(NSString *)appleMerchantId
+       withToken:(NSString *)token
+     andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
+
+- (void)applePay:(PSOrder *)order
+     andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
+
+- (void)applePayWithToken:(NSString *)token
+              andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
 
 + (void)setLocalization:(PSLocalization *)localization;
 + (PSLocalization *)getLocalization;
