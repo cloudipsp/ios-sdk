@@ -325,6 +325,7 @@ PSLocalization *_localization;
              aCurrency:order.currency
                aAmount:order.amount
                 aAbout:order.about
+                 aInfo:order.applePayInfo
              aDelegate:wrapper
         ];
     } aPayDelegate:wrapper];
@@ -343,6 +344,7 @@ PSLocalization *_localization;
                  aCurrency:receipt.currency
                    aAmount:receipt.amount
                     aAbout:@" "
+                    aInfo:nil
                  aDelegate:wrapper
              ];
         } aPayDelegate:wrapper];
@@ -354,6 +356,7 @@ PSLocalization *_localization;
        aCurrency:(NSString *)currency
          aAmount:(NSInteger)amount
           aAbout:(NSString *)about
+           aInfo:(NSString *)info
        aDelegate:(id<PSApplePayCallbackDelegate>)delegate
 {
     PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
@@ -364,8 +367,17 @@ PSLocalization *_localization;
     paymentRequest.currencyCode = currency;
     
     NSDecimalNumber *convertedAmount = [[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO];
-    PKPaymentSummaryItem *item = [PKPaymentSummaryItem summaryItemWithLabel: about amount:convertedAmount];
-    paymentRequest.paymentSummaryItems = @[item];
+    NSMutableArray *items = [NSMutableArray new];
+    
+    if (info != nil) {
+        PKPaymentSummaryItem *infoItem = [PKPaymentSummaryItem summaryItemWithLabel: info amount:convertedAmount];
+        [items addObject:infoItem];
+    }
+
+    PKPaymentSummaryItem *mainItem = [PKPaymentSummaryItem summaryItemWithLabel: about amount:convertedAmount];
+    [items addObject:mainItem];
+    
+    paymentRequest.paymentSummaryItems = items;
 
     self.applePayPaymentSystem = paymentSystem;
     self.applePayPayCallbackDelegate = delegate;

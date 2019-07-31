@@ -49,6 +49,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) PSLang lang;
 @property (nonatomic, strong) NSString *serverCallbackUrl;
 @property (nonatomic, strong) NSString *reservationData;
+@property (nonatomic, strong) NSString *applePayInfo;
 
 - (instancetype)initOrder:(NSInteger)amount
                 aCurrency:(PSCurrency)currency
