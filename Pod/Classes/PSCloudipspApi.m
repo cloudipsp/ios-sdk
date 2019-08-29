@@ -32,11 +32,13 @@
 @implementation PSPayCallbackDelegateMainWrapper
 
 + (instancetype)wrapperWithOrigin:(id<PSPayCallbackDelegate>)origin {
-    PSPayCallbackDelegateMainWrapper *wrapper = [[PSPayCallbackDelegateMainWrapper alloc] init];
-    
-    wrapper.origin = origin;
-    
-    return wrapper;
+    return [[PSPayCallbackDelegateMainWrapper alloc] initWithOrigin:origin];
+}
+
+- (instancetype)initWithOrigin:(id<PSPayCallbackDelegate>)origin {
+    self = [super init];
+    self.origin = origin;
+    return self;
 }
 
 - (void)onPaidProcess:(PSReceipt *)receipt {
@@ -60,7 +62,18 @@
 @end
 
 
+@interface ApplePayConfig : NSObject
 
+@property (nonatomic, strong) NSDecimalNumber *amount;
+@property (nonatomic, strong) NSString *merchantId;
+@property (nonatomic, strong) NSString *paymentSystem;
+@property (nonatomic, strong) NSString *businessName;
+    
+@end
+
+@implementation ApplePayConfig
+
+@end
 
 #pragma mark - PSApplePayCallbackDelegateMainWrapper
 
@@ -68,23 +81,23 @@
 
 + (instancetype)wrapperWithOrigin:(id<PSApplePayCallbackDelegate>)origin;
 
-@property (nonatomic, strong) id<PSApplePayCallbackDelegate> origin;
+@property (nonatomic, strong) id<PSApplePayCallbackDelegate> originApplePay;
 
 @end
 
 @implementation PSApplePayCallbackDelegateMainWrapper
 
 + (instancetype)wrapperWithOrigin:(id<PSApplePayCallbackDelegate>)origin {
-    PSApplePayCallbackDelegateMainWrapper *wrapper = [[PSApplePayCallbackDelegateMainWrapper alloc] init];
+    PSApplePayCallbackDelegateMainWrapper *wrapper = [[PSApplePayCallbackDelegateMainWrapper alloc] initWithOrigin:origin];
     
-    wrapper.origin = origin;
+    wrapper.originApplePay = origin;
     
     return wrapper;
 }
 
 - (void)onApplePayNavigate:(UIViewController *)viewController {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.origin onApplePayNavigate:viewController];
+        [self.originApplePay onApplePayNavigate:viewController];
     });
 }
 
@@ -318,12 +331,10 @@ PSLocalization *_localization;
     [self assertApplePay];
 
     PSApplePayCallbackDelegateMainWrapper *wrapper = [PSApplePayCallbackDelegateMainWrapper wrapperWithOrigin:delegate];
-    [self applePayConfig:order.currency aSuccess:^(NSString *appleMerchantId, NSString *paymentSystem) {
+    [self applePayConfig:order.currency aAmount:order.amount aToken:nil aSuccess:^(ApplePayConfig *config) {
         self.applePayOrder = order;
-        [self applePay:appleMerchantId
-        aPaymentSystem:paymentSystem
+        [self applePay:config
              aCurrency:order.currency
-               aAmount:order.amount
                 aAbout:order.about
                  aInfo:order.applePayInfo
              aDelegate:wrapper
@@ -338,11 +349,9 @@ PSLocalization *_localization;
     PSApplePayCallbackDelegateMainWrapper *wrapper = [PSApplePayCallbackDelegateMainWrapper wrapperWithOrigin:delegate];
     [self order:token onSuccess:^(PSReceipt *receipt) {
         self.applePayToken = token;
-        [self applePayConfig:receipt.currency aSuccess:^(NSString *appleMerchantId, NSString *paymentSystem) {
-            [self applePay:appleMerchantId
-            aPaymentSystem:paymentSystem
+        [self applePayConfig:nil aAmount:-1 aToken:token aSuccess:^(ApplePayConfig *config) {
+            [self applePay:config
                  aCurrency:receipt.currency
-                   aAmount:receipt.amount
                     aAbout:@" "
                     aInfo:nil
                  aDelegate:wrapper
@@ -351,10 +360,8 @@ PSLocalization *_localization;
     } payDelegate:wrapper];
 }
 
-- (void)applePay:(NSString *)appleMerchantId
-  aPaymentSystem:(NSString *)paymentSystem
+- (void)applePay:(ApplePayConfig *)config
        aCurrency:(NSString *)currency
-         aAmount:(NSInteger)amount
           aAbout:(NSString *)about
            aInfo:(NSString *)info
        aDelegate:(id<PSApplePayCallbackDelegate>)delegate
@@ -363,23 +370,21 @@ PSLocalization *_localization;
     paymentRequest.countryCode = @"US";
     paymentRequest.supportedNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
     paymentRequest.merchantCapabilities = PKMerchantCapability3DS;
-    paymentRequest.merchantIdentifier = appleMerchantId;
+    paymentRequest.merchantIdentifier = config.merchantId;
     paymentRequest.currencyCode = currency;
     
-    NSDecimalNumber *convertedAmount = [[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO];
     NSMutableArray *items = [NSMutableArray new];
     
-    if (info != nil) {
-        PKPaymentSummaryItem *infoItem = [PKPaymentSummaryItem summaryItemWithLabel: info amount:convertedAmount];
-        [items addObject:infoItem];
-    }
+    NSString *label = info == nil ? about : info;
+    PKPaymentSummaryItem *infoItem = [PKPaymentSummaryItem summaryItemWithLabel: label amount:config.amount];
+    [items addObject:infoItem];
 
-    PKPaymentSummaryItem *mainItem = [PKPaymentSummaryItem summaryItemWithLabel: about amount:convertedAmount];
+    PKPaymentSummaryItem *mainItem = [PKPaymentSummaryItem summaryItemWithLabel: config.businessName amount:config.amount];
     [items addObject:mainItem];
     
     paymentRequest.paymentSummaryItems = items;
 
-    self.applePayPaymentSystem = paymentSystem;
+    self.applePayPaymentSystem = config.paymentSystem;
     self.applePayPayCallbackDelegate = delegate;
     
     PKPaymentAuthorizationViewController *controller = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:paymentRequest];
@@ -487,11 +492,19 @@ PSLocalization *_localization;
 }
 
 - (void)applePayConfig:(NSString *)currency
-              aSuccess:(void (^)(NSString *appleMerchantId, NSString *paymentSystem))success
+               aAmount:(NSInteger)amount
+                aToken:(NSString *)token
+              aSuccess:(void (^)(ApplePayConfig *config))success
           aPayDelegate:(id<PSPayCallbackDelegate>) delegate {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [NSNumber numberWithLong:self.merchantId], @"merchant_id",
-                            currency, @"currency", nil];
+    NSDictionary *params;
+    if (token == nil) {
+        params = [NSDictionary dictionaryWithObjectsAndKeys:
+                  [NSNumber numberWithLong:amount], @"amount",
+                  [NSNumber numberWithLong:self.merchantId], @"merchant_id",
+                  currency, @"currency", nil];
+    } else {
+        params = [NSDictionary dictionaryWithObjectsAndKeys: token, @"token", nil];
+    }
     
     [self callJsonByUrl:@"/api/checkout/ajax/mobile_pay" aParams:params onSuccess:^(NSDictionary *json) {
         if ([json objectForKey:@"error_message"] != nil) {
@@ -508,9 +521,17 @@ PSLocalization *_localization;
         if (data == nil) {
             [delegate onPaidFailure:[NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeApplePayUnsupported userInfo:nil]];
         } else {
-            NSString *appleMerchantId = [data objectForKey:@"merchantIdentifier"];
-            NSString *paymentSystem = [json objectForKey:@"payment_system"];
-            success(appleMerchantId, paymentSystem);
+            NSDictionary *totalDetails = [[json objectForKey:@"details"] objectForKey:@"total"];
+//            NSNumber* rawAmount = [[totalDetails objectForKey:@"amount"] objectForKey:@"value"];
+
+            ApplePayConfig *config = [[ApplePayConfig alloc] init];
+            config.amount = [[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO];
+            // just meanwhile [[NSDecimalNumber alloc] initWithDouble:rawAmount.doubleValue];
+            config.merchantId = [data objectForKey:@"merchantIdentifier"];
+            config.paymentSystem = [json objectForKey:@"payment_system"];
+            config.businessName =  [totalDetails objectForKey:@"label"];
+            
+            success(config);
         }
     } payDelegate:delegate];
 }

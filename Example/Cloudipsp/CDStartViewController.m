@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.api = [PSCloudipspApi apiWithMerchant:900234 andCloudipspView:nil];
+    self.api = [PSCloudipspApi apiWithMerchant:1396424 andCloudipspView:nil];
 }
     
 - (IBAction)customProgrammaticallyClicked:(UIButton *)sender {
@@ -32,7 +32,7 @@
 - (IBAction)applePayClicked:(id)sender {
     if ([PSCloudipspApi supportsApplePay]) {
         NSString *orderId = [NSString stringWithFormat:@"ApplePayTest_%ld", (long)NSDate.date.timeIntervalSince1970];
-        PSOrder *order = [[PSOrder alloc] initOrder:123 aCurrency:PSCurrencyRUB aIdentifier:orderId aAbout:@"Test_ApplePay_:)"];
+        PSOrder *order = [[PSOrder alloc] initOrder:123 aCurrency:PSCurrencyUAH aIdentifier:orderId aAbout:@"Test_ApplePay_:)"];
         
         [self.api applePay:order andDelegate:self];
     } else {
