@@ -349,7 +349,7 @@ PSLocalization *_localization;
     PSApplePayCallbackDelegateMainWrapper *wrapper = [PSApplePayCallbackDelegateMainWrapper wrapperWithOrigin:delegate];
     [self order:token onSuccess:^(PSReceipt *receipt) {
         self.applePayToken = token;
-        [self applePayConfig:nil aAmount:-1 aToken:token aSuccess:^(ApplePayConfig *config) {
+        [self applePayConfig:nil aAmount:receipt.amount aToken:token aSuccess:^(ApplePayConfig *config) {
             [self applePay:config
                  aCurrency:receipt.currency
                     aAbout:@" "
