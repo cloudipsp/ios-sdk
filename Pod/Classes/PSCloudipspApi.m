@@ -522,11 +522,10 @@ PSLocalization *_localization;
             [delegate onPaidFailure:[NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeApplePayUnsupported userInfo:nil]];
         } else {
             NSDictionary *totalDetails = [[json objectForKey:@"details"] objectForKey:@"total"];
-//            NSNumber* rawAmount = [[totalDetails objectForKey:@"amount"] objectForKey:@"value"];
+            NSNumber* rawAmount = [[totalDetails objectForKey:@"amount"] objectForKey:@"value"];
 
             ApplePayConfig *config = [[ApplePayConfig alloc] init];
-            config.amount = [[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO];
-            // just meanwhile [[NSDecimalNumber alloc] initWithDouble:rawAmount.doubleValue];
+            config.amount = [[[NSDecimalNumber alloc] initWithDouble:rawAmount.doubleValue] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithMantissa:1 exponent:2 isNegative:NO]];
             config.merchantId = [data objectForKey:@"merchantIdentifier"];
             config.paymentSystem = [json objectForKey:@"payment_system"];
             config.businessName =  [totalDetails objectForKey:@"label"];
