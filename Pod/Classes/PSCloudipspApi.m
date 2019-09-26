@@ -499,7 +499,7 @@ PSLocalization *_localization;
     NSDictionary *params;
     if (token == nil) {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
-                  [NSNumber numberWithLong:amount], @"amount",
+                  [NSNumber numberWithDouble: [[[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO] doubleValue]], @"amount",
                   [NSNumber numberWithLong:self.merchantId], @"merchant_id",
                   currency, @"currency", nil];
     } else {
@@ -525,7 +525,7 @@ PSLocalization *_localization;
             NSNumber* rawAmount = [[totalDetails objectForKey:@"amount"] objectForKey:@"value"];
 
             ApplePayConfig *config = [[ApplePayConfig alloc] init];
-            config.amount = [[[NSDecimalNumber alloc] initWithDouble:rawAmount.doubleValue] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithMantissa:1 exponent:2 isNegative:NO]];
+            config.amount = [[NSDecimalNumber alloc] initWithDouble:rawAmount.doubleValue];
             config.merchantId = [data objectForKey:@"merchantIdentifier"];
             config.paymentSystem = [json objectForKey:@"payment_system"];
             config.businessName =  [totalDetails objectForKey:@"label"];

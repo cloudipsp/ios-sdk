@@ -32,7 +32,7 @@
 - (IBAction)applePayClicked:(id)sender {
     if ([PSCloudipspApi supportsApplePay]) {
         NSString *orderId = [NSString stringWithFormat:@"ApplePayTest_%ld", (long)NSDate.date.timeIntervalSince1970];
-        PSOrder *order = [[PSOrder alloc] initOrder:123 aCurrency:PSCurrencyUAH aIdentifier:orderId aAbout:@"Test_ApplePay_:)"];
+        PSOrder *order = [[PSOrder alloc] initOrder:100 aCurrency:PSCurrencyUAH aIdentifier:orderId aAbout:@"Test_ApplePay_:)"];
         
         [self.api applePay:order andDelegate:self];
     } else {
