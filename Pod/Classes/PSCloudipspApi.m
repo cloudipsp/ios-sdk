@@ -499,7 +499,7 @@ PSLocalization *_localization;
     NSDictionary *params;
     if (token == nil) {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
-                  [NSNumber numberWithDouble: [[[NSDecimalNumber alloc] initWithMantissa:amount exponent:-2 isNegative:NO] doubleValue]], @"amount",
+                  [NSNumber numberWithDouble: amount], @"amount",
                   [NSNumber numberWithLong:self.merchantId], @"merchant_id",
                   currency, @"currency", nil];
     } else {
