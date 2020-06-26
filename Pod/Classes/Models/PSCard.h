@@ -29,7 +29,13 @@ typedef enum : NSUInteger {
 - (BOOL)isValidCardNumber;
 - (BOOL)isValidCard;
 
+- (instancetype)initWithPan: (NSString *)pan
+                expereMonth: (int)mm
+                 expireYear: (int)yy
+                        cvv: (NSString *)cvv;
+
 + (NSString *)getCardTypeName:(PSCardType)type;
 + (PSCardType)getCardType:(NSString *)typeName;
+
 
 @end

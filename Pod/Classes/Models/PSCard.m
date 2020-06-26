@@ -45,6 +45,21 @@ PSCardType cardTypeWithString(NSString *str) {
 
 @implementation PSCard
 
+- (instancetype)initWithPan: (NSString *)pan
+                expereMonth: (int)mm
+                 expireYear: (int)yy
+                        cvv: (NSString *)cvv {
+    self = [super init];
+    
+    if (self) {
+        self.cardNumber = pan;
+        self.mm = mm;
+        self.yy = yy;
+        self.cvv = cvv;
+    }
+    return self;
+}
+
 + (instancetype)cardWith:(NSString *)cardNumber
                 expireMm:(int)mm
                 expireYy:(int)yy
