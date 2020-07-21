@@ -73,7 +73,7 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
         detectsCallbackUrl = [url hasPrefix:self.confirmation.callbackUrl];
         
         if (!detectsCallbackUrl) {
-            detectsApiToken = [url hasPrefix:[NSString stringWithFormat:@"%@/api?token=", self.confirmation.host]];
+            detectsApiToken = [url hasPrefix:[NSString stringWithFormat:@"%@/api/checkout?token=", self.confirmation.host]];
         }
     }
     
