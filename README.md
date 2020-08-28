@@ -11,12 +11,24 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 ## Installation
+AFNetworking supports multiple methods for installing the library in a project.
 
-Cloudipsp is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## Installation with CocoaPods
+
+To integrate Cloudipsp into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod "Cloudipsp"
+pod 'Cloudipsp', '~> 0.5.7'
+```
+
+### Installation with Swift Package Manager
+
+Once you have your Swift package set up, adding Cloudipsp as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/cloudipsp/ios-sdk.git", .upToNextMajor(from: "0.5.8"))
+]
 ```
 
 ## Author
