@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*.{h,m}'
-  s.resources	= 'Pod/Classes/**/*.xib'
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.source_files = 'Cloudipsp/*.{h,m}'
+  s.resources	= 'Cloudipsp/*.xib'
   s.frameworks = 'UIKit', 'PassKit'
 end

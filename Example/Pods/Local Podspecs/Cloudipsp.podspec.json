@@ -1,6 +1,6 @@
 {
   "name": "Cloudipsp",
-  "version": "0.4.2",
+  "version": "0.5.7",
   "summary": "Library for accepting payments directly from iOS application's clients.",
   "homepage": "https://github.com/cloudipsp/ios-sdk",
   "license": {
@@ -12,15 +12,14 @@
   },
   "source": {
     "git": "https://github.com/cloudipsp/ios-sdk.git",
-    "tag": "0.4.2"
+    "tag": "0.5.7"
   },
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*.{h,m}",
-  "resources": "Pod/Classes/**/*.xib",
-  "public_header_files": "Pod/Classes/**/*.h",
+  "source_files": "Cloudipsp/*.{h,m}",
+  "resources": "Cloudipsp/*.xib",
   "frameworks": [
     "UIKit",
     "PassKit"

@@ -7,57 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A2BB066477C13D4F3ADE023B6B7A2C /* PSExpMonthTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E63F4A1D054D2220AA3FFF04484BCC5 /* PSExpMonthTextField.m */; };
-		024545C00B93F1504F4BDC7F155C1E80 /* PSReceiptUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 369D1FF56676DC55C83CF6985134F63B /* PSReceiptUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		076DE90359A54151718422957F3E2185 /* PSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 15316E7C73216694E6ACBF675D534FF2 /* PSUtils.m */; };
-		0D9A3CF5DD0F1C50CF1412FE7F42D496 /* PSCloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E8658D75764B6BD16776DFC58EF7F7 /* PSCloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		101255C179B1E5F111B24C22BDF621CB /* PSLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 04947FD72D9BB47461F48B18A9D5B686 /* PSLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		162E425EC6089FDA7E43E77B99E0FBE6 /* PSCloudipspWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B1308BBFBEA161C6356A95E73FB1F5D /* PSCloudipspWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00C4B58AC1808719A1C904832B89655E /* PSCloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6EB34BA72E7DFECFB4B6064CC98181 /* PSCloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		021BDC3FA7AC0FDE536A607A51D92E09 /* PSCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B8284F39FDE99DD32D8099CE3EC8339 /* PSCurrency.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07F9DF4586F1F5B75E643062F2F1A915 /* PSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = D6573FA439EF4ECFA51B20CEC2E5971B /* PSOrder.m */; };
+		0C763D3916059B1819891FFD1C8503AD /* PSLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3E67FE235AEC0F3E467B5A6DAB9AC /* PSLocalization.m */; };
+		133421C71D65F2B45C1D47ABB849E69D /* PSPayConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = F72DB4366E58758CEDD269A137F4EF61 /* PSPayConfirmation.m */; };
+		1E90571608B58C954E9CDC30EEAD60F8 /* PSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E603CBA8E9776A7EEC2964F243D2E51C /* PSCard.m */; };
 		203AB5D53268EB900E9A0026978A4A45 /* Pods-Cloudipsp_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5AB9D098858975A36A0495FAF208216 /* Pods-Cloudipsp_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2361D833F851DC75995C282BE9E4EC5E /* PSBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 607DE52D34D78119600A9D7CC725CCA6 /* PSBaseTextField.m */; };
 		238CEB7519503A90AEF06B314B35F241 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219B83DDC1807BA9DCA19C8DF1F03D0C /* UIKit.framework */; };
-		24150AF74F5FCC539987B11ED0624FB4 /* PSDefaultConfirmationErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D1E8FCAD5E3B7A9C72E63EF15145FB /* PSDefaultConfirmationErrorHandler.m */; };
-		2C3942B3C3CB7C127A67C251AACBB5CF /* PSLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8950CDD2CD5463E3C60E4BD53022C6 /* PSLocalization.m */; };
-		2F83C2DBC0FEDB6868875CC7A14C21F8 /* PSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 26B26C4FFAE01E3CD7ECFA2945907BFA /* PSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5562939748FFC555B8C3FA0B993DC7 /* PSCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 078B0FF756FD0EAA640C0E996C2CD3B4 /* PSCardNumberTextField.m */; };
+		24A2191D927AB3E4824A1C086E60444E /* PSBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BE059C77E0F93305DCFCA19FD5D891 /* PSBaseTextField.m */; };
+		27C964DC22EE6A1489317DB2917F1EBD /* Cloudipsp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3DBA629C5395587046671DDDB3AE32 /* Cloudipsp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39286F2870737AEA96B35A7D89632C78 /* PSCardInputLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A16A3DA2B09FB50448AE1911E0109 /* PSCardInputLayout.m */; };
 		3F8BD8C11C4BE0B0B602D5DF40B399B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D509AAE213B1F7A286009894FC9E8CB /* Foundation.framework */; };
 		41B034C0B1CB7DE7D3DBAF961C749E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D509AAE213B1F7A286009894FC9E8CB /* Foundation.framework */; };
-		445D02156588DE1D1E6B3B24A98391C0 /* PSReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = CC06CADE7EE9998F9575FB60326D5B1B /* PSReceipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		45C08C692F1EA46FAC7F9FF73AD1257D /* PSReceiptUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 586D42AF66F9F6658FE2ACF910AB4F6E /* PSReceiptUtils.m */; };
-		4C9642F4A135A4CC44F016FF2E07BFC3 /* PSCardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 177DE5A1F86EA0BE228DDF559A1C2FC9 /* PSCardInputView.m */; };
-		5320DFDFCFEBA5C4AE73B7A58DCD8473 /* PSCardInputLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 165D05E9B95F93EAC568090418F4FE06 /* PSCardInputLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5412187A6DF88F3B6773B39701E4ABC5 /* PSCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = 316A4CB4EBE1D7FD0CC8F2FD06AAA574 /* PSCurrency.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		545112B3D5AC26DB2E32F15EA499C443 /* PSCardInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D0338EB75C308AA2FF71AB08C0BF79 /* PSCardInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58AC6765750528220F65D3DA3569DF7B /* PSDefaultConfirmationErrorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE19F4184A95CED2D09E796D01961F3 /* PSDefaultConfirmationErrorHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58FEE4C92D6DE3B101D288CC6D415751 /* PSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFA86C48DFCEE68F824F3F4862A5BDC /* PSOrder.m */; };
-		5E96ABEBBEDB14C19FF467F42BD394AC /* PSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 640926502C5194739F433F3DD2E995FE /* PSCurrency.m */; };
-		6378ED5B8FBE1425C9CF378EB734C998 /* PSCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F1F0876184F5D99D00FD1782A23079 /* PSCardInputView.xib */; };
-		72A9F15D48A548E7494C9B4CA2979DDA /* PSCardInputLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 862050AD6B9C60C7D88C7CE59EE509F8 /* PSCardInputLayout.m */; };
-		75F455AA1F1CF0F1B351432F2D87950B /* PSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BCC59AC209614D596578E63442C271 /* PSCard.m */; };
-		770B13F5C5B19ACE5C7DB98B28FAC83E /* Cloudipsp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7045CA84097E4B3B3AE1D4E10A30E991 /* Cloudipsp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A99D0BDB3C7957BBF21E138B5E80A75 /* PSExpMonthTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A5228B295FEF68C7E1FADAA764D1C3B /* PSExpMonthTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7EE2F7F2561D1141171477196F60E72B /* PSBaseTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5916C31930BD4521ACB07D5720B98A67 /* PSBaseTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		81AB0B5DB68BBB71A0B51D3EC74A5A60 /* PSTextFieldHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 825235BED46612E233CDF66A46600B28 /* PSTextFieldHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95D783EC36F8436C987D93A84DAA6D8C /* PSCloudipspApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 104414B749504289224F5A32ACDF7780 /* PSCloudipspApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96C34C33B5E0FBAE6E779DF5AC33CABA /* PSExpYearTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E3A2923BC9330A619449AD42FC63D7 /* PSExpYearTextField.m */; };
-		97EE4E42E8D51921600DB4B6FFE4C001 /* Cloudipsp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A648315E08B65DBF975F00DA891128 /* Cloudipsp-dummy.m */; };
-		9A03ADD9DBF86EAA8A49006CAE3EBEB3 /* PSCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 0562DB05AF1DD39F78C7EF1BBC0DE252 /* PSCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46FAD3EE9F471BE50738E961C2CA430D /* PSDefaultConfirmationErrorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C91177653E93C592522279B609A701 /* PSDefaultConfirmationErrorHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E0C6F7E1A194364C2F45FB77F095CC4 /* PSCloudipspApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D406F0938F7B4602942602D7768C4A8 /* PSCloudipspApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53B2AA6467C9CEED11B845152CDDEE56 /* PSBaseTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A48D8B016F52F9BB3B9EE39FF17D627 /* PSBaseTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5B5B0EA15D94052E15C3FBFD71BEEF /* PSExpYearTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F1304EFB9D66A98805BD1B8D66910C5D /* PSExpYearTextField.m */; };
+		5BFEC946DF14CADEA8729EA85B546D7A /* PSReceiptUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BB1AA855D3E6AF97894051F374250EE /* PSReceiptUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D059DF06EA30915CD45AA3EDDCC1F73 /* PSDefaultConfirmationErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 412B07439DDDD7170CB7AF2FFEDAE9A9 /* PSDefaultConfirmationErrorHandler.m */; };
+		5EC6DD8FF341604373D6D732FB2FF417 /* PSCardInputLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 279835121C948A53337AC6D453BF9BF5 /* PSCardInputLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F2FC077095E72C16BB8059E74FAC12A /* PSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C0F4F0858ECADCCEB805972C381395B0 /* PSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEC77B408722D70E067D1357D10B6B3 /* PSCloudipspWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD94AD90520A4EED85F6F8F4BE87E3F7 /* PSCloudipspWKWebView.m */; };
+		6074F38F85F2919EF9D11A25C1B3A38F /* PSCloudipspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A80D82DEF8C06D3325EA86342797BF /* PSCloudipspApi.m */; };
+		64885EDF8A21B07C1CA2ED1B9B122BD6 /* PSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = C78C26B62233838F7E195D99F4B6F231 /* PSCurrency.m */; };
+		68B32DA0149994E24BC12541C20C15B8 /* PSCVVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DEE9BC46BB8530AD64D409B22D787A5 /* PSCVVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78A2C088071DE5F1DB7BE7B96D96D0A1 /* PSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F9B38D46ABE0A9B62DB41E9C633DFA /* PSUtils.m */; };
+		7D7D70B3B81DE41F5EBD36D634840961 /* PSCloudipspWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6980901354FCC5DBAA719F9FD345AD5B /* PSCloudipspWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		987305CB0446CF21EB400E13DC32E6FA /* PSTextFieldHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 59316101FC65453B3D4DD2B87F79D4AE /* PSTextFieldHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BB080D3DFBA596CDA0B1906E9EA0598 /* Pods-Cloudipsp_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9ABB4B969F1B70CB89A7C36EAE2464 /* Pods-Cloudipsp_Tests-dummy.m */; };
 		A47FE759124F98C3EF29FA87F13B3BBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D509AAE213B1F7A286009894FC9E8CB /* Foundation.framework */; };
-		AE8779C4FD764407444BD9708F37D8D0 /* PSCardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 92AF34C88FB30D1F11700D300B63C247 /* PSCardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF22FF0FBF8073A507C2C7C7C0210D9F /* PSPayConfirmation.h in Headers */ = {isa = PBXBuildFile; fileRef = EE9FCE04EEBB0160DB07AD7F4AB2EF27 /* PSPayConfirmation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA88B315E79C7E7EE459DC00907C72E /* PSTextFieldHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6DE1408FD380AB0B96DEC38D6435DD /* PSTextFieldHandler.m */; };
 		B0D0D84F70150B9D19BABFF1429B4CD8 /* Pods-Cloudipsp_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E1E479CE1C417A7D99EABC8EAD162C0 /* Pods-Cloudipsp_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B621DBDA33F119746FA3C7E055DEAF34 /* PSCardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = EBB9ADD6CB5014ED5D72E07E1493FE21 /* PSCardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B846E292D5F3EA9A6DEC0DCADD51A175 /* PSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = DD42F6C346632723ED2DA41222089453 /* PSReceipt.m */; };
 		BE2B4ACC23BFFE13BFD623E1176271C4 /* Pods-Cloudipsp_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5596616CFC0268EF1EE4F96AC32E7A6F /* Pods-Cloudipsp_Example-dummy.m */; };
-		BFC745C8572F144004CF8218D038DD1C /* PSCloudipspWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994EA4E58A6CB8F414B288DDD25AEBF /* PSCloudipspWKWebView.m */; };
-		CAE850730C771C63DEB2B83AE40A6622 /* PSCVVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E7D99444AAF8A9E968374F4403C450 /* PSCVVTextField.m */; };
-		CD955F81D0D8EED86BB2723075C67003 /* PSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 882A29B17FC2C67400ED9599718FB7F9 /* PSReceipt.m */; };
-		D7DB8A82B734B5C43C9C6B38D75C5F38 /* PSCVVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E12CA7E8E18D0BFFF74DF6B3A2F14B /* PSCVVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB2A3D22BFBCCE6A94ECCF001C371ECB /* PSTextFieldHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E4FAB9DBEA189924B7A9F560B6515A /* PSTextFieldHandler.m */; };
+		CED34263786502A306D5AFBE68DB682E /* PSCardInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 11C430CB2421138EF4C78F916EEAB5ED /* PSCardInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5D9EB38D797EDADF7B5B1435B096DB2 /* PSReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = E106C61BD2BF8FD947482DDB0967084B /* PSReceipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D67E61265C705B1C642EF7A83C961F6D /* PSExpMonthTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CCFE0ED6A1374F040BEB89EC1751D92D /* PSExpMonthTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7A8D6CEEDAE1E3435DC5B2302D86B20 /* PSOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = B561711B40902C71FEF709AFB3EEA8CD /* PSOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8B2F53E21538CEEA9F686BC54BE0FFF /* PSReceiptUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F31493D9DEB190F7F6D0B85D2604311 /* PSReceiptUtils.m */; };
+		DF32078C6CD95332677B79F68359842B /* PSCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 725A03F0588B5340BA96BB2A0812FD79 /* PSCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E37DFAFE6D46809486323FFC9740C1D5 /* PSCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A87B876F4DEB5761B9CE0B64B1F39ED4 /* PSCardNumberTextField.m */; };
+		E6B727EFB26057DAE6FDEE5509F11552 /* PSCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27FC955398E8C3F4DB7601EE9F56FA6 /* PSCardInputView.xib */; };
 		E8101D54688EC8147B056ED61E5AB8C9 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EC9E6F77BFDC32E014B437FE70D47C /* PassKit.framework */; };
-		E9A7D6A0C3984B016FC5EFE960ED04F1 /* PSCloudipspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0397F0A603FA995627D2272BC17DB3 /* PSCloudipspApi.m */; };
-		ED3531CBE243642ACDC2492FDDC0B43D /* PSExpYearTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D6F01348B8985D5ED88C20C55445571 /* PSExpYearTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4EF34D93052207048D002B9B2792D4E /* PSPayConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE63E42870BD72BF4A7DF90B03F9D36B /* PSPayConfirmation.m */; };
-		FBD537F261CBB5A4B8FD2F20F28A640C /* PSOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7793F4BB48C178852A6166A8885F03 /* PSOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EACC6147E351AF05D8FB4A6F7B44BA6C /* PSLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D28A037EF48EF0B1CFC29DE89F00B8 /* PSLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF53063BFEF218F78F99B67711E30A30 /* PSPayConfirmation.h in Headers */ = {isa = PBXBuildFile; fileRef = BC1FC7E1683FCA5F09F7860E62FCA49B /* PSPayConfirmation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F155B5B3DEA32516B19FC26949F109AB /* PSCardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 263D01243E407C04EE3E09AD631DAB2A /* PSCardInputView.m */; };
+		F347D3063D875A86FEA5E2920C36CC19 /* PSExpYearTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BD079E149DD4E7E0952AC47F89ED634 /* PSExpYearTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3FEEF93E45B23E26E293871B1B0ABF6 /* Cloudipsp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C77804037477FEDE984B4AFE0E150F7 /* Cloudipsp-dummy.m */; };
+		FC4499B199DFD0725F753E516598B8DC /* PSExpMonthTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FE35855A8FF645D33C401BBA3964001C /* PSExpMonthTextField.m */; };
+		FFD98211F5FAE371BBF7D6CC41601970 /* PSCVVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE32938A88814D4158E6A42B4F9E2E1 /* PSCVVTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,80 +78,81 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E4FAB9DBEA189924B7A9F560B6515A /* PSTextFieldHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSTextFieldHandler.m; path = Pod/Classes/PSTextFieldHandler.m; sourceTree = "<group>"; };
-		04947FD72D9BB47461F48B18A9D5B686 /* PSLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSLocalization.h; path = Pod/Classes/PSLocalization.h; sourceTree = "<group>"; };
-		0562DB05AF1DD39F78C7EF1BBC0DE252 /* PSCard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCard.h; sourceTree = "<group>"; };
-		078B0FF756FD0EAA640C0E996C2CD3B4 /* PSCardNumberTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCardNumberTextField.m; sourceTree = "<group>"; };
+		07C91177653E93C592522279B609A701 /* PSDefaultConfirmationErrorHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSDefaultConfirmationErrorHandler.h; path = Cloudipsp/PSDefaultConfirmationErrorHandler.h; sourceTree = "<group>"; };
+		0A4FAB159A526615CA610D6FE4E1777E /* Cloudipsp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-prefix.pch"; sourceTree = "<group>"; };
+		0BB1AA855D3E6AF97894051F374250EE /* PSReceiptUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSReceiptUtils.h; path = Cloudipsp/PSReceiptUtils.h; sourceTree = "<group>"; };
 		0F92F2042E8F393E66F623361BA1F20C /* Pods_Cloudipsp_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Cloudipsp_Tests.framework; path = "Pods-Cloudipsp_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		104414B749504289224F5A32ACDF7780 /* PSCloudipspApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipspApi.h; path = Pod/Classes/PSCloudipspApi.h; sourceTree = "<group>"; };
-		10E12CA7E8E18D0BFFF74DF6B3A2F14B /* PSCVVTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCVVTextField.h; sourceTree = "<group>"; };
-		15316E7C73216694E6ACBF675D534FF2 /* PSUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSUtils.m; path = Pod/Classes/PSUtils.m; sourceTree = "<group>"; };
-		165D05E9B95F93EAC568090418F4FE06 /* PSCardInputLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCardInputLayout.h; sourceTree = "<group>"; };
-		177DE5A1F86EA0BE228DDF559A1C2FC9 /* PSCardInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCardInputView.m; sourceTree = "<group>"; };
+		11C430CB2421138EF4C78F916EEAB5ED /* PSCardInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardInputView.h; path = Cloudipsp/PSCardInputView.h; sourceTree = "<group>"; };
 		1A11CF1AC7BE707AC87878D1B09ABC62 /* Pods-Cloudipsp_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cloudipsp_Example.modulemap"; sourceTree = "<group>"; };
+		1D2675A0814A090C7B4D9139DC1955DD /* Cloudipsp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cloudipsp.modulemap; sourceTree = "<group>"; };
 		1D509AAE213B1F7A286009894FC9E8CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1F5A16A3DA2B09FB50448AE1911E0109 /* PSCardInputLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardInputLayout.m; path = Cloudipsp/PSCardInputLayout.m; sourceTree = "<group>"; };
 		219B83DDC1807BA9DCA19C8DF1F03D0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		25D1E8FCAD5E3B7A9C72E63EF15145FB /* PSDefaultConfirmationErrorHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSDefaultConfirmationErrorHandler.m; path = Pod/Classes/PSDefaultConfirmationErrorHandler.m; sourceTree = "<group>"; };
-		26B26C4FFAE01E3CD7ECFA2945907BFA /* PSUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSUtils.h; path = Pod/Classes/PSUtils.h; sourceTree = "<group>"; };
-		316A4CB4EBE1D7FD0CC8F2FD06AAA574 /* PSCurrency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCurrency.h; sourceTree = "<group>"; };
-		369D1FF56676DC55C83CF6985134F63B /* PSReceiptUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSReceiptUtils.h; path = Pod/Classes/PSReceiptUtils.h; sourceTree = "<group>"; };
+		263D01243E407C04EE3E09AD631DAB2A /* PSCardInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardInputView.m; path = Cloudipsp/PSCardInputView.m; sourceTree = "<group>"; };
+		279835121C948A53337AC6D453BF9BF5 /* PSCardInputLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardInputLayout.h; path = Cloudipsp/PSCardInputLayout.h; sourceTree = "<group>"; };
+		2A48D8B016F52F9BB3B9EE39FF17D627 /* PSBaseTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSBaseTextField.h; path = Cloudipsp/PSBaseTextField.h; sourceTree = "<group>"; };
+		30D28A037EF48EF0B1CFC29DE89F00B8 /* PSLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSLocalization.h; path = Cloudipsp/PSLocalization.h; sourceTree = "<group>"; };
 		37EC9E6F77BFDC32E014B437FE70D47C /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
+		38C57FDD25DC840EA2919DC21223CDE3 /* Cloudipsp.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Cloudipsp.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		394439CA1E765F5C8DA861467EE13732 /* Pods-Cloudipsp_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		3978F098223B7AB8A850250680EEB6B3 /* Cloudipsp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-prefix.pch"; sourceTree = "<group>"; };
-		3994EA4E58A6CB8F414B288DDD25AEBF /* PSCloudipspWKWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCloudipspWKWebView.m; sourceTree = "<group>"; };
-		40E8658D75764B6BD16776DFC58EF7F7 /* PSCloudipsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipsp.h; path = Pod/Classes/PSCloudipsp.h; sourceTree = "<group>"; };
-		42BCC59AC209614D596578E63442C271 /* PSCard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCard.m; sourceTree = "<group>"; };
+		3A6EB34BA72E7DFECFB4B6064CC98181 /* PSCloudipsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipsp.h; path = Cloudipsp/PSCloudipsp.h; sourceTree = "<group>"; };
+		412B07439DDDD7170CB7AF2FFEDAE9A9 /* PSDefaultConfirmationErrorHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSDefaultConfirmationErrorHandler.m; path = Cloudipsp/PSDefaultConfirmationErrorHandler.m; sourceTree = "<group>"; };
 		45DC2BE7F8F83A7A613D61739D18C703 /* Pods_Cloudipsp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Cloudipsp_Example.framework; path = "Pods-Cloudipsp_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6D9C2A21987817D564651BE42A221C /* Pods-Cloudipsp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4D6F01348B8985D5ED88C20C55445571 /* PSExpYearTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSExpYearTextField.h; sourceTree = "<group>"; };
 		4E1E479CE1C417A7D99EABC8EAD162C0 /* Pods-Cloudipsp_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cloudipsp_Example-umbrella.h"; sourceTree = "<group>"; };
-		50E9384C2E926FF129FA4DC6AFCF069E /* Cloudipsp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cloudipsp.modulemap; sourceTree = "<group>"; };
-		54D0338EB75C308AA2FF71AB08C0BF79 /* PSCardInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCardInputView.h; sourceTree = "<group>"; };
+		4F31493D9DEB190F7F6D0B85D2604311 /* PSReceiptUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSReceiptUtils.m; path = Cloudipsp/PSReceiptUtils.m; sourceTree = "<group>"; };
 		5596616CFC0268EF1EE4F96AC32E7A6F /* Pods-Cloudipsp_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cloudipsp_Example-dummy.m"; sourceTree = "<group>"; };
-		586D42AF66F9F6658FE2ACF910AB4F6E /* PSReceiptUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSReceiptUtils.m; path = Pod/Classes/PSReceiptUtils.m; sourceTree = "<group>"; };
-		5916C31930BD4521ACB07D5720B98A67 /* PSBaseTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSBaseTextField.h; sourceTree = "<group>"; };
-		607DE52D34D78119600A9D7CC725CCA6 /* PSBaseTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSBaseTextField.m; sourceTree = "<group>"; };
-		60A648315E08B65DBF975F00DA891128 /* Cloudipsp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudipsp-dummy.m"; sourceTree = "<group>"; };
-		640926502C5194739F433F3DD2E995FE /* PSCurrency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCurrency.m; sourceTree = "<group>"; };
+		56A80D82DEF8C06D3325EA86342797BF /* PSCloudipspApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCloudipspApi.m; path = Cloudipsp/PSCloudipspApi.m; sourceTree = "<group>"; };
+		59316101FC65453B3D4DD2B87F79D4AE /* PSTextFieldHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSTextFieldHandler.h; path = Cloudipsp/PSTextFieldHandler.h; sourceTree = "<group>"; };
+		5A8CE7E70953335C2A930AF338D45898 /* Cloudipsp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudipsp-Info.plist"; sourceTree = "<group>"; };
+		5B8284F39FDE99DD32D8099CE3EC8339 /* PSCurrency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCurrency.h; path = Cloudipsp/PSCurrency.h; sourceTree = "<group>"; };
 		686C4401BC34EBAF3CFB8031F169581E /* Pods-Cloudipsp_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cloudipsp_Tests.modulemap"; sourceTree = "<group>"; };
-		6A5228B295FEF68C7E1FADAA764D1C3B /* PSExpMonthTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSExpMonthTextField.h; sourceTree = "<group>"; };
-		7045CA84097E4B3B3AE1D4E10A30E991 /* Cloudipsp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-umbrella.h"; sourceTree = "<group>"; };
+		6980901354FCC5DBAA719F9FD345AD5B /* PSCloudipspWKWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipspWKWebView.h; path = Cloudipsp/PSCloudipspWKWebView.h; sourceTree = "<group>"; };
+		6BD079E149DD4E7E0952AC47F89ED634 /* PSExpYearTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSExpYearTextField.h; path = Cloudipsp/PSExpYearTextField.h; sourceTree = "<group>"; };
+		725A03F0588B5340BA96BB2A0812FD79 /* PSCard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCard.h; path = Cloudipsp/PSCard.h; sourceTree = "<group>"; };
 		77BE64BAB6A146BFBDDE1EBC6302439F /* Pods-Cloudipsp_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		825235BED46612E233CDF66A46600B28 /* PSTextFieldHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSTextFieldHandler.h; path = Pod/Classes/PSTextFieldHandler.h; sourceTree = "<group>"; };
+		7DEE9BC46BB8530AD64D409B22D787A5 /* PSCVVTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCVVTextField.h; path = Cloudipsp/PSCVVTextField.h; sourceTree = "<group>"; };
+		7FE3E67FE235AEC0F3E467B5A6DAB9AC /* PSLocalization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSLocalization.m; path = Cloudipsp/PSLocalization.m; sourceTree = "<group>"; };
 		850D9D129D2A6A4C8E587EF7F759E78C /* Pods-Cloudipsp_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Example-Info.plist"; sourceTree = "<group>"; };
-		862050AD6B9C60C7D88C7CE59EE509F8 /* PSCardInputLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCardInputLayout.m; sourceTree = "<group>"; };
-		882A29B17FC2C67400ED9599718FB7F9 /* PSReceipt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSReceipt.m; sourceTree = "<group>"; };
-		8B1308BBFBEA161C6356A95E73FB1F5D /* PSCloudipspWKWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCloudipspWKWebView.h; sourceTree = "<group>"; };
-		92AF34C88FB30D1F11700D300B63C247 /* PSCardNumberTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSCardNumberTextField.h; sourceTree = "<group>"; };
+		8B6AAF4B1C201A9474A793C1C6980950 /* Cloudipsp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.release.xcconfig; sourceTree = "<group>"; };
+		8C77804037477FEDE984B4AFE0E150F7 /* Cloudipsp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudipsp-dummy.m"; sourceTree = "<group>"; };
 		94C09666CB413215236D800FDB7ADA3D /* Pods-Cloudipsp_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Example.release.xcconfig"; sourceTree = "<group>"; };
+		96BE059C77E0F93305DCFCA19FD5D891 /* PSBaseTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSBaseTextField.m; path = Cloudipsp/PSBaseTextField.m; sourceTree = "<group>"; };
+		9D406F0938F7B4602942602D7768C4A8 /* PSCloudipspApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipspApi.h; path = Cloudipsp/PSCloudipspApi.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E63F4A1D054D2220AA3FFF04484BCC5 /* PSExpMonthTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSExpMonthTextField.m; sourceTree = "<group>"; };
+		A5F9B38D46ABE0A9B62DB41E9C633DFA /* PSUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSUtils.m; path = Cloudipsp/PSUtils.m; sourceTree = "<group>"; };
+		A67EEEF4DFF5CCE81823238496808D99 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		A7FCF38B9BE665D9919C7BAEA0645A5E /* Pods-Cloudipsp_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Tests-Info.plist"; sourceTree = "<group>"; };
-		AB8950CDD2CD5463E3C60E4BD53022C6 /* PSLocalization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSLocalization.m; path = Pod/Classes/PSLocalization.m; sourceTree = "<group>"; };
-		ABE19F4184A95CED2D09E796D01961F3 /* PSDefaultConfirmationErrorHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSDefaultConfirmationErrorHandler.h; path = Pod/Classes/PSDefaultConfirmationErrorHandler.h; sourceTree = "<group>"; };
+		A87B876F4DEB5761B9CE0B64B1F39ED4 /* PSCardNumberTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardNumberTextField.m; path = Cloudipsp/PSCardNumberTextField.m; sourceTree = "<group>"; };
 		AF5510203BBDAE3C14C7CFE585085F89 /* Pods-Cloudipsp_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cloudipsp_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B0FC3658A92A7C468E30AD17F9B9FEB2 /* Pods-Cloudipsp_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cloudipsp_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B4BA71D3F5C6332F2552E80E883E1D8C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		B561711B40902C71FEF709AFB3EEA8CD /* PSOrder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSOrder.h; path = Cloudipsp/PSOrder.h; sourceTree = "<group>"; };
 		B5AB9D098858975A36A0495FAF208216 /* Pods-Cloudipsp_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cloudipsp_Tests-umbrella.h"; sourceTree = "<group>"; };
 		B9DE5E803D91B366E858B4A0FEE8F1A2 /* Pods-Cloudipsp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BD0397F0A603FA995627D2272BC17DB3 /* PSCloudipspApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCloudipspApi.m; path = Pod/Classes/PSCloudipspApi.m; sourceTree = "<group>"; };
-		BE63E42870BD72BF4A7DF90B03F9D36B /* PSPayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSPayConfirmation.m; path = Pod/Classes/PSPayConfirmation.m; sourceTree = "<group>"; };
-		C2D6A8AA91AA556EDBEB3A124749B407 /* Cloudipsp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.xcconfig; sourceTree = "<group>"; };
-		C2E3A2923BC9330A619449AD42FC63D7 /* PSExpYearTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSExpYearTextField.m; sourceTree = "<group>"; };
+		BB6DE1408FD380AB0B96DEC38D6435DD /* PSTextFieldHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSTextFieldHandler.m; path = Cloudipsp/PSTextFieldHandler.m; sourceTree = "<group>"; };
+		BC1FC7E1683FCA5F09F7860E62FCA49B /* PSPayConfirmation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSPayConfirmation.h; path = Cloudipsp/PSPayConfirmation.h; sourceTree = "<group>"; };
+		BC544AE346C1D9308DB3C58876997BAA /* Cloudipsp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.debug.xcconfig; sourceTree = "<group>"; };
+		C0F4F0858ECADCCEB805972C381395B0 /* PSUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSUtils.h; path = Cloudipsp/PSUtils.h; sourceTree = "<group>"; };
+		C27FC955398E8C3F4DB7601EE9F56FA6 /* PSCardInputView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PSCardInputView.xib; path = Cloudipsp/PSCardInputView.xib; sourceTree = "<group>"; };
 		C527D34CA2F18129B5E070C399846275 /* Pods-Cloudipsp_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cloudipsp_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		CAFA86C48DFCEE68F824F3F4862A5BDC /* PSOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSOrder.m; sourceTree = "<group>"; };
+		C78C26B62233838F7E195D99F4B6F231 /* PSCurrency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCurrency.m; path = Cloudipsp/PSCurrency.m; sourceTree = "<group>"; };
 		CBC4B199F080E255A107896FEE319AA1 /* Pods-Cloudipsp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cloudipsp_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		CC06CADE7EE9998F9575FB60326D5B1B /* PSReceipt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSReceipt.h; sourceTree = "<group>"; };
-		CD76AC38D688931C85F41FF057763366 /* Cloudipsp.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Cloudipsp.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CCFE0ED6A1374F040BEB89EC1751D92D /* PSExpMonthTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSExpMonthTextField.h; path = Cloudipsp/PSExpMonthTextField.h; sourceTree = "<group>"; };
 		D1D6B9250145E9CD97166F89AC63C308 /* Cloudipsp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cloudipsp.framework; path = Cloudipsp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE7793F4BB48C178852A6166A8885F03 /* PSOrder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PSOrder.h; sourceTree = "<group>"; };
+		D6573FA439EF4ECFA51B20CEC2E5971B /* PSOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSOrder.m; path = Cloudipsp/PSOrder.m; sourceTree = "<group>"; };
+		DD42F6C346632723ED2DA41222089453 /* PSReceipt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSReceipt.m; path = Cloudipsp/PSReceipt.m; sourceTree = "<group>"; };
+		DD94AD90520A4EED85F6F8F4BE87E3F7 /* PSCloudipspWKWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCloudipspWKWebView.m; path = Cloudipsp/PSCloudipspWKWebView.m; sourceTree = "<group>"; };
+		DE3DBA629C5395587046671DDDB3AE32 /* Cloudipsp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-umbrella.h"; sourceTree = "<group>"; };
 		DF9ABB4B969F1B70CB89A7C36EAE2464 /* Pods-Cloudipsp_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cloudipsp_Tests-dummy.m"; sourceTree = "<group>"; };
-		E6F1F0876184F5D99D00FD1782A23079 /* PSCardInputView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PSCardInputView.xib; path = Pod/Classes/Views/PSCardInputView.xib; sourceTree = "<group>"; };
-		E8E7D99444AAF8A9E968374F4403C450 /* PSCVVTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PSCVVTextField.m; sourceTree = "<group>"; };
-		EE9FCE04EEBB0160DB07AD7F4AB2EF27 /* PSPayConfirmation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSPayConfirmation.h; path = Pod/Classes/PSPayConfirmation.h; sourceTree = "<group>"; };
+		E0552203FA33EBCADF9065A760A3FD7C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		E106C61BD2BF8FD947482DDB0967084B /* PSReceipt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSReceipt.h; path = Cloudipsp/PSReceipt.h; sourceTree = "<group>"; };
+		E603CBA8E9776A7EEC2964F243D2E51C /* PSCard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCard.m; path = Cloudipsp/PSCard.m; sourceTree = "<group>"; };
+		EBB9ADD6CB5014ED5D72E07E1493FE21 /* PSCardNumberTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardNumberTextField.h; path = Cloudipsp/PSCardNumberTextField.h; sourceTree = "<group>"; };
+		F1304EFB9D66A98805BD1B8D66910C5D /* PSExpYearTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSExpYearTextField.m; path = Cloudipsp/PSExpYearTextField.m; sourceTree = "<group>"; };
 		F64DC19D2C41CC2F9678026EFF203E3B /* Pods-Cloudipsp_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cloudipsp_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F853EC0A476039B775AB0D7264D0F0F9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		FC59DD57096E1F0E71CE7F7467EFD660 /* Cloudipsp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudipsp-Info.plist"; sourceTree = "<group>"; };
+		F72DB4366E58758CEDD269A137F4EF61 /* PSPayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSPayConfirmation.m; path = Cloudipsp/PSPayConfirmation.m; sourceTree = "<group>"; };
+		FCE32938A88814D4158E6A42B4F9E2E1 /* PSCVVTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCVVTextField.m; path = Cloudipsp/PSCVVTextField.m; sourceTree = "<group>"; };
+		FE35855A8FF645D33C401BBA3964001C /* PSExpMonthTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSExpMonthTextField.m; path = Cloudipsp/PSExpMonthTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,38 +193,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1404DB9D49AC26BB04FB65CC289FB3F2 /* Pod */ = {
+		48F510085EB57EC005A950538E9D229D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD76AC38D688931C85F41FF057763366 /* Cloudipsp.podspec */,
-				B4BA71D3F5C6332F2552E80E883E1D8C /* LICENSE */,
-				F853EC0A476039B775AB0D7264D0F0F9 /* README.md */,
+				1D2675A0814A090C7B4D9139DC1955DD /* Cloudipsp.modulemap */,
+				8C77804037477FEDE984B4AFE0E150F7 /* Cloudipsp-dummy.m */,
+				5A8CE7E70953335C2A930AF338D45898 /* Cloudipsp-Info.plist */,
+				0A4FAB159A526615CA610D6FE4E1777E /* Cloudipsp-prefix.pch */,
+				DE3DBA629C5395587046671DDDB3AE32 /* Cloudipsp-umbrella.h */,
+				BC544AE346C1D9308DB3C58876997BAA /* Cloudipsp.debug.xcconfig */,
+				8B6AAF4B1C201A9474A793C1C6980950 /* Cloudipsp.release.xcconfig */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Cloudipsp";
 			sourceTree = "<group>";
 		};
-		5175551CEF60ABC77B65CEE98ED1A394 /* Views */ = {
+		493956135D6FEC3049498F8ED9513C77 /* Cloudipsp */ = {
 			isa = PBXGroup;
 			children = (
-				5916C31930BD4521ACB07D5720B98A67 /* PSBaseTextField.h */,
-				607DE52D34D78119600A9D7CC725CCA6 /* PSBaseTextField.m */,
-				165D05E9B95F93EAC568090418F4FE06 /* PSCardInputLayout.h */,
-				862050AD6B9C60C7D88C7CE59EE509F8 /* PSCardInputLayout.m */,
-				54D0338EB75C308AA2FF71AB08C0BF79 /* PSCardInputView.h */,
-				177DE5A1F86EA0BE228DDF559A1C2FC9 /* PSCardInputView.m */,
-				92AF34C88FB30D1F11700D300B63C247 /* PSCardNumberTextField.h */,
-				078B0FF756FD0EAA640C0E996C2CD3B4 /* PSCardNumberTextField.m */,
-				8B1308BBFBEA161C6356A95E73FB1F5D /* PSCloudipspWKWebView.h */,
-				3994EA4E58A6CB8F414B288DDD25AEBF /* PSCloudipspWKWebView.m */,
-				10E12CA7E8E18D0BFFF74DF6B3A2F14B /* PSCVVTextField.h */,
-				E8E7D99444AAF8A9E968374F4403C450 /* PSCVVTextField.m */,
-				6A5228B295FEF68C7E1FADAA764D1C3B /* PSExpMonthTextField.h */,
-				9E63F4A1D054D2220AA3FFF04484BCC5 /* PSExpMonthTextField.m */,
-				4D6F01348B8985D5ED88C20C55445571 /* PSExpYearTextField.h */,
-				C2E3A2923BC9330A619449AD42FC63D7 /* PSExpYearTextField.m */,
+				2A48D8B016F52F9BB3B9EE39FF17D627 /* PSBaseTextField.h */,
+				96BE059C77E0F93305DCFCA19FD5D891 /* PSBaseTextField.m */,
+				725A03F0588B5340BA96BB2A0812FD79 /* PSCard.h */,
+				E603CBA8E9776A7EEC2964F243D2E51C /* PSCard.m */,
+				279835121C948A53337AC6D453BF9BF5 /* PSCardInputLayout.h */,
+				1F5A16A3DA2B09FB50448AE1911E0109 /* PSCardInputLayout.m */,
+				11C430CB2421138EF4C78F916EEAB5ED /* PSCardInputView.h */,
+				263D01243E407C04EE3E09AD631DAB2A /* PSCardInputView.m */,
+				EBB9ADD6CB5014ED5D72E07E1493FE21 /* PSCardNumberTextField.h */,
+				A87B876F4DEB5761B9CE0B64B1F39ED4 /* PSCardNumberTextField.m */,
+				3A6EB34BA72E7DFECFB4B6064CC98181 /* PSCloudipsp.h */,
+				9D406F0938F7B4602942602D7768C4A8 /* PSCloudipspApi.h */,
+				56A80D82DEF8C06D3325EA86342797BF /* PSCloudipspApi.m */,
+				6980901354FCC5DBAA719F9FD345AD5B /* PSCloudipspWKWebView.h */,
+				DD94AD90520A4EED85F6F8F4BE87E3F7 /* PSCloudipspWKWebView.m */,
+				5B8284F39FDE99DD32D8099CE3EC8339 /* PSCurrency.h */,
+				C78C26B62233838F7E195D99F4B6F231 /* PSCurrency.m */,
+				7DEE9BC46BB8530AD64D409B22D787A5 /* PSCVVTextField.h */,
+				FCE32938A88814D4158E6A42B4F9E2E1 /* PSCVVTextField.m */,
+				07C91177653E93C592522279B609A701 /* PSDefaultConfirmationErrorHandler.h */,
+				412B07439DDDD7170CB7AF2FFEDAE9A9 /* PSDefaultConfirmationErrorHandler.m */,
+				CCFE0ED6A1374F040BEB89EC1751D92D /* PSExpMonthTextField.h */,
+				FE35855A8FF645D33C401BBA3964001C /* PSExpMonthTextField.m */,
+				6BD079E149DD4E7E0952AC47F89ED634 /* PSExpYearTextField.h */,
+				F1304EFB9D66A98805BD1B8D66910C5D /* PSExpYearTextField.m */,
+				30D28A037EF48EF0B1CFC29DE89F00B8 /* PSLocalization.h */,
+				7FE3E67FE235AEC0F3E467B5A6DAB9AC /* PSLocalization.m */,
+				B561711B40902C71FEF709AFB3EEA8CD /* PSOrder.h */,
+				D6573FA439EF4ECFA51B20CEC2E5971B /* PSOrder.m */,
+				BC1FC7E1683FCA5F09F7860E62FCA49B /* PSPayConfirmation.h */,
+				F72DB4366E58758CEDD269A137F4EF61 /* PSPayConfirmation.m */,
+				E106C61BD2BF8FD947482DDB0967084B /* PSReceipt.h */,
+				DD42F6C346632723ED2DA41222089453 /* PSReceipt.m */,
+				0BB1AA855D3E6AF97894051F374250EE /* PSReceiptUtils.h */,
+				4F31493D9DEB190F7F6D0B85D2604311 /* PSReceiptUtils.m */,
+				59316101FC65453B3D4DD2B87F79D4AE /* PSTextFieldHandler.h */,
+				BB6DE1408FD380AB0B96DEC38D6435DD /* PSTextFieldHandler.m */,
+				C0F4F0858ECADCCEB805972C381395B0 /* PSUtils.h */,
+				A5F9B38D46ABE0A9B62DB41E9C633DFA /* PSUtils.m */,
+				DBC6D9735E3FBD720012FCD48BD19A75 /* Pod */,
+				FFBDB0F1DC8B03B1693AB704B233DDB6 /* Resources */,
+				48F510085EB57EC005A950538E9D229D /* Support Files */,
 			);
-			name = Views;
-			path = Pod/Classes/Views;
+			name = Cloudipsp;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		561F00B8F97F6A6DEC2E38DB1C82F7A6 /* Pods-Cloudipsp_Tests */ = {
@@ -279,25 +311,11 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		979AF6F477BDECEA726DCF733E006DB4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				50E9384C2E926FF129FA4DC6AFCF069E /* Cloudipsp.modulemap */,
-				C2D6A8AA91AA556EDBEB3A124749B407 /* Cloudipsp.xcconfig */,
-				60A648315E08B65DBF975F00DA891128 /* Cloudipsp-dummy.m */,
-				FC59DD57096E1F0E71CE7F7467EFD660 /* Cloudipsp-Info.plist */,
-				3978F098223B7AB8A850250680EEB6B3 /* Cloudipsp-prefix.pch */,
-				7045CA84097E4B3B3AE1D4E10A30E991 /* Cloudipsp-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Cloudipsp";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D717B26A54149CAF7131B989D8B56F2F /* Development Pods */,
+				E32EC80DAB88F2DA0EB3793E2F25B4F0 /* Development Pods */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				D16D9D3C32E3DCA9E2EBD2F6486CD392 /* Products */,
 				91AFD081F645D389403E955E39C8D6D8 /* Targets Support Files */,
@@ -314,62 +332,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D717B26A54149CAF7131B989D8B56F2F /* Development Pods */ = {
+		DBC6D9735E3FBD720012FCD48BD19A75 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				DB20A3376572FDCC25D35C8A3C9EFF14 /* Cloudipsp */,
+				38C57FDD25DC840EA2919DC21223CDE3 /* Cloudipsp.podspec */,
+				E0552203FA33EBCADF9065A760A3FD7C /* LICENSE */,
+				A67EEEF4DFF5CCE81823238496808D99 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		E32EC80DAB88F2DA0EB3793E2F25B4F0 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				493956135D6FEC3049498F8ED9513C77 /* Cloudipsp */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		DB20A3376572FDCC25D35C8A3C9EFF14 /* Cloudipsp */ = {
+		FFBDB0F1DC8B03B1693AB704B233DDB6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				40E8658D75764B6BD16776DFC58EF7F7 /* PSCloudipsp.h */,
-				104414B749504289224F5A32ACDF7780 /* PSCloudipspApi.h */,
-				BD0397F0A603FA995627D2272BC17DB3 /* PSCloudipspApi.m */,
-				ABE19F4184A95CED2D09E796D01961F3 /* PSDefaultConfirmationErrorHandler.h */,
-				25D1E8FCAD5E3B7A9C72E63EF15145FB /* PSDefaultConfirmationErrorHandler.m */,
-				04947FD72D9BB47461F48B18A9D5B686 /* PSLocalization.h */,
-				AB8950CDD2CD5463E3C60E4BD53022C6 /* PSLocalization.m */,
-				EE9FCE04EEBB0160DB07AD7F4AB2EF27 /* PSPayConfirmation.h */,
-				BE63E42870BD72BF4A7DF90B03F9D36B /* PSPayConfirmation.m */,
-				369D1FF56676DC55C83CF6985134F63B /* PSReceiptUtils.h */,
-				586D42AF66F9F6658FE2ACF910AB4F6E /* PSReceiptUtils.m */,
-				825235BED46612E233CDF66A46600B28 /* PSTextFieldHandler.h */,
-				00E4FAB9DBEA189924B7A9F560B6515A /* PSTextFieldHandler.m */,
-				26B26C4FFAE01E3CD7ECFA2945907BFA /* PSUtils.h */,
-				15316E7C73216694E6ACBF675D534FF2 /* PSUtils.m */,
-				E6D0F11977EBF81078448B4F286676CC /* Models */,
-				1404DB9D49AC26BB04FB65CC289FB3F2 /* Pod */,
-				EAAFD5C83EE35A6A07961998A7205033 /* Resources */,
-				979AF6F477BDECEA726DCF733E006DB4 /* Support Files */,
-				5175551CEF60ABC77B65CEE98ED1A394 /* Views */,
-			);
-			name = Cloudipsp;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		E6D0F11977EBF81078448B4F286676CC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0562DB05AF1DD39F78C7EF1BBC0DE252 /* PSCard.h */,
-				42BCC59AC209614D596578E63442C271 /* PSCard.m */,
-				316A4CB4EBE1D7FD0CC8F2FD06AAA574 /* PSCurrency.h */,
-				640926502C5194739F433F3DD2E995FE /* PSCurrency.m */,
-				DE7793F4BB48C178852A6166A8885F03 /* PSOrder.h */,
-				CAFA86C48DFCEE68F824F3F4862A5BDC /* PSOrder.m */,
-				CC06CADE7EE9998F9575FB60326D5B1B /* PSReceipt.h */,
-				882A29B17FC2C67400ED9599718FB7F9 /* PSReceipt.m */,
-			);
-			name = Models;
-			path = Pod/Classes/Models;
-			sourceTree = "<group>";
-		};
-		EAAFD5C83EE35A6A07961998A7205033 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E6F1F0876184F5D99D00FD1782A23079 /* PSCardInputView.xib */,
+				C27FC955398E8C3F4DB7601EE9F56FA6 /* PSCardInputView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -377,39 +361,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2E503DF33E9AD5E738820B4A37A93A74 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C964DC22EE6A1489317DB2917F1EBD /* Cloudipsp-umbrella.h in Headers */,
+				53B2AA6467C9CEED11B845152CDDEE56 /* PSBaseTextField.h in Headers */,
+				DF32078C6CD95332677B79F68359842B /* PSCard.h in Headers */,
+				5EC6DD8FF341604373D6D732FB2FF417 /* PSCardInputLayout.h in Headers */,
+				CED34263786502A306D5AFBE68DB682E /* PSCardInputView.h in Headers */,
+				B621DBDA33F119746FA3C7E055DEAF34 /* PSCardNumberTextField.h in Headers */,
+				00C4B58AC1808719A1C904832B89655E /* PSCloudipsp.h in Headers */,
+				4E0C6F7E1A194364C2F45FB77F095CC4 /* PSCloudipspApi.h in Headers */,
+				7D7D70B3B81DE41F5EBD36D634840961 /* PSCloudipspWKWebView.h in Headers */,
+				021BDC3FA7AC0FDE536A607A51D92E09 /* PSCurrency.h in Headers */,
+				68B32DA0149994E24BC12541C20C15B8 /* PSCVVTextField.h in Headers */,
+				46FAD3EE9F471BE50738E961C2CA430D /* PSDefaultConfirmationErrorHandler.h in Headers */,
+				D67E61265C705B1C642EF7A83C961F6D /* PSExpMonthTextField.h in Headers */,
+				F347D3063D875A86FEA5E2920C36CC19 /* PSExpYearTextField.h in Headers */,
+				EACC6147E351AF05D8FB4A6F7B44BA6C /* PSLocalization.h in Headers */,
+				D7A8D6CEEDAE1E3435DC5B2302D86B20 /* PSOrder.h in Headers */,
+				EF53063BFEF218F78F99B67711E30A30 /* PSPayConfirmation.h in Headers */,
+				D5D9EB38D797EDADF7B5B1435B096DB2 /* PSReceipt.h in Headers */,
+				5BFEC946DF14CADEA8729EA85B546D7A /* PSReceiptUtils.h in Headers */,
+				987305CB0446CF21EB400E13DC32E6FA /* PSTextFieldHandler.h in Headers */,
+				5F2FC077095E72C16BB8059E74FAC12A /* PSUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2297430379FAE0B8FCB5F8058532F99 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B0D0D84F70150B9D19BABFF1429B4CD8 /* Pods-Cloudipsp_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C83DC9D75C3160A5081D0AD88CC09F71 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				770B13F5C5B19ACE5C7DB98B28FAC83E /* Cloudipsp-umbrella.h in Headers */,
-				7EE2F7F2561D1141171477196F60E72B /* PSBaseTextField.h in Headers */,
-				9A03ADD9DBF86EAA8A49006CAE3EBEB3 /* PSCard.h in Headers */,
-				5320DFDFCFEBA5C4AE73B7A58DCD8473 /* PSCardInputLayout.h in Headers */,
-				545112B3D5AC26DB2E32F15EA499C443 /* PSCardInputView.h in Headers */,
-				AE8779C4FD764407444BD9708F37D8D0 /* PSCardNumberTextField.h in Headers */,
-				0D9A3CF5DD0F1C50CF1412FE7F42D496 /* PSCloudipsp.h in Headers */,
-				95D783EC36F8436C987D93A84DAA6D8C /* PSCloudipspApi.h in Headers */,
-				162E425EC6089FDA7E43E77B99E0FBE6 /* PSCloudipspWKWebView.h in Headers */,
-				5412187A6DF88F3B6773B39701E4ABC5 /* PSCurrency.h in Headers */,
-				D7DB8A82B734B5C43C9C6B38D75C5F38 /* PSCVVTextField.h in Headers */,
-				58AC6765750528220F65D3DA3569DF7B /* PSDefaultConfirmationErrorHandler.h in Headers */,
-				7A99D0BDB3C7957BBF21E138B5E80A75 /* PSExpMonthTextField.h in Headers */,
-				ED3531CBE243642ACDC2492FDDC0B43D /* PSExpYearTextField.h in Headers */,
-				101255C179B1E5F111B24C22BDF621CB /* PSLocalization.h in Headers */,
-				FBD537F261CBB5A4B8FD2F20F28A640C /* PSOrder.h in Headers */,
-				AF22FF0FBF8073A507C2C7C7C0210D9F /* PSPayConfirmation.h in Headers */,
-				445D02156588DE1D1E6B3B24A98391C0 /* PSReceipt.h in Headers */,
-				024545C00B93F1504F4BDC7F155C1E80 /* PSReceiptUtils.h in Headers */,
-				81AB0B5DB68BBB71A0B51D3EC74A5A60 /* PSTextFieldHandler.h in Headers */,
-				2F83C2DBC0FEDB6868875CC7A14C21F8 /* PSUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,8 +412,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F1559D7BE30AC10B6D44F7B20A6119D /* Build configuration list for PBXNativeTarget "Cloudipsp" */;
 			buildPhases = (
-				C83DC9D75C3160A5081D0AD88CC09F71 /* Headers */,
-				1D189C23212925505481285370FBFAB1 /* Sources */,
+				2E503DF33E9AD5E738820B4A37A93A74 /* Headers */,
+				06A2628F2416A79EADF5041C2455F8DF /* Sources */,
 				3DB67B1A72687A52E799B917C5277479 /* Frameworks */,
 				6A788AE98B2EEFE9064185565C7BC9FB /* Resources */,
 			);
@@ -495,6 +479,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = D16D9D3C32E3DCA9E2EBD2F6486CD392 /* Products */;
@@ -520,7 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6378ED5B8FBE1425C9CF378EB734C998 /* PSCardInputView.xib in Resources */,
+				E6B727EFB26057DAE6FDEE5509F11552 /* PSCardInputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,30 +519,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1D189C23212925505481285370FBFAB1 /* Sources */ = {
+		06A2628F2416A79EADF5041C2455F8DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97EE4E42E8D51921600DB4B6FFE4C001 /* Cloudipsp-dummy.m in Sources */,
-				2361D833F851DC75995C282BE9E4EC5E /* PSBaseTextField.m in Sources */,
-				75F455AA1F1CF0F1B351432F2D87950B /* PSCard.m in Sources */,
-				72A9F15D48A548E7494C9B4CA2979DDA /* PSCardInputLayout.m in Sources */,
-				4C9642F4A135A4CC44F016FF2E07BFC3 /* PSCardInputView.m in Sources */,
-				3F5562939748FFC555B8C3FA0B993DC7 /* PSCardNumberTextField.m in Sources */,
-				E9A7D6A0C3984B016FC5EFE960ED04F1 /* PSCloudipspApi.m in Sources */,
-				BFC745C8572F144004CF8218D038DD1C /* PSCloudipspWKWebView.m in Sources */,
-				5E96ABEBBEDB14C19FF467F42BD394AC /* PSCurrency.m in Sources */,
-				CAE850730C771C63DEB2B83AE40A6622 /* PSCVVTextField.m in Sources */,
-				24150AF74F5FCC539987B11ED0624FB4 /* PSDefaultConfirmationErrorHandler.m in Sources */,
-				00A2BB066477C13D4F3ADE023B6B7A2C /* PSExpMonthTextField.m in Sources */,
-				96C34C33B5E0FBAE6E779DF5AC33CABA /* PSExpYearTextField.m in Sources */,
-				2C3942B3C3CB7C127A67C251AACBB5CF /* PSLocalization.m in Sources */,
-				58FEE4C92D6DE3B101D288CC6D415751 /* PSOrder.m in Sources */,
-				F4EF34D93052207048D002B9B2792D4E /* PSPayConfirmation.m in Sources */,
-				CD955F81D0D8EED86BB2723075C67003 /* PSReceipt.m in Sources */,
-				45C08C692F1EA46FAC7F9FF73AD1257D /* PSReceiptUtils.m in Sources */,
-				DB2A3D22BFBCCE6A94ECCF001C371ECB /* PSTextFieldHandler.m in Sources */,
-				076DE90359A54151718422957F3E2185 /* PSUtils.m in Sources */,
+				F3FEEF93E45B23E26E293871B1B0ABF6 /* Cloudipsp-dummy.m in Sources */,
+				24A2191D927AB3E4824A1C086E60444E /* PSBaseTextField.m in Sources */,
+				1E90571608B58C954E9CDC30EEAD60F8 /* PSCard.m in Sources */,
+				39286F2870737AEA96B35A7D89632C78 /* PSCardInputLayout.m in Sources */,
+				F155B5B3DEA32516B19FC26949F109AB /* PSCardInputView.m in Sources */,
+				E37DFAFE6D46809486323FFC9740C1D5 /* PSCardNumberTextField.m in Sources */,
+				6074F38F85F2919EF9D11A25C1B3A38F /* PSCloudipspApi.m in Sources */,
+				5FEC77B408722D70E067D1357D10B6B3 /* PSCloudipspWKWebView.m in Sources */,
+				64885EDF8A21B07C1CA2ED1B9B122BD6 /* PSCurrency.m in Sources */,
+				FFD98211F5FAE371BBF7D6CC41601970 /* PSCVVTextField.m in Sources */,
+				5D059DF06EA30915CD45AA3EDDCC1F73 /* PSDefaultConfirmationErrorHandler.m in Sources */,
+				FC4499B199DFD0725F753E516598B8DC /* PSExpMonthTextField.m in Sources */,
+				5B5B5B0EA15D94052E15C3FBFD71BEEF /* PSExpYearTextField.m in Sources */,
+				0C763D3916059B1819891FFD1C8503AD /* PSLocalization.m in Sources */,
+				07F9DF4586F1F5B75E643062F2F1A915 /* PSOrder.m in Sources */,
+				133421C71D65F2B45C1D47ABB849E69D /* PSPayConfirmation.m in Sources */,
+				B846E292D5F3EA9A6DEC0DCADD51A175 /* PSReceipt.m in Sources */,
+				D8B2F53E21538CEEA9F686BC54BE0FFF /* PSReceiptUtils.m in Sources */,
+				AAA88B315E79C7E7EE459DC00907C72E /* PSTextFieldHandler.m in Sources */,
+				78A2C088071DE5F1DB7BE7B96D96D0A1 /* PSUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +646,37 @@
 			};
 			name = Debug;
 		};
+		1BBC6502410D0DF4EE374B001C9DE5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B6AAF4B1C201A9474A793C1C6980950 /* Cloudipsp.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cloudipsp/Cloudipsp-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cloudipsp/Cloudipsp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
+				PRODUCT_MODULE_NAME = Cloudipsp;
+				PRODUCT_NAME = Cloudipsp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		21A3F980ACA420AF905C702BA374A476 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94C09666CB413215236D800FDB7ADA3D /* Pods-Cloudipsp_Example.release.xcconfig */;
@@ -755,9 +771,9 @@
 			};
 			name = Release;
 		};
-		4D92A79996111A6DC5B04F7B8F10331D /* Debug */ = {
+		6A0F7F30C22F402C330E857C4CE25EA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2D6A8AA91AA556EDBEB3A124749B407 /* Cloudipsp.xcconfig */;
+			baseConfigurationReference = BC544AE346C1D9308DB3C58876997BAA /* Cloudipsp.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -784,37 +800,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		53A717BDB819AD3F5969E058740F6431 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2D6A8AA91AA556EDBEB3A124749B407 /* Cloudipsp.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Cloudipsp/Cloudipsp-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Cloudipsp/Cloudipsp-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
-				PRODUCT_MODULE_NAME = Cloudipsp;
-				PRODUCT_NAME = Cloudipsp;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		6EBEF51811794F9410DB94EA86D4944E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -920,8 +905,8 @@
 		1F1559D7BE30AC10B6D44F7B20A6119D /* Build configuration list for PBXNativeTarget "Cloudipsp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D92A79996111A6DC5B04F7B8F10331D /* Debug */,
-				53A717BDB819AD3F5969E058740F6431 /* Release */,
+				6A0F7F30C22F402C330E857C4CE25EA4 /* Debug */,
+				1BBC6502410D0DF4EE374B001C9DE5F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

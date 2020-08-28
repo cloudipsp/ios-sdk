@@ -6,15 +6,17 @@
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
+#import "PSCard.h"
+#import "PSCloudipspApi.h"
+#import "PSLocalization.h"
 #import "PSCardNumberTextField.h"
 #import "PSExpMonthTextField.h"
 #import "PSExpYearTextField.h"
 #import "PSCVVTextField.h"
 #import "PSCardInputLayout.h"
 #import "PSCardInputView.h"
-#import "PSLocalization.h"
-#import "PSCloudipspApi.h"
-#import "PSCard.h"
+
+
 
 #pragma mark - PSCard
 

@@ -6,15 +6,16 @@
 //
 //
 
+#import "PSCard.h"
+#import "PSLocalization.h"
+#import "PSCloudipspApi.h"
+#import "PSUtils.h"
+
 #import "PSCardInputLayout.h"
 #import "PSCardNumberTextField.h"
 #import "PSExpMonthTextField.h"
 #import "PSExpYearTextField.h"
 #import "PSCVVTextField.h"
-#import "PSLocalization.h"
-#import "PSCloudipspApi.h"
-#import "PSCard.h"
-#import "PSUtils.h"
 
 #pragma mark - PSCard
 

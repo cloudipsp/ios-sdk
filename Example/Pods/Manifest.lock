@@ -1,5 +1,5 @@
 PODS:
-  - Cloudipsp (0.4.2)
+  - Cloudipsp (0.5.7)
 
 DEPENDENCIES:
   - Cloudipsp (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cloudipsp: 81fbd76daafe2def1ad146c8dcc405cd967f3e3e
+  Cloudipsp: 54b308db32aee136915044a0c3c16d687d3b3783
 
 PODFILE CHECKSUM: e4ad6d537e9231c004b2e3d65d6474e719ef547e
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.9.1

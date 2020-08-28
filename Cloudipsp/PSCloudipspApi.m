@@ -6,18 +6,17 @@
 //  Copyright © 2016 Сloudipsp. All rights reserved.
 //
 
+#import <PassKit/PassKit.h>
+
 #import "PSPayConfirmation.h"
 #import "PSCloudipspApi.h"
 #import "PSLocalization.h"
 #import "PSUtils.h"
 
-#import "Models/PSCard.h"
-#import "Models/PSCurrency.h"
-#import "Models/PSReceipt.h"
-#import "Models/PSOrder.h"
-
-#import <PassKit/PassKit.h>
-
+#import "PSCard.h"
+#import "PSCurrency.h"
+#import "PSReceipt.h"
+#import "PSOrder.h"
 
 #pragma mark - PSPayCallbackDelegateMainWrapper
 
