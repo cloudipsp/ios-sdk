@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 ## Installation
-AFNetworking supports multiple methods for installing the library in a project.
+Cloudipsp supports multiple methods for installing the library in a project.
 
 ## Installation with CocoaPods
 
