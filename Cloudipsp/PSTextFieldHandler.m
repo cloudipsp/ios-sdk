@@ -22,10 +22,14 @@
 
 @implementation PSTextFieldHandler
     
-+ (instancetype)new:(NSUInteger)maxLength {
-    PSTextFieldHandler *me = [[PSTextFieldHandler alloc] init];
-    me.maxLength = maxLength;
-    return me;
++ (instancetype)new:(NSUInteger)maxLegth {
+    return [[PSTextFieldHandler alloc] initWith:maxLegth];
+}
+
+- (instancetype)initWith:(NSUInteger)maxLength {
+    self = [super init];
+    self.maxLength = maxLength;
+    return self;
 }
     
 - (void)assignNext:(id<UITextFieldDelegate>)delegate {

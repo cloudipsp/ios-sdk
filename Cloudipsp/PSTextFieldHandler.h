@@ -10,7 +10,8 @@
 
 @interface PSTextFieldHandler : NSObject <UITextFieldDelegate>
 
-+ (instancetype)new:(NSUInteger)maxLength;
++ (instancetype)new:(NSUInteger)maxLegth;
+- (instancetype)initWith:(NSUInteger)maxLength;
 - (void)assignNext:(id<UITextFieldDelegate>)delegate;
     
 @end
