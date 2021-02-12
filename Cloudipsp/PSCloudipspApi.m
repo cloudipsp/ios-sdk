@@ -458,7 +458,7 @@ PSLocalization *_localization;
         [dictionary setObject:[PSOrder getLangName:order.lang] forKey:@"lang"];
     }
     [dictionary setObject:order.preauth ? @"Y" : @"N" forKey:@"preauth"];
-    [dictionary setObject:@"N" forKey:@"delayed"];
+    [dictionary setObject:order.delayed ? @"Y" : @"N" forKey:@"delayed"];
     [dictionary setObject:order.requiredRecToken ? @"Y" : @"N" forKey:@"required_rectoken"];
     [dictionary setObject:order.verification ? @"Y" : @"N" forKey:@"verification"];
     if (order.verificationType != 0) {

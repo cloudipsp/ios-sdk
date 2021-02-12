@@ -105,7 +105,7 @@ PSLang langWithString(NSString *str) {
         self.requiredRecToken = NO;
         self.verification = NO;
         self.verificationType = PSVerificationAmount;
-        
+        self.delayed = NO;
     }
     return self;
 }

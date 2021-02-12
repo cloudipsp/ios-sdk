@@ -50,6 +50,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSString *serverCallbackUrl;
 @property (nonatomic, strong) NSString *reservationData;
 @property (nonatomic, strong) NSString *applePayInfo;
+@property (nonatomic, assign) BOOL delayed;
 
 - (instancetype)initOrder:(NSInteger)amount
                 aCurrency:(PSCurrency)currency
