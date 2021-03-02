@@ -85,7 +85,6 @@
 }
     
 - (id)findOne:(Class)fieldClass {
-    
     NSMutableArray *views = [NSMutableArray array];
     [self find:fieldClass aParent:self aFields:views];
     NSUInteger count = views.count;
@@ -105,9 +104,11 @@
 }
     
 - (void)find:(Class)fieldClass aParent:(UIView *)parent aFields:(inout NSMutableArray *)fields {
-    for (id view in self.subviews) {
+    for (id view in parent.subviews) {
         if ([view isKindOfClass:fieldClass]) {
             [fields addObject:view];
+        } else {
+            [self find:fieldClass aParent:view aFields:fields];
         }
     }
 }

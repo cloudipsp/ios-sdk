@@ -759,7 +759,7 @@ API_AVAILABLE(ios(11.0))
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"iOS-SDK" forHTTPHeaderField:@"User-Agent"];
     [request addValue:@"ios" forHTTPHeaderField:@"SDK-OS"];
-    [request addValue:@"0.7.0" forHTTPHeaderField:@"SDK-Version"];
+    [request addValue:@"0.9.0" forHTTPHeaderField:@"SDK-Version"];
     interceptor(request);
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
