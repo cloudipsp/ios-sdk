@@ -95,6 +95,10 @@
     return [self.cardInputLayout confirm:errorHandler];
 }
 
+- (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler singleShotValidation:(BOOL)singleShotValidation {
+    return [self.cardInputLayout confirm:errorHandler singleShotValidation:singleShotValidation];
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

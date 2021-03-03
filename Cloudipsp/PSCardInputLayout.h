@@ -22,7 +22,8 @@
             expMonthTextField:(PSExpMonthTextField *)expMonthTextField
              expYearTextField:(PSExpYearTextField *)expYearTextField
                  cvvTextField:(PSCVVTextField *)cvvTextField;
-    
+
+- (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler singleShotValidation:(BOOL)singleShotValidation;
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler;
 - (PSCard *)confirm;
 - (void)clear;

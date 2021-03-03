@@ -167,6 +167,10 @@
 }
     
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler {
+    return [self confirm:errorHandler singleShotValidation:YES];
+}
+    
+- (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler singleShotValidation:(BOOL)singleShotValidation {
     [errorHandler onCardInputErrorClear:self aTextField:self.cardNumberTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.expMonthTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.expYearTextField];
@@ -180,30 +184,61 @@
                            expireYy:[self.expYearTextField.text intValue]
                                aCvv:self.cvvTextField.text];
     
+    BOOL cardValidated = YES;
     if (![card isValidCardNumber]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.cardNumberTextField
                                        aError:PSConfirmationErrorInvalidCardNumber];
-    } else if (![card isValidExpireMonth]) {
+        if (singleShotValidation) {
+            return nil;
+        } else {
+            cardValidated = NO;
+        }
+    }
+    if (![card isValidExpireMonth]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expMonthTextField
                                        aError:PSConfirmationErrorInvalidMm];
-    } else if (![card isValidExpireYear]) {
+        if (singleShotValidation) {
+            return nil;
+        } else {
+            cardValidated = NO;
+        }
+    }
+    if (![card isValidExpireYear]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expYearTextField
                                        aError:PSConfirmationErrorInvalidYy];
-    } else if (![card isValidExpireDate]) {
+        if (singleShotValidation) {
+            return nil;
+        } else {
+            cardValidated = NO;
+        }
+    }
+    if (![card isValidExpireDate]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.expMonthTextField
                                        aError:PSConfirmationErrorInvalidDate];
-    } else if (![card isValidCvv]) {
+        if (singleShotValidation) {
+            return nil;
+        } else {
+            cardValidated = NO;
+        }
+    }
+    if (![card isValidCvv]) {
         [errorHandler onCardInputErrorCatched:self
                                    aTextField:self.cvvTextField
                                        aError:PSConfirmationErrorInvalidCvv];
-    } else {
+        if (singleShotValidation) {
+            return nil;
+        } else {
+            cardValidated = NO;
+        }
+    }
+    if (cardValidated) {
         return card;
     }
-    
+
     return nil;
 }
     

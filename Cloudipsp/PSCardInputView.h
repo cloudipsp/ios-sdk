@@ -33,6 +33,8 @@
 @property (nonatomic, strong) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet id<PSCardInputViewDelegate> inputDelegate;
 
+
+- (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler singleShotValidation:(BOOL)singleShotValidation;
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler;
 - (PSCard *)confirm;
 - (void)clear;
