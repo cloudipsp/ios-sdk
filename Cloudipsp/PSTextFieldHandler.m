@@ -72,10 +72,10 @@
     }
     NSString *proposedString = [textField.text stringByReplacingCharactersInRange:range
                                                                   withString:string];
-    PSCardInputLayout *layout = (PSCardInputLayout *)textField.superview;
+    PSCardInputLayout *layout = [PSTextFieldHandler getInputLayoutFor:textField];
     return [layout lengthHandlerFor:textField aNewString:proposedString aMaxLength:self.maxLength];
 }
-    
+
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
     if ([self.next respondsToSelector:@selector(textFieldShouldClear:)]) {
         return [self.next textFieldShouldClear:textField];
@@ -96,5 +96,12 @@
         }
     }
 }
-    
+
++ (PSCardInputLayout *)getInputLayoutFor:(UIView *)view {
+    if ([view.superview isKindOfClass:[PSCardInputLayout class]]) {
+        return (PSCardInputLayout *)view.superview;
+    }
+    return [PSTextFieldHandler getInputLayoutFor:view.superview];
+}
+
 @end
