@@ -557,7 +557,7 @@ PSLocalization *_localization;
              payDelegate:(id<PSPayCallbackDelegate>)delegate {
     [self call:@"/api/checkout/ajax" aParams:params onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
-        if ([callbackUrl isEqualToString:url]) {
+        if ([url hasPrefix:callbackUrl]) {
             PSCheckout *checkout = [[PSCheckout alloc] initCheckout:token aSendData:nil aUrl:url aCallbackUrl:callbackUrl aAction:WITHOUT_3DS];
             success(checkout);
         } else {
@@ -608,7 +608,7 @@ PSLocalization *_localization;
                                                if (jsonOfConfirmation) {
                                                    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonOfConfirmation dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
                                                    NSString *url = [json objectForKey:@"url"];
-                                                   if (![url isEqualToString:checkout.callbackUrl]) {
+                                                   if (![checkout.callbackUrl hasPrefix:url]) {
                                                        @throw [NSException exceptionWithName:@"" reason:nil userInfo:nil];
                                                    }
                                                    NSDictionary *orderData = [json objectForKey:@"params"];

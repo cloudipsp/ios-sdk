@@ -18,7 +18,7 @@ Cloudipsp supports multiple methods for installing the library in a project.
 To integrate Cloudipsp into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'Cloudipsp', '~> 0.5.7'
+pod 'Cloudipsp', '~> 0.9.3'
 ```
 
 ### Installation with Swift Package Manager
@@ -27,7 +27,7 @@ Once you have your Swift package set up, adding Cloudipsp as a dependency is as 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cloudipsp/ios-sdk.git", .upToNextMajor(from: "0.5.8"))
+    .package(url: "https://github.com/cloudipsp/ios-sdk.git", .upToNextMajor(from: "0.9.3"))
 ]
 ```
 
