@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06A5083F5D47CAC0F219E22EA10FEC98 /* PSPayConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EDD3ABB3BF7E1A2ED6CC8C9D3C1A8A /* PSPayConfirmation.m */; };
+		0D0E51EFF9F6BA5CBB389E01B7E1ABFF /* PSTextFieldHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FF0F0502F443349C169F9B603D2611FD /* PSTextFieldHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E33E8AE160331B5BC08737FF9DA9E8C /* PSCloudipspWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B876F845BD76D28C4504FB0053096401 /* PSCloudipspWKWebView.m */; };
+		1511150B004978876963F46AB8DE153C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EFFF85EC955A1C3308B40EBFC2EE52 /* Foundation.framework */; };
+		16C1D5A0C3C8F477DD21E27482C4348A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85358C98827515D29B232FE4198D8BF /* UIKit.framework */; };
+		2842A795F46B5F81FC7A39B4732D4392 /* PSExpYearTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 10DDBDA271832E0121D72E86A1C425C8 /* PSExpYearTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BECE43BD8288D760B5C363BF71CE8D7 /* PSReceiptUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B323619BBCF957A8C3A733D4194A5337 /* PSReceiptUtils.m */; };
+		30ED09F84D9CCC3CE72060DC679AEB8D /* PSCardNumberTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = EC99ED82F443DEF1DED7135AFDE26AB7 /* PSCardNumberTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36B4AC7C86DB887CC3A0F1B377754CF7 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2EE9A36B429C2261761D9450ABF89 /* PassKit.framework */; };
+		4486BBCDE05F7A53141A899B591CF2FF /* PSCardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6404AF45206F7A70FE36A002313B6902 /* PSCardInputView.m */; };
+		451DFCDAB2BBC3F31907465582FC8F84 /* PSCloudipsp.h in Headers */ = {isa = PBXBuildFile; fileRef = 70CAF44F77B590E80CE403669C0D62AD /* PSCloudipsp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		521E2C3E4BF07FBE87BC5F3632049D97 /* PSCardInputLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 879F2DC25D89406520A5C4744A572AE2 /* PSCardInputLayout.m */; };
+		58B57A501FF602A2262BAADC1FAA754A /* PSCVVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6433D7D7C9AF26148C2DB0C134FCB2 /* PSCVVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B72A290CA44B3CD6D14CB0FF6A53AFD /* PSCloudipspApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 487D2470939240D58FD9CC3DD15F9192 /* PSCloudipspApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		785F8794685D4977176AEC55E5089199 /* PSCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA041DC3A72A58D9747E2A7E24287AB /* PSCardNumberTextField.m */; };
+		7C8235BD7D4CFD04ED3A0060B57F7A78 /* PSCardInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F2EE13EA5F4FAD7C3373879FD26632 /* PSCardInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F19D3C29B0E06CA16F963E81A20AFAE /* PSReceiptUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DA4788DE75399A740E648B22A05588C /* PSReceiptUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FED6557BBCD8802A517F1D27F6637F2 /* PSExpYearTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E73B7CCDBA1A535685E0965FE930D8 /* PSExpYearTextField.m */; };
+		80902EF10835053761764E8B6B7FC2A1 /* Cloudipsp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC3D7D6BE190F242A138CDD297CC813 /* Cloudipsp-dummy.m */; };
+		879331D705CAE44153204DEB98B03E2F /* PSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ABD1BA556C88C7F929DB8D6F25A4E /* PSOrder.m */; };
+		8DC0A9D81F7CDA2D87E5768983495210 /* PSReceipt.h in Headers */ = {isa = PBXBuildFile; fileRef = EE19B1DAD193933B04E4069BC13E6E5D /* PSReceipt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90D8B889820D009603EC82D11CA6507A /* PSLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 092504C8DD0FC4664AE7621B17D6277C /* PSLocalization.m */; };
+		932C77C9420A2C04E5056FA7B42D74C4 /* Pods-ExampleSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A9D5203050420163E93A26030331A5 /* Pods-ExampleSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9640A20F934ED4AA40A6027225B45838 /* PSBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2432611C636C457A49FBD80D985D696D /* PSBaseTextField.m */; };
+		98672E881F1694CE152BA1D4A066C0C8 /* PSPayConfirmation.h in Headers */ = {isa = PBXBuildFile; fileRef = 42C292A845080357579BA04696F10C94 /* PSPayConfirmation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9937BC2B2564D448F85B5F25160A4764 /* PSCVVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A93AC80675D392BA2B79A2AADAC3F82E /* PSCVVTextField.m */; };
+		9BB4EDF9F521E4552562ED3E0F508B52 /* PSReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 154C36C0696DA5EAE7D104745399C1C7 /* PSReceipt.m */; };
+		9DBC54FDE90DAFB5FB2AFD5CE04C93FC /* PSExpMonthTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7496F14C4006F1426289089ED4F5C14D /* PSExpMonthTextField.m */; };
+		9E9DA4AE0CC001CD4C5B502C58FD1F72 /* PSExpMonthTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A969B54FAD8BAE6DA7AFA8AF07C1D94 /* PSExpMonthTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC278F2C99FDC4B54623E02B39E5DD5F /* PSCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F9FE544F65BFFA83DF50DF3CC60C81B /* PSCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF9132B8B67A4C4FC758ABA4642E805E /* Pods-ExampleSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AFA27ED2E9D86E304D239035D6B09C /* Pods-ExampleSwift-dummy.m */; };
+		B8A5883BD926382F35B4250DEE626EE0 /* PSCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A667AE9A29434ED1B072DB1DC66070 /* PSCurrency.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B93897EB5FF2D8467029B5ABDFC5E520 /* PSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40118800A0D1585991218641C5DC1A93 /* PSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C14CE55846B879324650057AEB03E56E /* PSOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B026E1FC1C6D915713AAA6CC56930B /* PSOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D03B552B021198A17D8A77D3AE1BC048 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83EFFF85EC955A1C3308B40EBFC2EE52 /* Foundation.framework */; };
+		D1A47150B555D154215E4126BC93890D /* Cloudipsp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB06C3D46F529DD914D158E96AEA9AF /* Cloudipsp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D64351E94DEE4514956E38B08200CC5B /* PSBaseTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 57E81E92B3276810174228C762DDFBD4 /* PSBaseTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7EDAF78C28E2A2D0BDACE2BD9C990CE /* PSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F408AE080C1ADBB9AA43BFAF30045F /* PSUtils.m */; };
+		DB0EBB1C989F9A78B3EC6E5E1CBC31FB /* PSLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2EF7CF7F81F9460C97C0F4DD63CFD7 /* PSLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E78ABB21840CFF94495912309B0052B3 /* PSTextFieldHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 793753487D4801EDF6BAC2E3B258AE05 /* PSTextFieldHandler.m */; };
+		E8ECDD8FE17EE83827ECF1264F6EAA28 /* PSDefaultConfirmationErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E0557128E532910C4455B61123FBC2E3 /* PSDefaultConfirmationErrorHandler.m */; };
+		EA3671697CA87EF6E6F2D9B814771AF9 /* PSCardInputLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 67EBD40640CB59009DD1A7C40161168F /* PSCardInputLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB90694EB9B907E4AC2157513CF9B1CB /* PSCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 132B6A0CBBDD7CD2D59A8FE35C6FB5BB /* PSCurrency.m */; };
+		EE887AA94B97C75DC771C49E50825034 /* PSCloudipspWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDD1808F7DD26853EA65138F256FAB2 /* PSCloudipspWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0A6B036DFC5F8F6E21907908F14E245 /* PSCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F6AA29595F8E7A54A48D66908D0549 /* PSCard.m */; };
+		F5A842904DFD9F3E76ED7A3A3978EA26 /* PSCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1127FB026F8A6649D6478185282246A0 /* PSCardInputView.xib */; };
+		F8B22EDC51AA7CE05CC754ABD845834B /* PSDefaultConfirmationErrorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F3CE72BEA2DC1A05C11B63AA790F1B /* PSDefaultConfirmationErrorHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8FB91BA9A1AA0924536E6131D632A6A /* PSCloudipspApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 52354AD7E01F6597046F7162347D91A4 /* PSCloudipspApi.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81C89D1B00B1B6B80BF30933FE280ADC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 668D3793ACA62FBE2EEBF4EEFD43FA65;
+			remoteInfo = Cloudipsp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00B0380563779C1D04225C05B99044DD /* Pods-ExampleSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ExampleSwift"; path = Pods_ExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		092504C8DD0FC4664AE7621B17D6277C /* PSLocalization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSLocalization.m; path = Cloudipsp/PSLocalization.m; sourceTree = "<group>"; };
+		099DFF1582E7ED33D1D270B1E88A400E /* Pods-ExampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		10DDBDA271832E0121D72E86A1C425C8 /* PSExpYearTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSExpYearTextField.h; path = Cloudipsp/PSExpYearTextField.h; sourceTree = "<group>"; };
+		1127FB026F8A6649D6478185282246A0 /* PSCardInputView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PSCardInputView.xib; path = Cloudipsp/PSCardInputView.xib; sourceTree = "<group>"; };
+		132B6A0CBBDD7CD2D59A8FE35C6FB5BB /* PSCurrency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCurrency.m; path = Cloudipsp/PSCurrency.m; sourceTree = "<group>"; };
+		13F2EE13EA5F4FAD7C3373879FD26632 /* PSCardInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardInputView.h; path = Cloudipsp/PSCardInputView.h; sourceTree = "<group>"; };
+		154C36C0696DA5EAE7D104745399C1C7 /* PSReceipt.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSReceipt.m; path = Cloudipsp/PSReceipt.m; sourceTree = "<group>"; };
+		17F6AA29595F8E7A54A48D66908D0549 /* PSCard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCard.m; path = Cloudipsp/PSCard.m; sourceTree = "<group>"; };
+		197AF362722E596136BDD7C8F0503D33 /* Pods-ExampleSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleSwift-Info.plist"; sourceTree = "<group>"; };
+		2432611C636C457A49FBD80D985D696D /* PSBaseTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSBaseTextField.m; path = Cloudipsp/PSBaseTextField.m; sourceTree = "<group>"; };
+		259BB14FB4E4360A897759C587DED3E4 /* Cloudipsp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.debug.xcconfig; sourceTree = "<group>"; };
+		2DA4788DE75399A740E648B22A05588C /* PSReceiptUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSReceiptUtils.h; path = Cloudipsp/PSReceiptUtils.h; sourceTree = "<group>"; };
+		38AFA27ED2E9D86E304D239035D6B09C /* Pods-ExampleSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleSwift-dummy.m"; sourceTree = "<group>"; };
+		40118800A0D1585991218641C5DC1A93 /* PSUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSUtils.h; path = Cloudipsp/PSUtils.h; sourceTree = "<group>"; };
+		42C292A845080357579BA04696F10C94 /* PSPayConfirmation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSPayConfirmation.h; path = Cloudipsp/PSPayConfirmation.h; sourceTree = "<group>"; };
+		487D2470939240D58FD9CC3DD15F9192 /* PSCloudipspApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipspApi.h; path = Cloudipsp/PSCloudipspApi.h; sourceTree = "<group>"; };
+		52354AD7E01F6597046F7162347D91A4 /* PSCloudipspApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCloudipspApi.m; path = Cloudipsp/PSCloudipspApi.m; sourceTree = "<group>"; };
+		57E81E92B3276810174228C762DDFBD4 /* PSBaseTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSBaseTextField.h; path = Cloudipsp/PSBaseTextField.h; sourceTree = "<group>"; };
+		5D3ABD1BA556C88C7F929DB8D6F25A4E /* PSOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSOrder.m; path = Cloudipsp/PSOrder.m; sourceTree = "<group>"; };
+		5F9FE544F65BFFA83DF50DF3CC60C81B /* PSCard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCard.h; path = Cloudipsp/PSCard.h; sourceTree = "<group>"; };
+		6404AF45206F7A70FE36A002313B6902 /* PSCardInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardInputView.m; path = Cloudipsp/PSCardInputView.m; sourceTree = "<group>"; };
+		67EBD40640CB59009DD1A7C40161168F /* PSCardInputLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardInputLayout.h; path = Cloudipsp/PSCardInputLayout.h; sourceTree = "<group>"; };
+		70CAF44F77B590E80CE403669C0D62AD /* PSCloudipsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipsp.h; path = Cloudipsp/PSCloudipsp.h; sourceTree = "<group>"; };
+		70E73B7CCDBA1A535685E0965FE930D8 /* PSExpYearTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSExpYearTextField.m; path = Cloudipsp/PSExpYearTextField.m; sourceTree = "<group>"; };
+		72A78B6E0D2C090B148BC3925B89C262 /* Pods-ExampleSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleSwift.modulemap"; sourceTree = "<group>"; };
+		7496F14C4006F1426289089ED4F5C14D /* PSExpMonthTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSExpMonthTextField.m; path = Cloudipsp/PSExpMonthTextField.m; sourceTree = "<group>"; };
+		793753487D4801EDF6BAC2E3B258AE05 /* PSTextFieldHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSTextFieldHandler.m; path = Cloudipsp/PSTextFieldHandler.m; sourceTree = "<group>"; };
+		7C6433D7D7C9AF26148C2DB0C134FCB2 /* PSCVVTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCVVTextField.h; path = Cloudipsp/PSCVVTextField.h; sourceTree = "<group>"; };
+		7E11200C67D321CE0A471E997F1E549C /* Pods-ExampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleSwift.release.xcconfig"; sourceTree = "<group>"; };
+		83EFFF85EC955A1C3308B40EBFC2EE52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		879F2DC25D89406520A5C4744A572AE2 /* PSCardInputLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardInputLayout.m; path = Cloudipsp/PSCardInputLayout.m; sourceTree = "<group>"; };
+		99A9D5203050420163E93A26030331A5 /* Pods-ExampleSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ExampleSwift-umbrella.h"; sourceTree = "<group>"; };
+		9A969B54FAD8BAE6DA7AFA8AF07C1D94 /* PSExpMonthTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSExpMonthTextField.h; path = Cloudipsp/PSExpMonthTextField.h; sourceTree = "<group>"; };
+		9C88DDBDE470EDDDDA02911E6761246E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0C56C7E5F07B0F74844190D1EF08905 /* Cloudipsp.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Cloudipsp.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7EDD3ABB3BF7E1A2ED6CC8C9D3C1A8A /* PSPayConfirmation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSPayConfirmation.m; path = Cloudipsp/PSPayConfirmation.m; sourceTree = "<group>"; };
+		A93AC80675D392BA2B79A2AADAC3F82E /* PSCVVTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCVVTextField.m; path = Cloudipsp/PSCVVTextField.m; sourceTree = "<group>"; };
+		ACB06C3D46F529DD914D158E96AEA9AF /* Cloudipsp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-umbrella.h"; sourceTree = "<group>"; };
+		B25AE30B6AD2B309CB32ACC33F6B3C31 /* Pods-ExampleSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleSwift-acknowledgements.plist"; sourceTree = "<group>"; };
+		B323619BBCF957A8C3A733D4194A5337 /* PSReceiptUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSReceiptUtils.m; path = Cloudipsp/PSReceiptUtils.m; sourceTree = "<group>"; };
+		B7E284B11CAA74A67E84EEF74CAAC35B /* Cloudipsp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cloudipsp.modulemap; sourceTree = "<group>"; };
+		B876F845BD76D28C4504FB0053096401 /* PSCloudipspWKWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCloudipspWKWebView.m; path = Cloudipsp/PSCloudipspWKWebView.m; sourceTree = "<group>"; };
+		BAF5669B1AB28E8E1C3E96FE3A7E52C2 /* Cloudipsp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudipsp-Info.plist"; sourceTree = "<group>"; };
+		C5345089020E0B6C887734CD33435F42 /* Cloudipsp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cloudipsp.release.xcconfig; sourceTree = "<group>"; };
+		D1D6B9250145E9CD97166F89AC63C308 /* Cloudipsp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cloudipsp; path = Cloudipsp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F3CE72BEA2DC1A05C11B63AA790F1B /* PSDefaultConfirmationErrorHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSDefaultConfirmationErrorHandler.h; path = Cloudipsp/PSDefaultConfirmationErrorHandler.h; sourceTree = "<group>"; };
+		D7C8CED58D1F5C2C46C543499AC1935A /* Pods-ExampleSwift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ExampleSwift-frameworks.sh"; sourceTree = "<group>"; };
+		D7F408AE080C1ADBB9AA43BFAF30045F /* PSUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSUtils.m; path = Cloudipsp/PSUtils.m; sourceTree = "<group>"; };
+		DDDD1808F7DD26853EA65138F256FAB2 /* PSCloudipspWKWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCloudipspWKWebView.h; path = Cloudipsp/PSCloudipspWKWebView.h; sourceTree = "<group>"; };
+		E0557128E532910C4455B61123FBC2E3 /* PSDefaultConfirmationErrorHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSDefaultConfirmationErrorHandler.m; path = Cloudipsp/PSDefaultConfirmationErrorHandler.m; sourceTree = "<group>"; };
+		E85358C98827515D29B232FE4198D8BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EBA041DC3A72A58D9747E2A7E24287AB /* PSCardNumberTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PSCardNumberTextField.m; path = Cloudipsp/PSCardNumberTextField.m; sourceTree = "<group>"; };
+		EC18CE0598580756021B787DD5EFF51C /* Cloudipsp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudipsp-prefix.pch"; sourceTree = "<group>"; };
+		EC99ED82F443DEF1DED7135AFDE26AB7 /* PSCardNumberTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCardNumberTextField.h; path = Cloudipsp/PSCardNumberTextField.h; sourceTree = "<group>"; };
+		EE19B1DAD193933B04E4069BC13E6E5D /* PSReceipt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSReceipt.h; path = Cloudipsp/PSReceipt.h; sourceTree = "<group>"; };
+		EF2EF7CF7F81F9460C97C0F4DD63CFD7 /* PSLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSLocalization.h; path = Cloudipsp/PSLocalization.h; sourceTree = "<group>"; };
+		EFB2EE9A36B429C2261761D9450ABF89 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
+		EFC3D7D6BE190F242A138CDD297CC813 /* Cloudipsp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cloudipsp-dummy.m"; sourceTree = "<group>"; };
+		F2A667AE9A29434ED1B072DB1DC66070 /* PSCurrency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSCurrency.h; path = Cloudipsp/PSCurrency.h; sourceTree = "<group>"; };
+		F6B026E1FC1C6D915713AAA6CC56930B /* PSOrder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSOrder.h; path = Cloudipsp/PSOrder.h; sourceTree = "<group>"; };
+		FAB08FE0287E647E2F1FC64545F6FB7F /* Pods-ExampleSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExampleSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FBC55ACB449091CB971B85C0971B87A6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		FF0F0502F443349C169F9B603D2611FD /* PSTextFieldHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PSTextFieldHandler.h; path = Cloudipsp/PSTextFieldHandler.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AC012AE01CE0691B19CE9C29C606505 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1511150B004978876963F46AB8DE153C /* Foundation.framework in Frameworks */,
+				36B4AC7C86DB887CC3A0F1B377754CF7 /* PassKit.framework in Frameworks */,
+				16C1D5A0C3C8F477DD21E27482C4348A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		927948E0518427B06AE2EC8F8D63B597 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03B552B021198A17D8A77D3AE1BC048 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				115C68170DC0A05E6D60D0DDC1CFC248 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		115C68170DC0A05E6D60D0DDC1CFC248 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				83EFFF85EC955A1C3308B40EBFC2EE52 /* Foundation.framework */,
+				EFB2EE9A36B429C2261761D9450ABF89 /* PassKit.framework */,
+				E85358C98827515D29B232FE4198D8BF /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1280BFEF72C1C144C6E2831889ADEB09 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2736F07DB55939BA68F3B3C7923F29B3 /* Pods-ExampleSwift */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		20D2FCA0CB89B5B2D556A05818BB8ECC /* Cloudipsp */ = {
+			isa = PBXGroup;
+			children = (
+				57E81E92B3276810174228C762DDFBD4 /* PSBaseTextField.h */,
+				2432611C636C457A49FBD80D985D696D /* PSBaseTextField.m */,
+				5F9FE544F65BFFA83DF50DF3CC60C81B /* PSCard.h */,
+				17F6AA29595F8E7A54A48D66908D0549 /* PSCard.m */,
+				67EBD40640CB59009DD1A7C40161168F /* PSCardInputLayout.h */,
+				879F2DC25D89406520A5C4744A572AE2 /* PSCardInputLayout.m */,
+				13F2EE13EA5F4FAD7C3373879FD26632 /* PSCardInputView.h */,
+				6404AF45206F7A70FE36A002313B6902 /* PSCardInputView.m */,
+				1127FB026F8A6649D6478185282246A0 /* PSCardInputView.xib */,
+				EC99ED82F443DEF1DED7135AFDE26AB7 /* PSCardNumberTextField.h */,
+				EBA041DC3A72A58D9747E2A7E24287AB /* PSCardNumberTextField.m */,
+				70CAF44F77B590E80CE403669C0D62AD /* PSCloudipsp.h */,
+				487D2470939240D58FD9CC3DD15F9192 /* PSCloudipspApi.h */,
+				52354AD7E01F6597046F7162347D91A4 /* PSCloudipspApi.m */,
+				DDDD1808F7DD26853EA65138F256FAB2 /* PSCloudipspWKWebView.h */,
+				B876F845BD76D28C4504FB0053096401 /* PSCloudipspWKWebView.m */,
+				F2A667AE9A29434ED1B072DB1DC66070 /* PSCurrency.h */,
+				132B6A0CBBDD7CD2D59A8FE35C6FB5BB /* PSCurrency.m */,
+				7C6433D7D7C9AF26148C2DB0C134FCB2 /* PSCVVTextField.h */,
+				A93AC80675D392BA2B79A2AADAC3F82E /* PSCVVTextField.m */,
+				D4F3CE72BEA2DC1A05C11B63AA790F1B /* PSDefaultConfirmationErrorHandler.h */,
+				E0557128E532910C4455B61123FBC2E3 /* PSDefaultConfirmationErrorHandler.m */,
+				9A969B54FAD8BAE6DA7AFA8AF07C1D94 /* PSExpMonthTextField.h */,
+				7496F14C4006F1426289089ED4F5C14D /* PSExpMonthTextField.m */,
+				10DDBDA271832E0121D72E86A1C425C8 /* PSExpYearTextField.h */,
+				70E73B7CCDBA1A535685E0965FE930D8 /* PSExpYearTextField.m */,
+				EF2EF7CF7F81F9460C97C0F4DD63CFD7 /* PSLocalization.h */,
+				092504C8DD0FC4664AE7621B17D6277C /* PSLocalization.m */,
+				F6B026E1FC1C6D915713AAA6CC56930B /* PSOrder.h */,
+				5D3ABD1BA556C88C7F929DB8D6F25A4E /* PSOrder.m */,
+				42C292A845080357579BA04696F10C94 /* PSPayConfirmation.h */,
+				A7EDD3ABB3BF7E1A2ED6CC8C9D3C1A8A /* PSPayConfirmation.m */,
+				EE19B1DAD193933B04E4069BC13E6E5D /* PSReceipt.h */,
+				154C36C0696DA5EAE7D104745399C1C7 /* PSReceipt.m */,
+				2DA4788DE75399A740E648B22A05588C /* PSReceiptUtils.h */,
+				B323619BBCF957A8C3A733D4194A5337 /* PSReceiptUtils.m */,
+				FF0F0502F443349C169F9B603D2611FD /* PSTextFieldHandler.h */,
+				793753487D4801EDF6BAC2E3B258AE05 /* PSTextFieldHandler.m */,
+				40118800A0D1585991218641C5DC1A93 /* PSUtils.h */,
+				D7F408AE080C1ADBB9AA43BFAF30045F /* PSUtils.m */,
+				92227ACF9FDA8433E6F006376008AB53 /* Pod */,
+				4E1407389A26F077330951A4E15A48DA /* Support Files */,
+			);
+			name = Cloudipsp;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		2736F07DB55939BA68F3B3C7923F29B3 /* Pods-ExampleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				72A78B6E0D2C090B148BC3925B89C262 /* Pods-ExampleSwift.modulemap */,
+				FAB08FE0287E647E2F1FC64545F6FB7F /* Pods-ExampleSwift-acknowledgements.markdown */,
+				B25AE30B6AD2B309CB32ACC33F6B3C31 /* Pods-ExampleSwift-acknowledgements.plist */,
+				38AFA27ED2E9D86E304D239035D6B09C /* Pods-ExampleSwift-dummy.m */,
+				D7C8CED58D1F5C2C46C543499AC1935A /* Pods-ExampleSwift-frameworks.sh */,
+				197AF362722E596136BDD7C8F0503D33 /* Pods-ExampleSwift-Info.plist */,
+				99A9D5203050420163E93A26030331A5 /* Pods-ExampleSwift-umbrella.h */,
+				099DFF1582E7ED33D1D270B1E88A400E /* Pods-ExampleSwift.debug.xcconfig */,
+				7E11200C67D321CE0A471E997F1E549C /* Pods-ExampleSwift.release.xcconfig */,
+			);
+			name = "Pods-ExampleSwift";
+			path = "Target Support Files/Pods-ExampleSwift";
+			sourceTree = "<group>";
+		};
+		4E1407389A26F077330951A4E15A48DA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7E284B11CAA74A67E84EEF74CAAC35B /* Cloudipsp.modulemap */,
+				EFC3D7D6BE190F242A138CDD297CC813 /* Cloudipsp-dummy.m */,
+				BAF5669B1AB28E8E1C3E96FE3A7E52C2 /* Cloudipsp-Info.plist */,
+				EC18CE0598580756021B787DD5EFF51C /* Cloudipsp-prefix.pch */,
+				ACB06C3D46F529DD914D158E96AEA9AF /* Cloudipsp-umbrella.h */,
+				259BB14FB4E4360A897759C587DED3E4 /* Cloudipsp.debug.xcconfig */,
+				C5345089020E0B6C887734CD33435F42 /* Cloudipsp.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "ExampleSwift/Pods/Target Support Files/Cloudipsp";
+			sourceTree = "<group>";
+		};
+		92227ACF9FDA8433E6F006376008AB53 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				A0C56C7E5F07B0F74844190D1EF08905 /* Cloudipsp.podspec */,
+				FBC55ACB449091CB971B85C0971B87A6 /* LICENSE */,
+				9C88DDBDE470EDDDDA02911E6761246E /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E32EC80DAB88F2DA0EB3793E2F25B4F0 /* Development Pods */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				D8F2C522482541EE7A2681717C444C68 /* Products */,
+				1280BFEF72C1C144C6E2831889ADEB09 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D8F2C522482541EE7A2681717C444C68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1D6B9250145E9CD97166F89AC63C308 /* Cloudipsp */,
+				00B0380563779C1D04225C05B99044DD /* Pods-ExampleSwift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E32EC80DAB88F2DA0EB3793E2F25B4F0 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20D2FCA0CB89B5B2D556A05818BB8ECC /* Cloudipsp */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4F185FD06060B14B86A61CCBFC404F00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932C77C9420A2C04E5056FA7B42D74C4 /* Pods-ExampleSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC506AEAAD85DE777AE6DA94348A068 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1A47150B555D154215E4126BC93890D /* Cloudipsp-umbrella.h in Headers */,
+				D64351E94DEE4514956E38B08200CC5B /* PSBaseTextField.h in Headers */,
+				AC278F2C99FDC4B54623E02B39E5DD5F /* PSCard.h in Headers */,
+				EA3671697CA87EF6E6F2D9B814771AF9 /* PSCardInputLayout.h in Headers */,
+				7C8235BD7D4CFD04ED3A0060B57F7A78 /* PSCardInputView.h in Headers */,
+				30ED09F84D9CCC3CE72060DC679AEB8D /* PSCardNumberTextField.h in Headers */,
+				451DFCDAB2BBC3F31907465582FC8F84 /* PSCloudipsp.h in Headers */,
+				5B72A290CA44B3CD6D14CB0FF6A53AFD /* PSCloudipspApi.h in Headers */,
+				EE887AA94B97C75DC771C49E50825034 /* PSCloudipspWKWebView.h in Headers */,
+				B8A5883BD926382F35B4250DEE626EE0 /* PSCurrency.h in Headers */,
+				58B57A501FF602A2262BAADC1FAA754A /* PSCVVTextField.h in Headers */,
+				F8B22EDC51AA7CE05CC754ABD845834B /* PSDefaultConfirmationErrorHandler.h in Headers */,
+				9E9DA4AE0CC001CD4C5B502C58FD1F72 /* PSExpMonthTextField.h in Headers */,
+				2842A795F46B5F81FC7A39B4732D4392 /* PSExpYearTextField.h in Headers */,
+				DB0EBB1C989F9A78B3EC6E5E1CBC31FB /* PSLocalization.h in Headers */,
+				C14CE55846B879324650057AEB03E56E /* PSOrder.h in Headers */,
+				98672E881F1694CE152BA1D4A066C0C8 /* PSPayConfirmation.h in Headers */,
+				8DC0A9D81F7CDA2D87E5768983495210 /* PSReceipt.h in Headers */,
+				7F19D3C29B0E06CA16F963E81A20AFAE /* PSReceiptUtils.h in Headers */,
+				0D0E51EFF9F6BA5CBB389E01B7E1ABFF /* PSTextFieldHandler.h in Headers */,
+				B93897EB5FF2D8467029B5ABDFC5E520 /* PSUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		668D3793ACA62FBE2EEBF4EEFD43FA65 /* Cloudipsp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9653049BD5B1E1E78D737AF01501FD1A /* Build configuration list for PBXNativeTarget "Cloudipsp" */;
+			buildPhases = (
+				BFC506AEAAD85DE777AE6DA94348A068 /* Headers */,
+				C22E08D51FF789C76B48B5479A283DB0 /* Sources */,
+				5AC012AE01CE0691B19CE9C29C606505 /* Frameworks */,
+				FF4AF085A1DAA8F69D90587CB6C3CC5B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cloudipsp;
+			productName = Cloudipsp;
+			productReference = D1D6B9250145E9CD97166F89AC63C308 /* Cloudipsp */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9E2691082CA4ACB1FFC1A8A98DC1D84 /* Pods-ExampleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D550BAA78D9130C3A9D1F586A03C691 /* Build configuration list for PBXNativeTarget "Pods-ExampleSwift" */;
+			buildPhases = (
+				4F185FD06060B14B86A61CCBFC404F00 /* Headers */,
+				3798EA18E55F1B4006B46DFAFDB76A30 /* Sources */,
+				927948E0518427B06AE2EC8F8D63B597 /* Frameworks */,
+				2260473A1BF987D2E25863E927743789 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E113127564463064C08EB36B2193826C /* PBXTargetDependency */,
+			);
+			name = "Pods-ExampleSwift";
+			productName = Pods_ExampleSwift;
+			productReference = 00B0380563779C1D04225C05B99044DD /* Pods-ExampleSwift */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D8F2C522482541EE7A2681717C444C68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				668D3793ACA62FBE2EEBF4EEFD43FA65 /* Cloudipsp */,
+				E9E2691082CA4ACB1FFC1A8A98DC1D84 /* Pods-ExampleSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2260473A1BF987D2E25863E927743789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF4AF085A1DAA8F69D90587CB6C3CC5B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A842904DFD9F3E76ED7A3A3978EA26 /* PSCardInputView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3798EA18E55F1B4006B46DFAFDB76A30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF9132B8B67A4C4FC758ABA4642E805E /* Pods-ExampleSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22E08D51FF789C76B48B5479A283DB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80902EF10835053761764E8B6B7FC2A1 /* Cloudipsp-dummy.m in Sources */,
+				9640A20F934ED4AA40A6027225B45838 /* PSBaseTextField.m in Sources */,
+				F0A6B036DFC5F8F6E21907908F14E245 /* PSCard.m in Sources */,
+				521E2C3E4BF07FBE87BC5F3632049D97 /* PSCardInputLayout.m in Sources */,
+				4486BBCDE05F7A53141A899B591CF2FF /* PSCardInputView.m in Sources */,
+				785F8794685D4977176AEC55E5089199 /* PSCardNumberTextField.m in Sources */,
+				F8FB91BA9A1AA0924536E6131D632A6A /* PSCloudipspApi.m in Sources */,
+				0E33E8AE160331B5BC08737FF9DA9E8C /* PSCloudipspWKWebView.m in Sources */,
+				EB90694EB9B907E4AC2157513CF9B1CB /* PSCurrency.m in Sources */,
+				9937BC2B2564D448F85B5F25160A4764 /* PSCVVTextField.m in Sources */,
+				E8ECDD8FE17EE83827ECF1264F6EAA28 /* PSDefaultConfirmationErrorHandler.m in Sources */,
+				9DBC54FDE90DAFB5FB2AFD5CE04C93FC /* PSExpMonthTextField.m in Sources */,
+				7FED6557BBCD8802A517F1D27F6637F2 /* PSExpYearTextField.m in Sources */,
+				90D8B889820D009603EC82D11CA6507A /* PSLocalization.m in Sources */,
+				879331D705CAE44153204DEB98B03E2F /* PSOrder.m in Sources */,
+				06A5083F5D47CAC0F219E22EA10FEC98 /* PSPayConfirmation.m in Sources */,
+				9BB4EDF9F521E4552562ED3E0F508B52 /* PSReceipt.m in Sources */,
+				2BECE43BD8288D760B5C363BF71CE8D7 /* PSReceiptUtils.m in Sources */,
+				E78ABB21840CFF94495912309B0052B3 /* PSTextFieldHandler.m in Sources */,
+				D7EDAF78C28E2A2D0BDACE2BD9C990CE /* PSUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E113127564463064C08EB36B2193826C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cloudipsp;
+			target = 668D3793ACA62FBE2EEBF4EEFD43FA65 /* Cloudipsp */;
+			targetProxy = 81C89D1B00B1B6B80BF30933FE280ADC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		22EA414F33D1CB17E96C991F58CB8159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 099DFF1582E7ED33D1D270B1E88A400E /* Pods-ExampleSwift.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		91039F151CBA7574535DA7C8921D5923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E11200C67D321CE0A471E997F1E549C /* Pods-ExampleSwift.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C650B5CE518F95588A9CF91ACA3ABA7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5345089020E0B6C887734CD33435F42 /* Cloudipsp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cloudipsp/Cloudipsp-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cloudipsp/Cloudipsp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
+				PRODUCT_MODULE_NAME = Cloudipsp;
+				PRODUCT_NAME = Cloudipsp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E3C214D6BC5A390A599A124FF3C02703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 259BB14FB4E4360A897759C587DED3E4 /* Cloudipsp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cloudipsp/Cloudipsp-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cloudipsp/Cloudipsp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cloudipsp/Cloudipsp.modulemap";
+				PRODUCT_MODULE_NAME = Cloudipsp;
+				PRODUCT_NAME = Cloudipsp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D550BAA78D9130C3A9D1F586A03C691 /* Build configuration list for PBXNativeTarget "Pods-ExampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22EA414F33D1CB17E96C991F58CB8159 /* Debug */,
+				91039F151CBA7574535DA7C8921D5923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9653049BD5B1E1E78D737AF01501FD1A /* Build configuration list for PBXNativeTarget "Cloudipsp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3C214D6BC5A390A599A124FF3C02703 /* Debug */,
+				C650B5CE518F95588A9CF91ACA3ABA7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

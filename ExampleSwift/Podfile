@@ -1,0 +1,6 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'ExampleSwift' do
+  pod 'Cloudipsp', :path => '../'
+end
