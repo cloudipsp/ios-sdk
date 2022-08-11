@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSCardInputView">
             <connections>
@@ -8,6 +14,8 @@
                 <outlet property="cardNumberTextField" destination="kya-L7-iy6" id="SdP-l8-hhb"/>
                 <outlet property="cvvLabel" destination="9hn-HI-27c" id="yGk-Wh-cvk"/>
                 <outlet property="cvvTextField" destination="ZY0-1Y-fK2" id="8Qn-Rs-dnd"/>
+                <outlet property="emailLabel" destination="Ylw-tP-UHc" id="Jiu-aQ-K5G"/>
+                <outlet property="emailTextInput" destination="Gg1-9M-FA5" id="SG3-Iv-Y88"/>
                 <outlet property="expMonthTextField" destination="BII-pG-Ezb" id="gdh-cv-Scm"/>
                 <outlet property="expYearTextField" destination="AWK-F7-Hc7" id="VrR-JV-2lW"/>
                 <outlet property="expiryLabel" destination="tbj-0D-tIH" id="E50-g4-lvn"/>
@@ -20,11 +28,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="404" height="209"/>
+            <rect key="frame" x="0.0" y="0.0" width="404" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQM-jT-g18" customClass="PSCardInputLayout">
-                    <rect key="frame" x="0.0" y="0.0" width="404" height="209"/>
+                    <rect key="frame" x="0.0" y="0.0" width="404" height="320"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Bh-CFp">
                             <rect key="frame" x="20" y="8" width="88.5" height="17"/>
@@ -33,7 +41,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kya-L7-iy6" customClass="PSCardNumberTextField">
-                            <rect key="frame" x="20" y="33" width="364" height="30"/>
+                            <rect key="frame" x="20" y="33" width="364" height="66"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
@@ -41,13 +49,13 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-0D-tIH">
-                            <rect key="frame" x="20" y="71" width="44" height="17"/>
+                            <rect key="frame" x="20" y="107" width="44" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BII-pG-Ezb" customClass="PSExpMonthTextField">
-                            <rect key="frame" x="20" y="96" width="178" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BII-pG-Ezb" customClass="PSExpMonthTextField">
+                            <rect key="frame" x="20" y="132" width="178" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
@@ -55,7 +63,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWK-F7-Hc7" customClass="PSExpYearTextField">
-                            <rect key="frame" x="206" y="96" width="178" height="30"/>
+                            <rect key="frame" x="206" y="132" width="178" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
@@ -63,17 +71,31 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hn-HI-27c">
-                            <rect key="frame" x="20" y="134" width="32" height="17"/>
+                            <rect key="frame" x="20" y="174" width="32" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-1Y-fK2" customClass="PSCVVTextField">
-                            <rect key="frame" x="20" y="159" width="364" height="30"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylw-tP-UHc">
+                            <rect key="frame" x="20" y="241" width="45" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-1Y-fK2" customClass="PSCVVTextField">
+                            <rect key="frame" x="20" y="199" width="364" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="E2x-zJ-4dG"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-9M-FA5" customClass="PSEmailTextField">
+                            <rect key="frame" x="20" y="266" width="364" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="f1S-kh-AaP"/>
                             </connections>
                         </textField>
                     </subviews>
@@ -81,6 +103,7 @@
                     <constraints>
                         <constraint firstItem="AWK-F7-Hc7" firstAttribute="centerY" secondItem="BII-pG-Ezb" secondAttribute="centerY" id="0eW-IE-IA1"/>
                         <constraint firstItem="tbj-0D-tIH" firstAttribute="top" secondItem="kya-L7-iy6" secondAttribute="bottom" constant="8" symbolic="YES" id="3yK-t7-T5q"/>
+                        <constraint firstItem="Ylw-tP-UHc" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="6JI-ma-59E"/>
                         <constraint firstItem="ZY0-1Y-fK2" firstAttribute="top" secondItem="9hn-HI-27c" secondAttribute="bottom" constant="8" symbolic="YES" id="9FT-JX-Ocs"/>
                         <constraint firstItem="bZS-Bh-CFp" firstAttribute="top" secondItem="aQM-jT-g18" secondAttribute="top" constant="8" id="O2a-aZ-fR8"/>
                         <constraint firstItem="AWK-F7-Hc7" firstAttribute="leading" secondItem="BII-pG-Ezb" secondAttribute="trailing" constant="8" symbolic="YES" id="O8z-7W-Wzw"/>
@@ -88,15 +111,20 @@
                         <constraint firstAttribute="trailing" secondItem="ZY0-1Y-fK2" secondAttribute="trailing" constant="20" symbolic="YES" id="T9F-Zz-MMH"/>
                         <constraint firstItem="BII-pG-Ezb" firstAttribute="top" secondItem="tbj-0D-tIH" secondAttribute="bottom" constant="8" symbolic="YES" id="VSs-9g-Xi0"/>
                         <constraint firstItem="kya-L7-iy6" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="W05-eo-Fm3"/>
+                        <constraint firstItem="Gg1-9M-FA5" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="WuW-Bt-sGp"/>
+                        <constraint firstItem="Ylw-tP-UHc" firstAttribute="top" secondItem="ZY0-1Y-fK2" secondAttribute="bottom" constant="8" symbolic="YES" id="XzG-VG-lym"/>
                         <constraint firstItem="9hn-HI-27c" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="ZT1-hx-bcd"/>
                         <constraint firstAttribute="trailing" secondItem="kya-L7-iy6" secondAttribute="trailing" constant="20" symbolic="YES" id="aQ6-Vs-ZtC"/>
                         <constraint firstItem="tbj-0D-tIH" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="ad0-5u-TeU"/>
                         <constraint firstItem="bZS-Bh-CFp" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="gCB-pV-Eot"/>
                         <constraint firstAttribute="trailing" secondItem="AWK-F7-Hc7" secondAttribute="trailing" constant="20" symbolic="YES" id="gsX-yx-MTB"/>
+                        <constraint firstItem="Gg1-9M-FA5" firstAttribute="top" secondItem="Ylw-tP-UHc" secondAttribute="bottom" constant="8" symbolic="YES" id="jHQ-cv-MeR"/>
                         <constraint firstItem="9hn-HI-27c" firstAttribute="top" secondItem="BII-pG-Ezb" secondAttribute="bottom" constant="8" symbolic="YES" id="jQk-4m-9sd"/>
                         <constraint firstItem="BII-pG-Ezb" firstAttribute="leading" secondItem="aQM-jT-g18" secondAttribute="leading" constant="20" symbolic="YES" id="qyl-R2-itU"/>
+                        <constraint firstAttribute="bottom" secondItem="Gg1-9M-FA5" secondAttribute="bottom" constant="20" symbolic="YES" id="sRm-H3-6UD"/>
                         <constraint firstItem="kya-L7-iy6" firstAttribute="top" secondItem="bZS-Bh-CFp" secondAttribute="bottom" constant="8" symbolic="YES" id="syt-Ld-Fj2"/>
                         <constraint firstItem="AWK-F7-Hc7" firstAttribute="width" secondItem="BII-pG-Ezb" secondAttribute="width" id="xaB-LB-Uvj"/>
+                        <constraint firstAttribute="trailing" secondItem="Gg1-9M-FA5" secondAttribute="trailing" constant="20" symbolic="YES" id="zrb-H2-iLc"/>
                     </constraints>
                 </view>
             </subviews>
@@ -108,8 +136,9 @@
                 <constraint firstItem="aQM-jT-g18" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VlE-FR-QgY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="141" y="150.5"/>
+            <point key="canvasLocation" x="140.57971014492756" y="187.5"/>
         </view>
     </objects>
 </document>

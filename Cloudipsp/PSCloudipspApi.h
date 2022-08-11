@@ -32,6 +32,8 @@ typedef enum : NSUInteger {
 
 @end
 
+typedef void(^PSIsPayerEmailRequiredCallback)(BOOL isRequired, NSError *error);
+
 @protocol PSApplePayCallbackDelegate <PSPayCallbackDelegate>
 
 - (void)onApplePayNavigate:(UIViewController *)viewController;
@@ -57,6 +59,12 @@ andDelegate:(id<PSPayCallbackDelegate>)payCallbackDelegate;
 
 - (void)applePayWithToken:(NSString *)token
               andDelegate:(id<PSApplePayCallbackDelegate>)payCallbackDelegate;
+
+- (void)isPayerEmailRequiredForCurrency:(NSString *)currency
+                           withCallback:(PSIsPayerEmailRequiredCallback)callback;
+
+- (void)isPayerEmailRequiredForToken:(NSString *)token
+                           withCallback:(PSIsPayerEmailRequiredCallback)callback;
 
 + (void)setLocalization:(PSLocalization *)localization;
 + (PSLocalization *)getLocalization;

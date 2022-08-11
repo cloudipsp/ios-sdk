@@ -614,7 +614,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudipsp.sdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d1f93c15-3405-4793-9d99-6baa8726ec89";
-				PROVISIONING_PROFILE_SPECIFIER = CloudipspSdkExample;
+				PROVISIONING_PROFILE_SPECIFIER = "iOS SDK Example";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

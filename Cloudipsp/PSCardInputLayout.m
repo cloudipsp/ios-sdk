@@ -16,6 +16,7 @@
 #import "PSExpMonthTextField.h"
 #import "PSExpYearTextField.h"
 #import "PSCVVTextField.h"
+#import "PSEmailTextField.h"
 
 #pragma mark - PSCard
 
@@ -24,7 +25,8 @@
 + (instancetype)cardWith:(NSString *)cardNumber
                 expireMm:(int)mm
                 expireYy:(int)yy
-                    aCvv:(NSString *)cvv;
+                     cvv:(NSString *)cvv
+                   email:(NSString *)email;
     
 @end
 
@@ -36,6 +38,7 @@
 @property (nonatomic, weak) PSExpMonthTextField *expMonthTextField;
 @property (nonatomic, weak) PSExpYearTextField *expYearTextField;
 @property (nonatomic, weak) PSCVVTextField *cvvTextField;
+@property (nonatomic, weak) PSEmailTextField *emailTextField;
 @property (nonatomic, assign) NSInteger iter;
     
 @end
@@ -60,18 +63,36 @@
     }
     return self;
 }
-    
+
 - (instancetype)initWithFrame:(CGRect)frame
           cardNumberTextField:(PSCardNumberTextField *)cardNumberTextField
             expMonthTextField:(PSExpMonthTextField *)expMonthTextField
              expYearTextField:(PSExpYearTextField *)expYearTextField
                  cvvTextField:(PSCVVTextField *)cvvTextField {
+    return [self initWithFrame:frame
+           cardNumberTextField:cardNumberTextField
+             expMonthTextField:expMonthTextField
+              expYearTextField:expYearTextField
+                  cvvTextField:cvvTextField
+                emailTextField:nil];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+          cardNumberTextField:(PSCardNumberTextField *)cardNumberTextField
+            expMonthTextField:(PSExpMonthTextField *)expMonthTextField
+             expYearTextField:(PSExpYearTextField *)expYearTextField
+                 cvvTextField:(PSCVVTextField *)cvvTextField
+               emailTextField:(PSEmailTextField *)emailTextField
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:cardNumberTextField];
         [self addSubview:expMonthTextField];
         [self addSubview:expYearTextField];
         [self addSubview:cvvTextField];
+        if (emailTextField != nil) {
+            [self addSubview:emailTextField];
+        }
         [self setup];
     }
     return self;
@@ -82,6 +103,10 @@
     self.expMonthTextField = [self findOne:[PSExpMonthTextField class]];
     self.expYearTextField = [self findOne:[PSExpYearTextField class]];
     self.cvvTextField = [self findOne:[PSCVVTextField class]];
+    @try {
+        self.emailTextField = [self findOne:[PSEmailTextField class]];
+    } @catch (NSException *e) {
+    }
 }
     
 - (id)findOne:(Class)fieldClass {
@@ -118,6 +143,9 @@
     self.expMonthTextField.text = @"";
     self.expYearTextField.text = @"";
     self.cvvTextField.text = @"";
+    if (self.emailTextField) {
+        self.emailTextField.text = @"";
+    }
 }
 
 - (PSCard *)confirm {
@@ -129,40 +157,43 @@
         case 0:
         self.cardNumberTextField.text = @"4444111166665555";
         self.expMonthTextField.text = @"10";
-        self.expYearTextField.text = @"21";
+        self.expYearTextField.text = @"24";
         self.cvvTextField.text = @"456";
         self.iter++;
         break;
         case 1:
         self.cardNumberTextField.text = @"4444555511116666";
         self.expMonthTextField.text = @"09";
-        self.expYearTextField.text = @"21";
+        self.expYearTextField.text = @"24";
         self.cvvTextField.text = @"789";
         self.iter++;
         break;
         case 2:
         self.cardNumberTextField.text = @"4444111155556666";
         self.expMonthTextField.text = @"08";
-        self.expYearTextField.text = @"21";
+        self.expYearTextField.text = @"24";
         self.cvvTextField.text = @"149";
         self.iter++;
         break;
         case 3:
         self.cardNumberTextField.text = @"4444555566661111";
         self.expMonthTextField.text = @"11";
-        self.expYearTextField.text = @"22";
+        self.expYearTextField.text = @"24";
         self.cvvTextField.text = @"123";
         self.iter++;
         break;
         case 4:
         self.cardNumberTextField.text = @"378282246310005";
         self.expMonthTextField.text = @"11";
-        self.expYearTextField.text = @"23";
+        self.expYearTextField.text = @"24";
         self.cvvTextField.text = @"123";
         self.iter = 0;
         break;
         default:
         break;
+    }
+    if (self.emailTextField != nil) {
+        self.emailTextField.text = @"example@test.com";
     }
 }
     
@@ -175,6 +206,9 @@
     [errorHandler onCardInputErrorClear:self aTextField:self.expMonthTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.expYearTextField];
     [errorHandler onCardInputErrorClear:self aTextField:self.cvvTextField];
+    if (self.emailTextField != nil) {
+        [errorHandler onCardInputErrorClear:self aTextField:self.emailTextField];
+    }
     
     NSCharacterSet *validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSString *cardNumber = [NSMutableString stringWithString:[[self.cardNumberTextField.text componentsSeparatedByCharactersInSet:validationSet] componentsJoinedByString:@""]];
@@ -182,7 +216,8 @@
     PSCard *card = [PSCard cardWith:cardNumber
                            expireMm:[self.expMonthTextField.text intValue]
                            expireYy:[self.expYearTextField.text intValue]
-                               aCvv:self.cvvTextField.text];
+                                cvv:self.cvvTextField.text
+                              email:self.emailTextField == nil ? nil : self.emailTextField.text];
     
     BOOL cardValidated = YES;
     if (![card isValidCardNumber]) {

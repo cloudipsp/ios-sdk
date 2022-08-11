@@ -21,6 +21,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) int yy;
 @property (nonatomic, strong, readonly) NSString *cvv;
 @property (nonatomic, assign, readonly) PSCardType type;
+@property (nonatomic, strong, readonly) NSString *email;
 
 - (BOOL)isValidExpireMonth;
 - (BOOL)isValidExpireYear;
@@ -28,6 +29,7 @@ typedef enum : NSUInteger {
 - (BOOL)isValidCvv;
 - (BOOL)isValidCardNumber;
 - (BOOL)isValidCard;
+- (BOOL)isValidEmail;
 
 + (NSString *)getCardTypeName:(PSCardType)type;
 + (PSCardType)getCardType:(NSString *)typeName;

@@ -391,6 +391,50 @@ PSLocalization *_localization;
     [delegate onApplePayNavigate:controller];
 }
 
+- (void)isPayerEmailRequiredForCurrency:(NSString *)currency
+                           withCallback:(PSIsPayerEmailRequiredCallback)callback
+{
+    NSDictionary *const params = @{
+        @"currency": currency,
+        @"merchant_id": @(self.merchantId),
+    };
+
+    [self jsonNetworkRequestByPath:@"/api/checkout/merchant/info"
+                          jsonBody:[PSCloudipspApi requestJson:params]
+                        onComplete:^(NSDictionary *json, NSError *error) {
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                callback(NO, error);
+            });
+        }
+        if ([json objectForKey:@"error_message"] != nil) {
+            [self handleResponseError:json];
+        }
+        BOOL required = [[json objectForKey:@"checkout_email_required"] boolValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(required, nil);
+        });
+    }];
+}
+
+- (void)isPayerEmailRequiredForToken:(NSString *)token
+                        withCallback:(PSIsPayerEmailRequiredCallback)callback {
+    [self jsonNetworkRequestByPath:@"/api/checkout/ajax/mobile_pay"
+                          jsonBody:[PSCloudipspApi requestJson:@{@"token":token}]
+                        onComplete:^(NSDictionary *json, NSError *error) {
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                callback(NO, error);
+            });
+        } else {
+            BOOL required = [[[json objectForKey:@"options"] objectForKey:@"requestPayerEmail"] boolValue];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                callback(required, nil);
+            });
+        }
+    }];
+}
+
 #pragma mark - Localization
 
 + (void)setLocalization:(PSLocalization *)localization {
@@ -466,7 +510,9 @@ PSLocalization *_localization;
     }
     [dictionary addEntriesFromDictionary:order.arguments];
     [dictionary setObject:URL_CALLBACK forKey:@"response_url"];
-    [self call:@"/api/checkout/token" aParams:dictionary onSuccess:^(NSDictionary *response) {
+    [self payJsonNetworkRequestByPath:@"/api/checkout/token"
+                             jsonBody:[PSCloudipspApi requestJson:dictionary]
+                            onSuccess:^(NSDictionary *response) {
         NSString *token = [response objectForKey:@"token"];
         success(token);
     } payDelegate:delegate];
@@ -484,7 +530,9 @@ PSLocalization *_localization;
                                        [NSString stringWithFormat:@"%02d%02d", card.mm, card.yy], @"expiry_date",
                                        @"card", @"payment_system",
                                        token, @"token", nil];
-    if (email != nil) {
+    if (card.email != nil && card.email.length > 0) {
+        [params setObject:card.email forKey:@"email"];
+    } else if (email != nil) {
         [params setObject:email forKey:@"email"];
     }
     [self checkoutContinue:params aToken:token callbackUrl:callbackUrl onSuccess:success payDelegate:delegate];
@@ -505,7 +553,9 @@ PSLocalization *_localization;
         params = [NSDictionary dictionaryWithObjectsAndKeys: token, @"token", nil];
     }
     
-    [self callJsonByUrl:@"/api/checkout/ajax/mobile_pay" aParams:params onSuccess:^(NSDictionary *json) {
+    [self payJsonNetworkRequestByPath:@"/api/checkout/ajax/mobile_pay"
+                             jsonBody:[PSCloudipspApi requestJson:params]
+                            onSuccess:^(NSDictionary *json) {
         if ([json objectForKey:@"error_message"] != nil) {
             [self handleResponseError:json];
         }
@@ -555,7 +605,9 @@ PSLocalization *_localization;
              callbackUrl:(NSString *)callbackUrl
                onSuccess:(void (^)(PSCheckout *checkout))success
              payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self call:@"/api/checkout/ajax" aParams:params onSuccess:^(NSDictionary *response) {
+    [self payJsonNetworkRequestByPath:@"/api/checkout/ajax"
+                             jsonBody:[PSCloudipspApi requestJson:params]
+                            onSuccess:^(NSDictionary *response) {
         NSString *url = [response objectForKey:@"url"];
         if ([url hasPrefix:callbackUrl]) {
             PSCheckout *checkout = [[PSCheckout alloc] initCheckout:token aSendData:nil aUrl:url aCallbackUrl:callbackUrl aAction:WITHOUT_3DS];
@@ -572,7 +624,9 @@ PSLocalization *_localization;
 - (void)order:(NSString *)token
     onSuccess:(void (^)(PSReceipt *receipt))success
   payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self call:@"/api/checkout/merchant/order" aParams:@{@"token" : token} onSuccess:^(NSDictionary *response) {
+    [self payJsonNetworkRequestByPath:@"/api/checkout/merchant/order"
+                             jsonBody:[PSCloudipspApi requestJson:@{@"token" : token}]
+                            onSuccess:^(NSDictionary *response) {
         success([self parseOrder:[response objectForKey:@"order_data"]]);
     } payDelegate:delegate];
 }
@@ -580,7 +634,9 @@ PSLocalization *_localization;
 - (void)callbackUrl:(NSString *)token
     onSuccess:(void (^)(NSString *callbackUrl))success
   payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self call:@"/api/checkout/merchant/order" aParams:@{@"token" : token} onSuccess:^(NSDictionary *response) {
+    [self payJsonNetworkRequestByPath:@"/api/checkout/merchant/order"
+                             jsonBody:[PSCloudipspApi requestJson:@{@"token" : token}]
+                            onSuccess:^(NSDictionary *response) {
         success([response objectForKey:@"response_url"]);
     } payDelegate:delegate];
 }
@@ -628,17 +684,13 @@ PSLocalization *_localization;
                                      @"TermUrl" : checkout.sendData.termUrl};
         
         
-        [self callByUrl:[NSURL URLWithString:checkout.url]
-                aParams:dictionary
-              onSuccess:successCallback
-            payDelegate:delegate];
+        [self payJsonNetworkRequestByURL:[NSURL URLWithString:checkout.url]
+                                jsonBody:dictionary
+                               onSuccess:successCallback
+                             payDelegate:delegate
+        ];
     } else {
-        NSDictionary *dictionary = @{@"MD" : checkout.sendData.md,
-                                     @"PaReq" : checkout.sendData.paReq,
-                                     @"TermUrl" : checkout.sendData.termUrl};
-        
-        [self callByUrl:[NSURL URLWithString:checkout.url]
-                aParams:dictionary
+        [self payNetworkRequestByURL:[NSURL URLWithString:checkout.url]
               onSuccess:successCallback
             payDelegate:delegate
             onIntercept:^(NSMutableURLRequest *request) {
@@ -714,44 +766,69 @@ API_AVAILABLE(ios(11.0))
 
 #pragma mark - Calls
 
-- (void)call:(NSString *)path
-     aParams:(NSDictionary *)params
-   onSuccess:(void (^)(NSDictionary *response))success
- payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self callJsonByUrl:path aParams:params onSuccess:^(NSDictionary *json) {
-        success([self parseResponse: json]);
-    } payDelegate:delegate];
-}
-
-- (void)callJsonByUrl:(NSString *)path
-              aParams:(NSDictionary *)params
-            onSuccess:(void (^)(NSDictionary *json))success
-          payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self callByUrl:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]] aParams:@{@"request" : params} onSuccess:^(NSData *data) {
+- (void)payJsonNetworkRequestByPath:(NSString *)path
+                           jsonBody:(NSDictionary *)jsonBody
+                          onSuccess:(void (^)(NSDictionary *json))success
+                        payDelegate:(id<PSPayCallbackDelegate>)delegate {
+    [self payJsonNetworkRequestByURL:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]]
+                            jsonBody:jsonBody
+                           onSuccess:^(NSData *data) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        [self parseResponse:json];
         NSDictionary *response = [json objectForKey:@"response"];
         success(response);
     } payDelegate:delegate];
 }
 
-- (void)callByUrl:(NSURL *)url
-          aParams:(NSDictionary *)params
-        onSuccess:(void (^)(NSData *data))success
-      payDelegate:(id<PSPayCallbackDelegate>)delegate {
-    [self callByUrl:url aParams:params onSuccess:success payDelegate:delegate onIntercept:^(NSMutableURLRequest *request) {
-        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPMethod:@"POST"];
-        
-        NSData *body = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
-        [request setHTTPBody:body];
+- (void)jsonNetworkRequestByPath:(NSString *)path
+                        jsonBody:(NSDictionary *)jsonBody
+                      onComplete:(void (^)(NSDictionary *json, NSError *error))complete {
+    [self networkRequest:[NSURL URLWithString:[NSString stringWithFormat: @"%@%@", HOST, path]]
+          onComplete:^(NSData *data, NSError *error) {
+        if (error != nil) {
+            complete(nil, error);
+        } else {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSDictionary *response = [json objectForKey:@"response"];
+            complete(response, nil);
+        }
+    } onIntercept:^(NSMutableURLRequest *request) {
+        [PSCloudipspApi setRequestJsonBody:request jsonBody:jsonBody];
     }];
 }
 
-- (void)callByUrl:(NSURL *)url
-          aParams:(NSDictionary *)params
-        onSuccess:(void (^)(NSData *data))success
-      payDelegate:(id<PSPayCallbackDelegate>)delegate
-      onIntercept:(void (^)(NSMutableURLRequest *request))interceptor {
+- (void)payJsonNetworkRequestByURL:(NSURL *)url
+                          jsonBody:(NSDictionary *)jsonBody
+                         onSuccess:(void (^)(NSData *data))success
+                       payDelegate:(id<PSPayCallbackDelegate>)delegate {
+    [self networkRequest:url onComplete:^(NSData *data, NSError *error) {
+        if (error == nil) {
+            success(data);
+        } else {
+            [delegate onPaidFailure:error];
+        }
+    } onIntercept:^(NSMutableURLRequest *request) {
+        [PSCloudipspApi setRequestJsonBody:request jsonBody:jsonBody];
+    }];
+}
+
+- (void)payNetworkRequestByURL:(NSURL *)url
+                     onSuccess:(void (^)(NSData *data))success
+                   payDelegate:(id<PSPayCallbackDelegate>)delegate
+                   onIntercept:(void (^)(NSMutableURLRequest *request))interceptor
+{
+    [self networkRequest:url onComplete:^(NSData *data, NSError *error) {
+        if (error == nil) {
+            success(data);
+        } else {
+            [delegate onPaidFailure:error];
+        }
+    } onIntercept:interceptor];
+}
+
+- (void)networkRequest:(NSURL *)url
+            onComplete:(void (^)(NSData *data, NSError *error))complete
+           onIntercept:(void (^)(NSMutableURLRequest *request))interceptor {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
@@ -759,7 +836,7 @@ API_AVAILABLE(ios(11.0))
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"iOS-SDK" forHTTPHeaderField:@"User-Agent"];
     [request addValue:@"ios" forHTTPHeaderField:@"SDK-OS"];
-    [request addValue:@"0.9.2" forHTTPHeaderField:@"SDK-Version"];
+    [request addValue:@"0.10.0" forHTTPHeaderField:@"SDK-Version"];
     interceptor(request);
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
@@ -767,10 +844,10 @@ API_AVAILABLE(ios(11.0))
                                           {
                                               if (error) {
                                                   error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeNetworkAccess userInfo:nil];
-                                                  [delegate onPaidFailure:error];
+                                                  complete(nil, error);
                                               } else {
                                                   @try {
-                                                      success(data);
+                                                      complete(data, nil);
                                                   }
                                                   @catch (NSException *exception) {
                                                       NSError *error;
@@ -779,7 +856,7 @@ API_AVAILABLE(ios(11.0))
                                                       } else {
                                                           error = [NSError errorWithDomain:@"CloudipspApi" code:PSPayErrorCodeFailure userInfo:exception.userInfo];
                                                       }
-                                                      [delegate onPaidFailure:error];
+                                                      complete(nil, error);
                                                       
                                                   }
                                               }}];
@@ -947,6 +1024,21 @@ API_AVAILABLE(ios(11.0))
         default:
             return @"unknown";
     }
+}
+
++ (NSDictionary *)requestJson:(NSDictionary *)request {
+    return @{
+        @"request": request
+    };
+}
+
++ (void)setRequestJsonBody:(NSMutableURLRequest *)request
+                  jsonBody:(NSDictionary *)jsonBody {
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+
+    NSData *const serializedJsonBody = [NSJSONSerialization dataWithJSONObject:jsonBody options:0 error:nil];
+    [request setHTTPBody:serializedJsonBody];
 }
 
 @end

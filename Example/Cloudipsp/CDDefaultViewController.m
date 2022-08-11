@@ -137,7 +137,9 @@
 #pragma mark - UIPickerViewDelegate
     
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.currencyTextField.text = getCurrencyName(row + 1);
+    NSString *const currency = getCurrencyName(row + 1);
+    self.currencyTextField.text = currency;
+    [self.cardInputView adaptForApi:self.api andCurrency:currency];
 }
 
 #pragma mark - UITextFieldDelegate

@@ -40,6 +40,7 @@ PSCardType cardTypeWithString(NSString *str) {
 @property (nonatomic, assign) int yy;
 @property (nonatomic, strong) NSString *cvv;
 @property (nonatomic, assign) PSCardType type;
+@property (nonatomic, strong) NSString *email;
 
 @end
 
@@ -48,13 +49,15 @@ PSCardType cardTypeWithString(NSString *str) {
 + (instancetype)cardWith:(NSString *)cardNumber
                 expireMm:(int)mm
                 expireYy:(int)yy
-                    aCvv:(NSString *)cvv
+                     cvv:(NSString *)cvv
+                   email:(NSString *)email
 {
     PSCard * card = [[PSCard alloc] init];
     card.cardNumber = cardNumber;
     card.mm = mm;
     card.yy = yy;
     card.cvv = cvv;
+    card.email = email;
     return card;
 }
 
@@ -150,6 +153,10 @@ PSCardType cardTypeWithString(NSString *str) {
 
 - (BOOL)isValidCard {
     return [self isValidExpireDate] && [self isValidCvv] && [self isValidCardNumber];
+}
+
+- (BOOL)isValidEmail {
+    return self.email == nil || [PSUtils isValidatEmail:self.email];
 }
 
 - (PSCardType)type {

@@ -48,6 +48,16 @@
     }
 }
 
+- (IBAction)checkPayerEmailRequiredClicked:(id)sender {
+    [self.api isPayerEmailRequiredForCurrency:@"UAH" withCallback:^(BOOL isRequired, NSError *error) {
+        if (error) {
+            NSLog(@"Got error during checking email is required: %@", error);
+        } else {
+            NSLog(@"Payer email is required: %@", isRequired ? @"YES" : @"NO");
+        }
+    }];
+}
+
 - (void)onPaidProcess:(PSReceipt *)receipt {
     
 }

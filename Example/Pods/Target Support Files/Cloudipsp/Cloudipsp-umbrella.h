@@ -21,6 +21,7 @@
 #import "PSCurrency.h"
 #import "PSCVVTextField.h"
 #import "PSDefaultConfirmationErrorHandler.h"
+#import "PSEmailTextField.h"
 #import "PSExpMonthTextField.h"
 #import "PSExpYearTextField.h"
 #import "PSLocalization.h"

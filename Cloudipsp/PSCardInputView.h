@@ -23,6 +23,7 @@
 
 @class PSCardNumberTextField;
 @class PSCard;
+@class PSCloudipspApi;
 
 @interface PSCardInputView : UIView
 
@@ -33,11 +34,16 @@
 @property (nonatomic, strong) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet id<PSCardInputViewDelegate> inputDelegate;
 
+- (void)adaptForApi:(PSCloudipspApi *)api
+        andCurrency:(NSString *)currency;
+- (void)adaptForApi:(PSCloudipspApi *)api
+        andToken:(NSString *)token;
 
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler singleShotValidation:(BOOL)singleShotValidation;
 - (PSCard *)confirm:(id<PSConfirmationErrorHandler>)errorHandler;
 - (PSCard *)confirm;
 - (void)clear;
 - (void)test;
+- (void)setEmailVisibility:(BOOL)visible;
 
 @end
