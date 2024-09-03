@@ -93,6 +93,12 @@ NSString * const URL_START_PATTERN = @"http://secure-redirect.cloudipsp.com/subm
     }
 }
 
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction preferences:(WKWebpagePreferences *)preferences decisionHandler:(void (^)(WKNavigationActionPolicy, WKWebpagePreferences * _Nonnull))decisionHandler  API_AVAILABLE(ios(13.0)){
+    [self webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:^void(WKNavigationActionPolicy policy) {
+        decisionHandler(policy, preferences);
+    }];
+}
+
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
