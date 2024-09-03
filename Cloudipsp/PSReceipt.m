@@ -88,7 +88,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
 @property (nonatomic, assign) PSCardType cardType;
 @property (nonatomic, strong) NSString *rrn;
 @property (nonatomic, strong) NSString *approvalCode;
-@property (nonatomic, strong) NSString *responseCode;
+@property (nonatomic, strong) NSNumber *responseCode;
 @property (nonatomic, strong) NSString *productId;
 @property (nonatomic, strong) NSString *recToken;
 @property (nonatomic, strong) NSDate *recTokenLifeTime;
@@ -122,7 +122,7 @@ PSReceiptVerificationStatus receiptVerificationStatusWithString(NSString *str) {
                   aCardType:(PSCardType)cardType
                        aRrn:(NSString *)rrn
               aApprovalCode:(NSString *)approvalCode
-              aResponseCode:(NSString *)responseCode
+              aResponseCode:(NSNumber *)responseCode
                  aProductId:(NSString *)productId
                   aRecToken:(NSString *)recToken
           aRecTokenLifeTime:(NSDate *)recTokenLifeTime
