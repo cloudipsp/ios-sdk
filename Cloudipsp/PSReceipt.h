@@ -48,7 +48,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign, readonly) PSCardType cardType;
 @property (nonatomic, strong, readonly) NSString *rrn;
 @property (nonatomic, strong, readonly) NSString *approvalCode;
-@property (nonatomic, strong, readonly) NSString *responseCode;
+@property (nonatomic, strong, readonly) NSNumber *responseCode;
 @property (nonatomic, strong, readonly) NSString *productId;
 @property (nonatomic, strong, readonly) NSString *recToken;
 @property (nonatomic, strong, readonly) NSDate *recTokenLifeTime;

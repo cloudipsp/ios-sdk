@@ -235,7 +235,7 @@ const NSInteger WITH_3DS = 1;
                   aCardType:(PSCardType)cardType
                        aRrn:(NSString *)rrn
               aApprovalCode:(NSString *)approvalCode
-              aResponseCode:(NSString *)responseCode
+              aResponseCode:(NSNumber *)responseCode
                  aProductId:(NSString *)productId
                   aRecToken:(NSString *)recToken
           aRecTokenLifeTime:(NSDate *)recTokenLifeTime
